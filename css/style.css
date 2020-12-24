@@ -19,24 +19,29 @@ body{
 h1 {
 	font-weight: bold;
 	font-size: 42px;
+	color: #bdcb13;
 }
 h2 {
 	font-weight: bold;
 	font-size: 36px;
+	color: #bdcb13;
 }
 
 h3 {
 	font-weight: bold;
 	font-size: 28px;
+	color: #bdcb13;
 }
 
 h4 {
 	font-weight: bold;
 	font-size: 22px;
+	color: #bdcb13;
 }
 
 article {
 	padding: 6px;
+	color: #5c6209;
 	/*background-color: #eee;*/
 	/*border: 1px solid #b0b0b0;*/
 }
@@ -78,4 +83,5 @@ footer {
 	margin: 0 auto;
 	background-color: #70a23f;
 	text-align: center;
+	color: #5c6209;
 }
