@@ -6,10 +6,7 @@ And my curriculum vitae.
 
 # Personal and Authoring Projects
 
-* Itaenga Conecta Project
-	- [Itaenga Conecta Magazine (Revista Itaenga Conecta)](https://itaengaconecta.blogspot.com)
-	- [Libic (Library Itaenga Conecta)](https://github.com/ItaengaConecta/libic-data)
-
 * WSRicardo
 	- Blog: [https://wsricardo.blogspot.com](https://wsricardo.blogspot.com)
+	- [Libic )](https://github.com/wsricardo/libic-data)
 
