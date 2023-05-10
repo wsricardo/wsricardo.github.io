@@ -8,5 +8,4 @@ And my curriculum vitae.
 
 * WSRicardo
 	- Blog: [https://wsricardo.blogspot.com](https://wsricardo.blogspot.com)
-	- [Libic](https://github.com/wsricardo/libic-data)
 
