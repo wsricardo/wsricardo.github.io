@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wandeson Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            margin: 0 auto;
+            width: 800px;
+            font-size: xx-large;
+            font-weight: 600;
+            color: rgb(111, 27, 189);   
+        }
+
+        header:hover{
+            color:rgb(146, 84, 204);
+            
+        }
+
+        .blog {
+            margin: 0 auto;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            width: 800px;
+        }
+
+        .post {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: space-between;
+            justify-content: center;
+        }
+
+        .post ul {
+            list-style: none;
+        }
+
+        .post ul li {
+            display: block;
+            width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 10px;
+            
+        }
+
+        .post ul li a {
+            color: black;
+        }
+
+        .post ul li a:hover {
+            color: blueviolet;
+
+        }
+
+        #postSection {
+            border: 2px solid gainsboro;
+            border-radius: 8px;
+            box-shadow: 4px 6px 18px #dbdbdb;
+            padding: 10px 0 10px 0;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #postSection:hover{
+            background-color: aliceblue;
+            box-shadow: 6px 10px 20px rgb(187, 175, 198);
+        }
+
+        .postTitle {
+            width: 100%;
+            font-size: x-large;
+            color: black;
+        }
+
+        .postDesc {
+            width: 100%;
+            color: gray;
+        }
+
+    </style>
+
+</head>
+<body>
+    <header>
+        Wandeson Blog
+    </header>
+
+    <div class="blog">
+        <div class="post">
+            <ul>
+                
+                <li>
+                    <section id="postSection">
+                        <div class="postTitle">
+                            post1
+                        </div>
+                        <!--<div class="postDesc"></div>-->
+                        <div><a href="output/post1.html">Leia Mais</a></div>
+                        
+                    </section>
+                </li>
+                
+                <li>
+                    <section id="postSection">
+                        <div class="postTitle">
+                            My Second Post
+                        </div>
+                        <!--<div class="postDesc"></div>-->
+                        <div><a href="output/My Second Post.html">Leia Mais</a></div>
+                    </section>
+                </li>
+                
+                <li>
+                    <section id="postSection">
+                        <div class="postTitle">
+                            My Third Post
+                        </div>
+                        <!--<div class="postDesc"></div>-->
+                        <div><a href="output/My Third Post.html">Leia Mais</a></div>
+                    </section>
+                </li>
+                
+                <li>
+                    <section id="postSection">
+                        <div class="postTitle">
+                            My Fourth Post
+                        </div>
+                        <!--<div class="postDesc"></div>-->
+                        <div><a href="output/My Fourth Post.html">Leia Mais</a></div>
+                    </section>
+                </li>
+                
+
+
+            </ul>
+
+        </div>
+
+        <div style="padding: 10px;">
+            <a href="archive.html">Old Posts</a>
+        </div>
+    </div>
+</body>
+</html>
