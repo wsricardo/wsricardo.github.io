@@ -1,0 +1,123 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+}
+
+main, footer, header {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+}
+
+h1, h2, h3, h4 {
+    /*padding: 12px 0 8px 0;*/
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+}
+nav {
+    display:block;
+    font-weight:bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+}
+
+nav a {
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    text-decoration: none;
+    color: #970621 ;
+}
+
+nav a:hover{
+    color:rgb(88, 66, 66);
+}
+
+ul, li{
+    text-decoration: none;
+    list-style: none;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    /*color: #0870d6;*/
+    color:#970621;
+    font-weight: bold;
+}
+
+a:hover{
+    color:rgb(103, 23, 176);
+    /*box-shadow: 0 4px 1px 2px gainsboro;*/
+}
+
+.blog-title{ 
+    padding: 12px 12px 42px 12px; 
+    color:#970621;
+}
+
+.post-content{
+    padding-top: 16px;
+    padding-bottom: 12px;
+    /*font-family: 'Times New Roman', Times, serif;*/
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14pt;
+}
+
+.post-title {
+    border-top: 4px solid #000000;
+    border-bottom: 4px solid #000000;
+    border-left: 26px solid #000000;
+    padding: 6px 0 6px 2px;
+    margin: 8px 0;
+    text-align: center;
+}
+
+.post-title a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18pt;
+    color: #970621;
+}
+
+.post-title a:hover{
+    color:rgb(103, 23, 176);
+}
+
+.post-footer{
+    font-style: italic;
+    color:gray;
+    padding: 12px 0 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.blog-menu{
+    /*display: flex;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    
+}
+
+.blog-post, .blog-menu, footer, .pagination, .blog-archive{
+    padding: 12px;
+}
+
+
+.blog-archive article{
+    padding: 10px 0;
+}
+
+/*.container, header, main, footer{ margin: 0 auto; }*/
+
+.container{
+    padding: 8px 0 8px 0;
+ }
