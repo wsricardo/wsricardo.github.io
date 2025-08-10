@@ -7,7 +7,7 @@ AUTHOR = 'Wandeson Ricardo (WSRicardo)'
 SITENAME = 'WSRicardo Blog'
 SITEURL = ""
 
-PATH = "content"
+PATH = "content/posts"
 
 TIMEZONE = 'America/Sao_Paulo'
 
@@ -39,6 +39,14 @@ THEME = "theme"
 
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
+ARTICLE_PATHS = 'posts/'
+ARTICLE_URL = 'posts/{date:%Y}/{slug}/'
+ARTICLE_SAVE_AS = 'posts/{date:%Y}/{slug}/index.html'
+
+PAGE_PATHS = 'pages/'
+PAGE_URL = 'pages/{slug}/'
+PAGE_SAVE_AS = 'pages/{slug}/index.html'
+STATIC_PATHS = ['images' , 'arquivos']
 OUTPUT_PATH = 'blog/'
 
 
