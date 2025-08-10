@@ -11,6 +11,12 @@ main, footer, header {
     margin: 0 auto;
     width: 80%;
 }
+img {
+    /*width: 40%;*/
+    margin: 0 auto;
+    padding: 8px;
+    display: block;
+}
 
 h1, h2, h3, h4 {
     /*padding: 12px 0 8px 0;*/

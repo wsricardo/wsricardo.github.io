@@ -7,4 +7,7 @@ Author: Wandeson Ricardo
 
 Olá, bem vindo ao meu blog WSRicardo. Aqui estarei postando um pouco de meus trabalhos
 de arte até matemática e computação.
-$ lim_{x \to 0} f(x)$
+
+Um de meus desenho.
+
+![Minha Imagem](../../imagens/pen-draw.jpg)

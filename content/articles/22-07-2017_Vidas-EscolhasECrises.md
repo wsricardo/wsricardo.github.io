@@ -1,5 +1,13 @@
-## VIDAS - Escolhas e Crises
-# Caminhos e Crise Da Economia até a Moral E Ética
+Title: VIDAS - Escolhas e Crises
+Date: 2025-08-10
+Category: Geral
+Tags: crônicas, textos
+Slug: escolhas-crises
+Author: Wandeson Ricardo
+
+
+## Caminhos e Crise Da Economia até a Moral E Ética
+
 
 O mundo ontem (2/3 séculos ou mais) e o mundo hoje; por que com tantos
 tecnológicos e da ciência ainda sofremos com problemas antigos, a miséria, desigualdade, preconceitos, a violência e a corrupção.
