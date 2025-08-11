@@ -9,10 +9,8 @@ Author: Wandeson Ricardo
 ## Caminhos e Crise Da Economia até a Moral E Ética
 
 
-O mundo ontem (2/3 séculos ou mais) e o mundo hoje; por que com tantos
-tecnológicos e da ciência ainda sofremos com problemas antigos, a miséria, desigualdade, preconceitos, a violência e a corrupção.
+O mundo ontem (2/3 séculos ou mais) e o mundo hoje; por que com tantos tecnológicos e da ciência ainda sofremos com problemas antigos, a miséria, desigualdade, preconceitos, a violência e a corrupção.  
 <br/>
-
 
 Temos ferramentas as quais poderiamos mudar nossa realidade, mas por quê não
 escolhemos usa-las para melhorar a vida das pessoas? Por que temos a sensação
