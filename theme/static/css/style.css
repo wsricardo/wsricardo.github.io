@@ -19,10 +19,11 @@ img {
 }
 
 h1, h2, h3, h4 {
-    /*padding: 12px 0 8px 0;*/
+    padding: 12px 0 8px 0;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: bold;
+    font-weight: bold;    
 }
+
 nav {
     display:block;
     font-weight:bolder;
@@ -76,6 +77,10 @@ a:hover{
     /*font-family: 'Times New Roman', Times, serif;*/
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 14pt;
+}
+
+.post-content h2{
+    padding: 8px 0 12px 0;
 }
 
 .post-title {
