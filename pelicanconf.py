@@ -40,7 +40,7 @@ THEME = "theme"
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 ARTICLE_PATHS = [ 'posts', 'articles' ]
-ARTICLE_URL = 'posts/{date:%Y}/{date:%d}-{date:%m}-{slug}'
+ARTICLE_URL = 'posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
 
 PAGE_PATHS = ['pages']
