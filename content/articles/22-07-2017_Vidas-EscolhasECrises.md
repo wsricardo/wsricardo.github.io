@@ -39,4 +39,4 @@ nos vemos frustrados diante de sonhos almejados que não tornam-se realidade.
 <br/>
 
 
-Wandeson Ricardo, 22 de Julho de 2017, Pernambuco - Brasil  
+Wandeson Ricardo, 22 de Julho de 2017, Brasil  
