@@ -10,3 +10,4 @@ output/
 inputs/
 app.py
 template/
+__pycache__
