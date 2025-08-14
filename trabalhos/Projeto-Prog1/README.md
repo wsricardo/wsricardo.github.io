@@ -1,7 +1,6 @@
 # Analise Linear
 
-Projeto de nota para curso de Matemática disciplina de programação 1A. Fazendo uma análise exploratória de dados simples.
-Os dados analisados consiste de uma tabela em um arquivo csv com a população de cada país em um intervalor de t anos.
+Projeto de nota para curso de Matemática disciplina de programação 1A. Fazendo uma análise exploratória de dados simples. Os dados analisados consiste de uma tabela em um arquivo csv com a população de cada país em um intervalor de t anos.
 
 ## Objetivos
 
