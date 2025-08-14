@@ -120,6 +120,11 @@ a:hover{
     padding: 12px;
 }
 
+/*
+.blog-post {
+    box-shadow: 2px 8px 12px rgb(232, 232, 232);
+    margin: 4px auto;
+}*/
 
 .blog-archive article{
     padding: 10px 0;
