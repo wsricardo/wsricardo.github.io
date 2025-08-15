@@ -13,9 +13,14 @@ main, footer, header {
     display: flex;
     flex-direction: column;
     /*width: 80%;*/
-    padding-left: var(--padding-left);
-    padding-right: var(--padding-right);
+    /*padding-left: var(--padding-left);
+    padding-right: var(--padding-right);*/
 
+}
+
+footer {
+    padding-left: var( --padding-left );
+    padding-right: var( --padding-right );
 }
 
 header {
@@ -26,13 +31,20 @@ header {
 
 }
 
+header h1 {
+    padding-left: var( --padding-left );
+    padding-right: var( --padding-right );
+}
+
 /*.container, header, main, footer{ margin: 0 auto; }*/
 
 .container{
     display: grid;
     grid-template-columns: auto auto;
     gap: 28px;;
-    padding: 0;
+    padding-left: var( --padding-left );
+    padding-right: var( --padding-right );
+    
  }
 
 img {
@@ -43,7 +55,6 @@ img {
 }
 
 h1, h2, h3, h4 {
-    padding: 12px 0 28px 0;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: bold;    
 }
@@ -54,6 +65,12 @@ nav {
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
     padding: 8px 0;
+    border-top: 2px solid rgba(185, 182, 182, 0.777) ;
+}
+
+nav ul {
+    padding-left: var( --padding-left );
+    padding-right: var( --padding-right );
 }
 
 nav a {
@@ -92,7 +109,7 @@ a:hover{
 }
 
 .blog-title{ 
-    padding: 12px 12px 42px 12px; 
+    padding: 12px var(--padding-right ) 42px var( --padding-left ); 
     color: var(--blog-title-color);
     font-size: var(--blog-title-size);
     font-family: var(--blog-title-font);
