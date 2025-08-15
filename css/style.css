@@ -19,13 +19,13 @@ body{
 	height: 112px;
 	background-color: var( --header-bg );
 	padding: 8px;
-	color: var( header-tittle-color );
+	color: var( header-title-color );
 }
 
 h1 {
 	font-weight: bold;
 	font-size: 42px;
-	color: #bdcb13;
+	color: var( --header-title-color );
 }
 h2 {
 	font-weight: bold;
