@@ -1,3 +1,9 @@
+:root {
+	--header-bg: white;
+	--body-bg: rgb(225, 225, 225);
+	--header-title-color: #970621;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -5,15 +11,15 @@
 body{
 	margin: 0;
 	padding: 0;
-	background-color: #f0f0f0;
+	background-color: var( --body-bg );
 }
 
 .header {
 	width: 100%;
 	height: 112px;
-	background-color: #70a23f;
+	background-color: var( --header-bg );
 	padding: 8px;
-	color: #bdcb13;
+	color: var( header-tittle-color );
 }
 
 h1 {
