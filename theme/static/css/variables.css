@@ -43,6 +43,23 @@
 
 /* Dark Theme */
 [data-theme="dark"] {
+
+    /* Background Colors */
     --body-bg: black;
     --header-bg: black;
+    --nav-bg: black;
+    --post-bg: black;
+    --footer-bg: black;
+
+    /* Font colors */
+    --blog-title-color: red;
+    --blog-menu-color: red;
+    --blog-menu-color-hover: gray;
+    --post-body-color: white;
+    --post-title-color: white;
+    --post-header-color: gray;
+    --post-footer-color: gray;
+    
+
+
 }
