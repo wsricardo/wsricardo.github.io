@@ -2,20 +2,23 @@
 :root{
 
     /* Background Colors */
-    --body-bg: white;
+    --body-bg: rgb(244, 244, 244);
     --header-bg: white;
-    --nav-bg: white;
+    --nav-bg: rgb(229, 229, 229);
     --post-bg: white;
     --footer-bg: white;
+    --blog-post-bg: white;
+
 
     /* Font Colors */
-    --blog-title-color: red;
-    --blog-menu-color: red;
+    --blog-title-color: #970621;
+    --blog-menu-color: #970621;
     --blog-menu-color-hover: gray;
     --post-body-color: black;
-    --post-title-color: black;
+    --post-title-color: #970621;
     --post-header-color: gray;
     --post-footer-color: gray;
+
 
     /* Font sizes */
     --blog-title-size: 26pt;
@@ -26,9 +29,9 @@
     --post-footer-size: 12pt;
 
     /* Efeitos Sombras */
-    --shadow-light: rgb(228, 228, 228);
-    --shadow-medium: gray; 
-    --shadow-dark: black;
+    --shadow-light: 2px 8px 12px rgb(228, 228, 228);
+    --shadow-medium: 2px 8px 12px gray; 
+    --shadow-dark: 2px 8px 12px black;
 
     /* Font Family */
     --blog-title-font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -37,12 +40,33 @@
     --post-title-font: Arial, Helvetica, sans-serif;
     --post-header-font: Arial, Helvetica, sans-serif;
     --post-footer-font: Arial, Helvetica, sans-serif;
+
+    /* Paddings lefts rights */
+    --padding-left: 32px;
+    --padding-right: 32px;
     
 }
 /* End Variables Block*/
 
 /* Dark Theme */
 [data-theme="dark"] {
+
+    /* Background Colors */
     --body-bg: black;
     --header-bg: black;
+    --nav-bg: black;
+    --post-bg: black;
+    --footer-bg: black;
+
+    /* Font colors */
+    --blog-title-color: red;
+    --blog-menu-color: red;
+    --blog-menu-color-hover: gray;
+    --post-body-color: white;
+    --post-title-color: white;
+    --post-header-color: gray;
+    --post-footer-color: gray;
+    
+
+
 }
