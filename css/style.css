@@ -84,7 +84,7 @@ article {
 	margin: 0 auto;
 	background-color: whitesmoke;
 	border: 1px solid #ddd;
-	box-shadow: 4px 4px 8px gray;
+	box-shadow: 4px 4px 8px #a6a6a6;
 	border-radius: 8px;
 }
 .content {
