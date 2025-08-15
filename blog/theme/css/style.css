@@ -6,6 +6,8 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     background-color: var(--body-bg);
 }
 
@@ -16,6 +18,10 @@ main, footer, header {
     /*padding-left: var(--padding-left);
     padding-right: var(--padding-right);*/
 
+}
+main {
+    flex: 1;
+    min-height: 70vh;
 }
 
 footer {
