@@ -1,0 +1,48 @@
+/* Variables */
+:root{
+
+    /* Background Colors */
+    --body-bg: white;
+    --header-bg: white;
+    --nav-bg: white;
+    --post-bg: white;
+    --footer-bg: white;
+
+    /* Font Colors */
+    --blog-title-color: red;
+    --blog-menu-color: red;
+    --blog-menu-color-hover: gray;
+    --post-body-color: black;
+    --post-title-color: black;
+    --post-header-color: gray;
+    --post-footer-color: gray;
+
+    /* Font sizes */
+    --blog-title-size: 26pt;
+    --blog-menu-size: 14pt;
+    --post-body-size: 14pt;
+    --post-title-size: 18pt;
+    --post-header-size: 12pt;
+    --post-footer-size: 12pt;
+
+    /* Efeitos Sombras */
+    --shadow-light: rgb(228, 228, 228);
+    --shadow-medium: gray; 
+    --shadow-dark: black;
+
+    /* Font Family */
+    --blog-title-font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    --blog-menu-font: Arial, Helvetica, sans-serif;
+    --post-body-font: Georgia, 'Times New Roman', Times, serif;
+    --post-title-font: Arial, Helvetica, sans-serif;
+    --post-header-font: Arial, Helvetica, sans-serif;
+    --post-footer-font: Arial, Helvetica, sans-serif;
+    
+}
+/* End Variables Block*/
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --body-bg: black;
+    --header-bg: black;
+}

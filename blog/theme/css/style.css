@@ -1,16 +1,3 @@
-/* Variables */
-:root{
-    /* Background Colors */
-    --body-bg: white;
-    --header-bg: white;
-    --nav-bg: white;
-    --post-bg: white;
-    --footer-bg: white;
-
-}
-
-/* End Variables Block*/
-
 *{
     padding: 0;
     margin: 0;
