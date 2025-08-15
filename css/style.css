@@ -20,6 +20,8 @@ body{
 	background-color: var( --header-bg );
 	padding: 8px;
 	color: var( header-title-color );
+	box-shadow: 2px 8px 4px rgb(220, 220, 220);
+	margin-bottom: 16px;
 }
 
 h1 {
@@ -30,24 +32,30 @@ h1 {
 h2 {
 	font-weight: bold;
 	font-size: 30px;
-	color: #bdcb13;
+	color: var( --header-title-color );
+
+	
 }
 
 h3 {
 	font-weight: bold;
 	font-size: 28px;
-	color: #bdcb13;
+	color: var( --header-title-color );
+
+	
 }
 
 h4 {
 	font-weight: bold;
 	font-size: 22px;
-	color: #bdcb13;
+	color: var( --header-title-color );
+
+	
 }
 
 article {
 	padding: 6px;
-	color: #5c6209;
+	color: black;
 	/*background-color: #eee;*/
 	/*border: 1px solid #b0b0b0;*/
 }
@@ -87,7 +95,8 @@ footer {
 	padding: 12px;
 	width: 100%;
 	margin: 0 auto;
-	background-color: #70a23f;
+	background-color: white;
 	text-align: center;
-	color: #5c6209;
+	color: var( --header-title-color );
+
 }
