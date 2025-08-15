@@ -1,6 +1,23 @@
 /* Variables */
 :root{
 
+    /* Colors Base */
+    --main-color-1: #970621;
+    --main-color-2: white;
+    --main-color-3: #f4f4f4;
+    --main-color-4: gray; 
+
+    /* Font Family Base */
+    --main-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    --second-font-family: Arial, Helvetica, sans-serif;
+    --third-font-family: Georgia, 'Times New Roman', Times, serif;
+
+    /* Titles Size */
+    --main-title-size: 26pt;
+    --second-title-size: 18pt;
+    --third-title-size: 14pt;
+    
+
     /* Background Colors */
     --body-bg: rgb(244, 244, 244);
     --header-bg: white;
@@ -44,6 +61,7 @@
     /* Paddings lefts rights */
     --padding-left: 32px;
     --padding-right: 32px;
+    --padding-titles-1: 46px;
     
 }
 /* End Variables Block*/

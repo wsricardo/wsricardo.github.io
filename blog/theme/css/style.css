@@ -21,6 +21,10 @@ main, footer, header {
 footer {
     padding-left: var( --padding-left );
     padding-right: var( --padding-right );
+    font-family: var(--second-font-family);
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 2px;
 }
 
 header {
@@ -56,7 +60,8 @@ img {
 
 h1, h2, h3, h4 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: bold;    
+    font-weight: bold;
+    padding-bottom: var(--padding-titles-1);     
 }
 
 nav {
@@ -68,10 +73,11 @@ nav {
     border-top: 2px solid rgba(185, 182, 182, 0.777) ;
 }
 
-nav ul {
+nav li {
     padding-left: var( --padding-left );
     padding-right: var( --padding-right );
 }
+
 
 nav a {
     font-weight: bolder;
@@ -79,6 +85,7 @@ nav a {
     font-size: 16pt;
     text-decoration: none;
     color: #970621 ;
+    
 }
 
 nav a:hover{
@@ -131,9 +138,7 @@ a:hover{
 
 
 .post-title {
-    border-top: 4px solid #000000;
-    border-bottom: 4px solid #000000;
-    border-left: 32px solid #000000;
+    border-left: 32px solid var(--main-color-1);
     padding: 6px 0 6px 2px;
     margin: 8px 0;
     text-align: center;
@@ -157,7 +162,7 @@ a:hover{
 
 .post-footer{
     font-style: italic;
-    color:gray;
+    color: var(--main-color-4);
     padding: 12px 0 0 0;
     font-family: Arial, Helvetica, sans-serif;
     
@@ -170,7 +175,7 @@ a:hover{
     
 }
 
-.blog-menu, .pagination, .blog-archive{
+.pagination, .blog-archive{
     padding: 12px;
 }
 
