@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{{ SITE_TITLE }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/variables.css">
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css">
+    <link rel="icon" type="image/x-icon" href="{{ SITEURL }}/imagens/favicon.ico">
+
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: {'[+]': [['$', '$']]}
+            },
+        svg: {
+            fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+
+
+</head>
+<body>
+    <header>
+        <h1 class="blog-title"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+        <nav>
+            <ul>
+                <li><a class="blog-menu" href="{{ SITEURL }}/index.html">Home</a></li>
+                <li><a class="blog-menu" href="{{ SITEURL }}/archives.html">Archives</a></li>
+                <!-- Add more menu items as needed -->
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+    
+    <footer>
+        <p>
+            <a href="{{ SITEURL }}/index.html">&copy; {{ SITENAME }}</a>
+        </p>
+    </footer>
+</body>
+</html>

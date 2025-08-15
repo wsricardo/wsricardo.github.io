@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../theme/css/style.css">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: {'[+]': [['$', '$']]}
+            },
+        svg: {
+            fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+
+
+</head>
+<body>
+    <header>
+        <h1 class="blog-title"><a href="../..">WSRicardo Blog</a></h1>
+        <nav>
+            <ul>
+                <li><a class="blog-menu" href="../../index.html">Home</a></li>
+                <li><a class="blog-menu" href="../../archives.html">Archives</a></li>
+                <!-- Add more menu items as needed -->
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+<div class="container">
+        <article class="blog-post">
+                <h1 class="post-title">
+                    <a
+                        href="../../posts/2025/10-08-meu-primeiro-post"
+                        rel="bookmark"
+                        title="Permalink to Bem vindo ao Meu Blog WSRicardo"
+                        >Bem vindo ao Meu Blog WSRicardo
+                    </a>
+
+                </h1>
+                <p class="post-footer">Publicado em 10-08-25  por 
+                        <a href="../../author/wandeson-ricardo.html">Wandeson Ricardo</a>
+                </p>
+                <p class="post-footer">Tags: 
+                    <a href="../../tag/blog.html">
+                         blog
+                    </a>
+                        
+                    <a href="../../tag/boas-vindas.html">
+                         boas-vindas
+                    </a>
+                        
+                    <a href="../../tag/primeiro-post.html">
+                         primeiro-post
+                    </a>
+                        
+                </p>
+                
+            <div class="post-content">
+                <p>Olá, bem vindo ao meu blog WSRicardo. Aqui estarei postando um pouco de meus trabalhos
+de arte até matemática e computação.</p>
+<p>Um de meus desenho.</p>
+<p><img alt="Minha Imagem" src="../../imagens/pen-draw.jpg"></p>
+            </div>
+
+        </article>
+</div>
+    </main>
+    
+    <footer>
+        <p>
+            <a href="../../index.html">&copy; WSRicardo Blog</a>
+        </p>
+    </footer>
+</body>
+</html>

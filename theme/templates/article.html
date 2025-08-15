@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+        <article class="blog-post">
+                <h1 class="post-title">
+                    <a
+                        href="{{ SITEURL }}/{{ article.url }}"
+                        rel="bookmark"
+                        title="Permalink to {{ article.title|striptags }}"
+                        >{{ article.title }}
+                    </a>
+
+                </h1>
+                <p class="post-footer">Publicado em {{ NOW }} por 
+                    {% for author in article.authors %}
+                        <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+                    {% endfor %}
+                </p>
+                <p class="post-footer">Tags: 
+                    {% for tag in article.tags %}
+                    <a href="{{ SITEURL }}/{{ tag.url }}">
+                         {{ tag.name }}
+                    </a>
+                        
+                    {% endfor %}
+                </p>
+                
+            <div class="post-content">
+                {{ article.content }}
+            </div>
+
+        </article>
+</div>
+{% endblock content %}

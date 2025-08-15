@@ -1,0 +1,121 @@
+\documentclass[12pt,a4paper]{article}
+
+% ==== Pacotes de idioma e codificação ====
+\usepackage[utf8]{inputenc}   % Permite acentos diretamente no código
+\usepackage[T1]{fontenc}      % Fonte com acentos corretos no PDF
+\usepackage[brazil]{babel}    % Hifenização e termos em português
+
+% ==== Matemática ====
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{mathtools}
+
+% ==== Layout ====
+\usepackage[margin=3.8cm]{geometry}
+\usepackage{enumitem}         % Controle de listas
+\usepackage{fancyhdr}         % Cabeçalho e rodapé
+\usepackage{setspace}         % Espaçamento entre linhas
+
+% ==== Aparência ====
+\usepackage{lmodern}          % Fonte Latin Modern
+\usepackage{microtype}        % Melhora justificação
+\usepackage{titlesec}         % Personalizar títulos
+
+% ==== Configuração de cabeçalho/rodapé ====
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Cálculo I}
+\rhead{Lista de Exercícios}
+\cfoot{\thepage}
+
+% ==== Estilo dos títulos ====
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+
+% ==== Início do documento ====
+\begin{document}
+	
+	% ==== CAPA ====
+	\begin{center}
+		\textbf{\LARGE Lista de Exercícios — Cálculo I} \\[0.5cm]
+		\textbf{Tema: Limites, Derivadas e Integrais} \\[1cm]
+	\end{center}
+	
+	\noindent
+	\textbf{Nome:} \rule{10cm}{0.4pt} \hfill
+	
+	\noindent
+	\textbf{Data:} \rule{4cm}{0.4pt} \\[0.4cm]
+	
+	\noindent
+	\textbf{Instruções:} Resolva cada questão detalhando o raciocínio.  
+	Use justificativas matemáticas claras, mostre todos os passos.  
+	Questões podem exigir uso de séries, substituições e técnicas avançadas.  
+	
+	\vspace{0.8cm}
+	
+	% ==== LISTA ====
+	\begin{enumerate}[leftmargin=0.8cm,label=\textbf{Questão \arabic*},itemsep=1.6cm]
+		
+		% ===== LIMITES (2) =====
+		\item Calcule:
+		\[
+		\lim_{x\to 0}\frac{\sin x - x + \dfrac{x^3}{6}}{x^5}.
+		\]
+		
+		\item Calcule:
+		\[
+		\lim_{x\to 0}\frac{\ln(1+x) - x + \dfrac{x^2}{2}}{x^3}.
+		\]
+		
+		% ===== DERIVADAS (4) =====
+		\item Seja
+		\[
+		f(x)=\frac{x^{\sin x}\,e^{x^2}}{\sqrt{1+x^4}}.
+		\]
+		Calcule \(f'(x)\) explicitamente usando diferenciação logarítmica.
+		
+		\item Seja \(g(x)=\ln\big(\sin(x^2)\big)\) para \(x\) tal que \(\sin(x^2)>0\).  
+		Calcule \(g'(x)\) e \(g''(x)\).
+		
+		\item A curva é dada por
+		\[
+		x^2 y + e^{xy} = \sin y + 1.
+		\]
+		Determine \(\dfrac{dy}{dx}\) em termos de \(x\) e \(y\).
+		
+		\item Encontre e classifique todos os extremos locais e globais de
+		\[
+		h(x)=x e^{-x^2/2},\quad x\in\mathbb{R}.
+		\]
+		
+		% ===== INTEGRAIS (4) =====
+		\item Calcule:
+		\[
+		\int_{0}^{\infty} x^3 e^{-x^2}\,dx.
+		\]
+		
+		\item Calcule:
+		\[
+		\int_{0}^{2\pi}\frac{d\theta}{5-4\cos\theta}.
+		\]
+		
+		
+		\item Calcule:
+		\[
+		\int_{0}^{1}\frac{\ln(1+x)}{x}\,dx.
+		\]
+		
+		
+		\item Calcule:
+		\[
+		\int \frac{x^2}{\sqrt{x^2+1}}\,dx.
+		\]
+		
+	\end{enumerate}
+	
+	
+	\vfill
+	\begin{center}
+		\textit{Bons estudos! Lembre-se: o caminho é tão importante quanto a resposta final.}
+	\end{center}
+	
+\end{document}
