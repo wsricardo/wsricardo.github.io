@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 layout
 layout.html
 script.py
@@ -11,3 +12,6 @@ inputs/
 app.py
 template/
 __pycache__
+=======
+__pycache__
+>>>>>>> blog
