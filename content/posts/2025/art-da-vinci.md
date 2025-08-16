@@ -19,7 +19,7 @@ A produção pictórica de Leonardo tem enorme impacto cultural. Entre as obras 
 
 Além de artista, Leonardo foi engenheiro, inventor, anatomista, botânico e estudioso de fenômenos naturais. Deixou cadernos repletos de anotações, diagramas e esboços que abrangem desde projetos de máquinas voadoras e armas até estudos detalhados da anatomia humana e animal. Seu método baseava-se na observação direta e no registro preciso, combinando ciência e arte em um mesmo processo criativo. Esses registros, embora muitos não tenham sido publicados em vida, revelam sua visão interdisciplinar e continuam sendo fonte de inspiração e pesquisa.
 
-**Fontes**
+## **Fontes**
 
 1. [Wikipedia ](https://pt.wikipedia.org/wiki/Leonardo_da_Vinci)
 2. [Brasil Escola UOL](https://brasilescola.uol.com.br/biografia/leonardo-vinci.htm)
