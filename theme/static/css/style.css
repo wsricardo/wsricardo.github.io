@@ -144,6 +144,8 @@ a:hover{
 .post-content{
     padding-top: 16px;
     padding-bottom: 12px;
+    padding-left: var( --padding-left );
+    padding-right: var( --padding-right );
     /*font-family: 'Times New Roman', Times, serif;*/
     font-family: var(--post-body-font);
     font-size: var(--post-body-size);
