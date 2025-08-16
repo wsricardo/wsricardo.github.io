@@ -72,7 +72,7 @@ img {
 
 h1, h2, h3, h4 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-weight: bold;
+    font-weight: normal;
     padding-top: var(--padding-titles-2);
     padding-bottom: var(--padding-titles-1);     
 }
