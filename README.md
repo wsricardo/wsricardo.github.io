@@ -7,5 +7,7 @@ And my curriculum vitae.
 # Personal and Authoring Projects
 
 * WSRicardo
-	- Blog: [https://wsricardo.blogspot.com](https://wsricardo.blogspot.com)
+	- Old Blog: [https://wsricardo.blogspot.com](https://wsricardo.blogspot.com)
+	- New Blog: [https://wsricardo.github.io](https://wsricardo.github.io/blog)
+
 
