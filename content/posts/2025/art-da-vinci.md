@@ -5,6 +5,8 @@ Tags: arte, textos
 Slug: polimata-da-vinci
 Author: Wandeson Ricardo
 
+![Mona Lisa](../../imagens/mona-lisa.webp))
+
 # História e trajetória
 
 Leonardo di Ser Piero da Vinci nasceu em 15 de abril de 1452, na vila de Vinci, próxima a Florença, filho ilegítimo de um notário e de uma camponesa. Desde cedo, demonstrou habilidades artísticas, ingressando como aprendiz no ateliê de Andrea del Verrocchio, onde teve contato com pintura, escultura, engenharia e mecânica. Trabalhou para mecenas influentes, como Ludovico Sforza, em Milão, e mais tarde serviu em diferentes cidades italianas. Nos últimos anos de vida, foi convidado pelo rei Francisco I para viver na França, onde permaneceu até sua morte, em 2 de maio de 1519.
