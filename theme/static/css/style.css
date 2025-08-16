@@ -24,6 +24,10 @@ main {
     min-height: 65vh;
 }
 
+p{
+    padding: 8px 0;
+}
+
 footer {
     padding-left: var( --padding-left );
     padding-right: var( --padding-right );
@@ -70,6 +74,7 @@ img {
 h1, h2, h3, h4 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-weight: bold;
+    padding-top: var(--padding-titles-2);
     padding-bottom: var(--padding-titles-1);     
 }
 
