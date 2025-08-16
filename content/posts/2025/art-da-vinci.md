@@ -5,7 +5,7 @@ Tags: arte, textos
 Slug: polimata-da-vinci
 Author: Wandeson Ricardo
 
-![Mona Lisa](../../imagens/mona-lisa.webp))
+![Mona Lisa](../../imagens/mona-lisa.webp)
 
 # História e trajetória
 
