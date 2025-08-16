@@ -12,7 +12,7 @@
                     </a>
 
                 </h1>
-                <p class="post-footer">Publicado em {{ NOW }} por 
+                <p class="post-footer">Publicado em {{ article.date.strftime('%d/%m/%Y') }} por 
                     {% for author in article.authors %}
                         <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
                     {% endfor %}
