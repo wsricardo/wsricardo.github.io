@@ -13,7 +13,7 @@
     --third-font-family: Georgia, 'Times New Roman', Times, serif;
 
     /* Titles Size */
-    --main-title-size: 26pt;
+    --main-title-size: 20pt;
     --second-title-size: 18pt;
     --third-title-size: 14pt;
     
@@ -38,10 +38,10 @@
 
 
     /* Font sizes */
-    --blog-title-size: 26pt;
+    --blog-title-size: 28pt;
     --blog-menu-size: 14pt;
     --post-body-size: 14pt;
-    --post-title-size: 18pt;
+    --post-title-size: 22pt;
     --post-header-size: 12pt;
     --post-footer-size: 12pt;
 
