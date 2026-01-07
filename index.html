@@ -1,74 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-<title>WSRicardo On Github</title>
-	<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wandeson Ricardo</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --text-color: #ecf0f1;
+            --accent-color: #e67e22;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+        .header, .footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 1rem;
+            text-align: center;
+        }
+        .header h1, .footer p {
+            margin: 0;
+        }
+        .nav {
+            background-color: var(--secondary-color);
+            padding: 1rem;
+            text-align: center;
+        }
+        .nav a {
+            color: var(--text-color);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            color: var(--accent-color);
+        }
+        .container {
+            padding: 2rem;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section h2 {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .project-card {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        .project-card h3 {
+            margin-top: 0;
+        }
+        .profile-img {
+            max-width: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 1rem auto;
+        }
+
+        @media (max-width: 768px) {
+            .nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-	<header>
 
-	<header>
-		<div class="header">
-		<h1>WSRicardo</h1>
-		</div>
-	</header>
-	
+    <header class="header">
+        <h1>Wandeson Ricardo</h1>
+        <p>Desenvolvedor | Entusiasta de IA | Polímata</p>
+    </header>
 
-<div class="content">
-<div id="linksproj">
-<a href="https://github.com/wsricardo"><img src="imgs/wan-vectorArt1-thumbnail.jpg"></a>
+    <nav class="nav">
+        <a href="#sobre">Sobre Mim</a>
+        <a href="#projetos">Projetos</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="#contato">Contato</a>
+    </nav>
 
-<h2>Links</h2>
-<ol>
-	<li><a href="https://wsricardo.github.io/articles/">WSRicardo Blog (Github)</a></li>
-  <li><a href="https://wsricardo.github.io/mcestudos/">Materiais (vários)</a>
-  <li><a href="https://wsricardo.blogspot.com">WSRicardo.blogspot.com</a></li>
-  <li><a href="https://scholar.google.com.br/">Academic Google</a></li>
-  <li><a href="https://deepblue.lib.umich.edu/">Deep Blue - Library researchs University Michigan</a></li>
-</ol>
+    <div class="container">
+        <section id="sobre" class="section">
+            <h2>Sobre Mim</h2>
+            <img src="imgs/wan-vectorArt1-thumbnail.jpg" alt="Wandeson Ricardo" class="profile-img">
+            <p>Olá! Sou Wandeson Ricardo, um apaixonado por tecnologia, inteligência artificial e o conceito de polimatia. Atualmente, estou focado em desenvolver minhas habilidades em programação e explorar novas áreas do conhecimento. Este é o meu espaço para compartilhar aprendizados, projetos e reflexões.</p>
+        </section>
 
-	<h2>Projetos</h2>
+        <section id="projetos" class="section">
+            <h2>Projetos</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Análise de Dados Populacionais</h3>
+                    <p>Um projeto de análise de dados usando Python e Pandas para visualizar o crescimento populacional. <a href="blog/meustrabalhos/Projeto-Prog1/analise_linear.html">Veja mais</a></p>
+                </div>
+                <div class="project-card">
+                    <h3>Este Site</h3>
+                    <p>Meu site pessoal e blog, construído com Pelican e um tema customizado. Um projeto em constante evolução.</p>
+                </div>
+                <!-- Adicionar mais projetos aqui -->
+            </div>
+        </section>
 
-	<ol>
+        <section id="blog" class="section">
+            <h2>Últimas do Blog</h2>
+            <ul>
+                <li><a href="blog/posts/2025/15-08-polimata-da-vinci.html">O Polímata Leonardo da Vinci</a></li>
+                <li><a href="blog/posts/2025/10-08-meu-primeiro-post.html">Meu Primeiro Post</a></li>
+                <li><a href="blog/posts/first-review.html">First Review</a></li>
+            </ul>
+            <a href="blog/index.html">Ver todos os posts</a>
+        </section>
 
-		<li>
-			<a href="https://github.com/wsricardo/news-crawler">News Crawler (Banco de noticias e artigos).</a>
-		</li>
+    </div>
 
-		<li> <a href="https://wsricardo.blogspot.com/2022/02/biblioteca-exatec-livros-gratuitos-em.html">Biblioteca Livros e Artigos</a></li>
+    <footer class="footer" id="contato">
+        <p>Conecte-se comigo:</p>
+        <p>
+            <a href="https://github.com/wsricardo" style="color: var(--text-color);">GitHub</a> |
+            <a href="https://linkedin.com/in/wandeson-ricardo" style="color: var(--text-color);">LinkedIn</a>
+        </p>
+        <p>&copy; 2026 Wandeson Ricardo. Todos os direitos reservados.</p>
+    </footer>
 
-		<li>
-			<a href="https://wsricardo.blogspot.com">Blog WSRicardo (Blogger)</a>
-		</li>
-	</ol>
-</div>
-
-
-	<div id="proj">
-		<article>
-			<br>
-			<h4>News Crawler</h4>
-			<br>
-    Projeto inclui canal de notícias no Telegram e crawler de notícia para construção de um banco de artigos jornalísticos e tecnicos. 
-<a href="https://github.com/wsricardo/news-crawler">Link</a>
-<br><br><br>
-			<h4>WSRicardo</h4>
-			<br>
-			<section>
-				Página onde compartilho alguns conteúdos que crio ou que julgo interessante aos leitores. Neste incluem-se meus escritos, desenhos, alguns códigos e anotações de matemática além de sugestões de leitura e dicas.
-			</section> 
-			<a href="https://wsricardo.github.io/blog">WSRicardo Blog</a>
-			<br>
-
-		</article>
-
-	
-	</div>
-</div>
-<br><br><br>
-<br>
-<footer>
-	<a href="https://github.com/wsricardo">WSRicardo</a>
-</footer>
 </body>
 </html>

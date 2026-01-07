@@ -2,8 +2,9 @@
 
 	--header-bg: #668645;
 	--footer-bg: #668645;
-	--header-title-color: #970621;
+	--header-title-color: #ffffff; 
 	--body-bg-color: rgb(236, 235, 235);
+	--section-h1-title-color: #970621;
 }
 
 * {
@@ -54,6 +55,11 @@ h4 {
 	color: var( --header-title-color );
 
 	
+}
+
+.sections-base-title {
+	color: var( --section-h1-title-color );
+	font-size: larger;
 }
 
 article {
