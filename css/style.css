@@ -134,8 +134,19 @@ img {
     font-weight: 700;
     color: var(--accent-color);
     font-family: var(--font-serif);
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 .logo:hover { text-decoration: none; }
+
+.logo-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+}
 
 .main-nav {
     display: flex;
