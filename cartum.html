@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria | WSRicardo</title>
+    <title>Cartuns | WSRicardo</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -15,8 +15,8 @@
                 <a href="index.html">Home</a>
                 <a href="projetos.html">Projetos</a>
                 <a href="blog.html">Blog</a>
-                <a href="galeria.html" class="active">Galeria</a>
-                <a href="cartum.html">Cartum</a>
+                <a href="galeria.html">Galeria</a>
+                <a href="cartum.html" class="active">Cartum</a>
                 <a href="#contato">Contato</a>
             </nav>
         </div>
@@ -26,24 +26,36 @@
         <section class="section">
             <div class="container">
                 <header class="page-header">
-                    <h1>Galeria de Arte</h1>
-                    <p>Uma seleção de desenhos, pinturas e experimentos visuais, explorando diferentes técnicas e estilos.</p>
+                    <h1>Cartuns</h1>
+                    <p>Uma coleção de tirinhas e ilustrações de humor. Para que esta página seja atualizada automaticamente, o ideal é convertê-la em um template do Pelican que filtre pela categoria "Cartum".</p>
                 </header>
 
                 <div class="gallery-grid full-gallery">
+                    <!-- Exemplo de item. Isso seria gerado por um loop do Pelican -->
                     <div class="gallery-item">
-                        <img src="blog/imagens/pen-draw.jpg" alt="Desenho à caneta de um rosto">
-                        <p class="gallery-item-caption">Desenho à Caneta (2023)</p>
+                        <a href="#">
+                            <img src="https://via.placeholder.com/400x400.png?text=Cartum+1" alt="Título do Cartum 1">
+                        </a>
+                        <p class="gallery-item-caption">Título do Cartum 1</p>
                     </div>
                     <div class="gallery-item">
-                        <img src="imgs/wan-vectorArt1-thumbnail.jpg" alt="Autorretrato em arte vetorial">
-                         <p class="gallery-item-caption">Autorretrato Vetorial (2024)</p>
+                        <a href="#">
+                            <img src="https://via.placeholder.com/400x400.png?text=Cartum+2" alt="Título do Cartum 2">
+                        </a>
+                        <p class="gallery-item-caption">Título do Cartum 2</p>
                     </div>
                     <div class="gallery-item">
-                        <img src="blog/imagens/mona-lisa.webp" alt="Pintura Mona Lisa de Leonardo da Vinci">
-                        <p class="gallery-item-caption">Estudo: Mona Lisa (Referência)</p>
+                        <a href="#">
+                            <img src="https://via.placeholder.com/400x400.png?text=Cartum+3" alt="Título do Cartum 3">
+                        </a>
+                        <p class="gallery-item-caption">Título do Cartum 3</p>
                     </div>
-                    <!-- Adicionar mais imagens aqui -->
+                    <!-- Adicionar mais cartuns aqui -->
+                </div>
+
+                <!-- A paginação aqui é estática. Para uma paginação real, seria necessário usar o Pelican. -->
+                <div class="pagination">
+                    <span class="pagination-current">Página 1 de 1</span>
                 </div>
             </div>
         </section>

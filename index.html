@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WSRicardo - Portfólio e Blog</title>
+    <title>WSRicardo</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -16,6 +16,7 @@
                 <a href="projetos.html">Projetos</a>
                 <a href="blog.html">Blog</a>
                 <a href="galeria.html">Galeria</a>
+                <a href="cartum.html">Cartum</a>
                 <a href="#contato">Contato</a>
             </nav>
         </div>
@@ -25,7 +26,7 @@
         <section id="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Um Portfólio de Ideias e Experimentos</h1>
+                    <h1>Um Portal de Ideias, Experimentos, Conhecimentos e Informação</h1>
                     <p>Explorando a interseção entre matemática, tecnologia, arte e agricultura. Um espaço para compartilhar projetos, estudos e reflexões.</p>
                 </div>
             </div>
@@ -106,6 +107,19 @@
             </div>
         </section>
 
+        <section id="latest-cartoons" class="section">
+            <div class="container">
+                <h2>Cartuns Recentes</h2>
+                <div id="recent-cartoons-container" class="gallery-grid">
+                    <!-- Os cartuns serão carregados aqui via JavaScript -->
+                    <p class="loading-message">Carregando cartuns recentes...</p>
+                </div>
+                <div class="section-cta">
+                    <a href="cartum.html" class="btn">Ver todos os cartuns</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer id="contato" class="site-footer">
@@ -134,13 +148,14 @@
 <script>
   // O feed RSS/Atom é gerado pelo Pelican. A URL pode precisar de ajuste
   // dependendo da configuração final do 'pelicanconf.py' (FEED_ALL_ATOM/RSS).
-  const FEED_URL = 'blog/feeds/all.atom.xml'; 
-  const MAX_POSTS = 3;
+  const BLOG_FEED_URL = 'blog/feeds/all.atom.xml';
+  const CARTOON_FEED_URL = 'blog/feeds/cartum.atom.xml'; // Assumindo que 'cartum' é o slug da categoria
+  const MAX_ITEMS = 3;
 
   async function loadFeed() {
     const container = document.querySelector('#recent-posts-container');
     try {
-      const res = await fetch(FEED_URL);
+      const res = await fetch(BLOG_FEED_URL);
       if (!res.ok) {
         throw new Error(`Erro ao buscar feed: ${res.statusText}`);
       }
@@ -159,7 +174,7 @@
       }
 
       items.forEach(item => {
-        if (count >= MAX_POSTS) return;
+        if (count >= MAX_ITEMS) return;
 
         const title = item.querySelector('title')?.textContent || 'Sem título';
         const link = item.querySelector('link')?.getAttribute('href') || item.querySelector('link')?.textContent || '#';
@@ -193,11 +208,60 @@
     }
   }
 
+  async function loadCartoonFeed() {
+    const container = document.querySelector('#recent-cartoons-container');
+    try {
+        const res = await fetch(CARTOON_FEED_URL);
+        if (!res.ok) {
+            throw new Error(`Erro ao buscar feed de cartuns: ${res.statusText}`);
+        }
+        const xml = await res.text();
+        const doc = new DOMParser().parseFromString(xml, 'application/xml');
+
+        container.innerHTML = ''; // Limpa a mensagem de "carregando"
+
+        const items = doc.querySelectorAll('item, entry');
+        let count = 0;
+
+        if (items.length === 0) {
+            container.innerHTML = '<p>Nenhum cartum recente encontrado. Verifique a categoria e a geração do feed.</p>';
+            return;
+        }
+
+        items.forEach(item => {
+            if (count >= MAX_ITEMS) return;
+
+            const title = item.querySelector('title')?.textContent || 'Sem título';
+            const link = item.querySelector('link')?.getAttribute('href') || '#';
+            const contentNode = item.querySelector('content, summary, description');
+
+            if (contentNode) {
+                const contentHTML = new DOMParser().parseFromString(contentNode.textContent, 'text/html');
+                const img = contentHTML.querySelector('img');
+
+                if (img) {
+                    const imgSrc = img.getAttribute('src');
+                    const cartoonItem = document.createElement('div');
+                    cartoonItem.className = 'gallery-item';
+                    // Envolve a imagem em um link para a postagem completa
+                    cartoonItem.innerHTML = `<a href="${link}"><img src="${imgSrc}" alt="${title}"></a>`;
+                    container.appendChild(cartoonItem);
+                    count++;
+                }
+            }
+        });
+    } catch (e) {
+        container.innerHTML = '<p>Não foi possível carregar os cartuns. Verifique a URL do feed ou a configuração do servidor.</p>';
+        console.warn('Falha ao carregar o feed de cartuns:', e);
+    }
+  }
+
   // Garante que o DOM está pronto antes de executar o script
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadFeed);
+    document.addEventListener('DOMContentLoaded', () => { loadFeed(); loadCartoonFeed(); });
   } else {
     loadFeed();
+    loadCartoonFeed();
   }
 </script>
 
