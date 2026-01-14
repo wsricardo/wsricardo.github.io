@@ -148,6 +148,24 @@ img {
     border: 2px solid var(--border-color);
 }
 
+.nav-toggle {
+    display: none; /* Oculto em desktop */
+    background: none;
+    border: 2px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    padding: 0;
+    font-size: 24px;
+    color: var(--accent-color);
+}
+
+.nav-toggle:hover {
+    background-color: var(--bg-light-color);
+}
+
+
 .main-nav {
     display: flex;
     gap: 25px;
@@ -247,13 +265,71 @@ img {
     grid-column: 1 / -1;
 }
 
-/* YouTube Channel */
-.youtube-content {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
+/* Support Section Placeholders */
+.section#apoie { /* Target the section when it's in the footer */
+    background-color: var(--accent-color); /* Match footer background */
+    color: #e5e7eb; /* Light text for dark background */
+    padding-top: 40px; /* Adjust padding for footer integration */
+    padding-bottom: 40px;
+}
+.support-post-placeholder {
+    border-style: dashed;
+    border-color: var(--border-color);
+    background-color: var(--bg-color); /* Keep cards white for contrast */
 }
 
+.support-post-placeholder .post-card-content p {
+    font-style: italic;
+}
+
+/* QR Code Card in Support Section */
+.qr-code-card .post-card-content {
+    text-align: center;
+}
+
+.section#apoie h2 {
+    color: #fff; /* White title for dark background */
+}
+.section#apoie p {
+    color: #d1d5db; /* Lighter text for dark background */
+}
+
+.qr-code-card {
+    background-color: var(--bg-color);
+}
+
+
+.qr-code-img {
+    max-width: 150px;
+    margin: 15px auto;
+    border-radius: var(--border-radius);
+}
+
+/* YouTube Channel */
+.youtube-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.youtube-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.youtube-card h3 {
+    font-size: 1.5rem;
+    font-family: var(--font-serif);
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.youtube-card p {
+    color: var(--text-muted-color);
+    flex-grow: 1; /* Faz a descrição crescer para alinhar o conteúdo abaixo */
+}
 .video-placeholder {
     aspect-ratio: 16 / 9;
     background-color: #e0e0e0;
@@ -401,7 +477,7 @@ img {
     background-color: var(--accent-color);
     color: #e5e7eb; /* Um cinza claro para o texto do footer */
     padding: 40px 0;
-    margin-top: 60px;
+    /* margin-top: 60px; Removed as #apoie now provides spacing */
 }
 
 .footer-content {
@@ -462,15 +538,64 @@ img {
 @media (max-width: 768px) {
     h1 { font-size: 2rem; }
     h2 { font-size: 1.75rem; }
+    .section, #hero {
+        padding: 40px 0;
+    }
 
     .site-header .container {
-        flex-direction: column;
-        gap: 15px;
+        flex-wrap: wrap; /* Permite que o botão fique ao lado do logo */
     }
 
+    .nav-toggle {
+        display: block; /* Mostra o botão em telas menores */
+    }
+    
     .main-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+        display: none; /* Esconde a navegação por padrão */
+        flex-direction: column;
+        width: 100%;
+        order: 3; /* Garante que a navegação apareça abaixo do logo/botão */
+        text-align: center;
+        gap: 0;
+        margin-top: 20px;
+    }
+
+    .main-nav.nav-open {
+        display: flex; /* Mostra a navegação quando a classe é aplicada */
+    }
+
+    .main-nav a {
+        padding: 15px;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .main-nav a:last-child {
+        border-bottom: none;
     }
 }
+
+/* 6. Componentes Adicionais
+-------------------------------------------------- */
+
+/* Botão Voltar ao Topo */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: var(--accent-color);
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, background-color 0.2s ease;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+.back-to-top:hover { background-color: var(--primary-color); text-decoration: none; }
+.back-to-top.visible { opacity: 1; visibility: visible; }
