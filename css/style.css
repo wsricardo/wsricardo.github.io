@@ -335,12 +335,22 @@ img {
     background-color: #e0e0e0;
     border-radius: var(--border-radius);
     display: flex;
+	flex-direction: column;
     align-items: center;
     justify-content: center;
     color: var(--text-muted-color);
     font-style: italic;
     margin: 2rem 0;
     border: 1px solid var(--border-color);
+}
+
+.video-placeholder iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+	box-shadow: var(--box-shadow);
+
+	
 }
 
 /* Projects */
