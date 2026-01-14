@@ -1,152 +1,205 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wandeson Ricardo</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --text-color: #ecf0f1;
-            --accent-color: #e67e22;
-        }
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-        }
-        .header, .footer {
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            padding: 1rem;
-            text-align: center;
-        }
-        .header h1, .footer p {
-            margin: 0;
-        }
-        .nav {
-            background-color: var(--secondary-color);
-            padding: 1rem;
-            text-align: center;
-        }
-        .nav a {
-            color: var(--text-color);
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .nav a:hover {
-            color: var(--accent-color);
-        }
-        .container {
-            padding: 2rem;
-        }
-        .section {
-            margin-bottom: 2rem;
-        }
-        .section h2 {
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-        }
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-        .project-card {
-            background-color: var(--primary-color);
-            padding: 1rem;
-            border-radius: 5px;
-        }
-        .project-card h3 {
-            margin-top: 0;
-        }
-        .profile-img {
-            max-width: 150px;
-            border-radius: 50%;
-            display: block;
-            margin: 1rem auto;
-        }
-
-        @media (max-width: 768px) {
-            .nav a {
-                display: block;
-                margin: 10px 0;
-            }
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-            .container {
-                padding: 1rem;
-            }
-            .header h1 {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+    <title>WSRicardo - Portfólio e Blog</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header class="header">
-        <h1>Wandeson Ricardo</h1>
-        <p>Agricultor, artista e amante da tecnologia, matemática e ciências    .</p>
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">WSRicardo</a>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="projetos.html">Projetos</a>
+                <a href="blog.html">Blog</a>
+                <a href="galeria.html">Galeria</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
     </header>
 
-    <nav class="nav">
-        <a href="#sobre">Sobre Mim</a>
-        <a href="#projetos">Projetos</a>
-        <a href="blog/index.html">Blog</a>
-        <a href="#contato">Contato</a>
-    </nav>
-
-    <div class="container">
-        <section id="sobre" class="section">
-            <h2>Sobre Mim</h2>
-            <img src="imgs/wan-vectorArt1-thumbnail.jpg" alt="Wandeson Ricardo" class="profile-img">
-            <p>Olá! Sou Wandeson Ricardo, um agricultor, apaixonado por matemática, artes, tecnologia e o conceito de polimatia. 
-                 Focado em desenvolver minhas habilidades e absorver conhecimentos diversos, em matemática, nas artes, em programação e explorar novas áreas do conhecimento. 
-                 Este é o meu espaço para compartilhar aprendizados, projetos e reflexões.</p>
-        </section>
-
-        <section id="projetos" class="section">
-            <h2>Projetos</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3>Análise de Dados Populacionais</h3>
-                    <p>Um projeto de análise de dados usando Python e Pandas para visualizar o crescimento populacional. <a href="blog/meustrabalhos/Projeto-Prog1/analise_linear.html">Veja mais</a></p>
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Um Portfólio de Ideias e Experimentos</h1>
+                    <p>Explorando a interseção entre matemática, tecnologia, arte e agricultura. Um espaço para compartilhar projetos, estudos e reflexões.</p>
                 </div>
-                <div class="project-card">
-                    <h3>Este Site</h3>
-                    <p>Meu site pessoal e blog, construído com Pelican e um tema customizado. Um projeto em constante evolução.</p>
-                </div>
-                <!-- Adicionar mais projetos aqui -->
             </div>
         </section>
 
-        <section id="blog" class="section">
-            <h2>Últimas do Blog</h2>
-            <ul>
-                <li><a href="blog/posts/2025/15-08-polimata-da-vinci.html">O Polímata Leonardo da Vinci</a></li>
-                <li><a href="blog/posts/2025/10-08-meu-primeiro-post.html">Meu Primeiro Post</a></li>
-                <li><a href="blog/posts/first-review.html">First Review</a></li>
-            </ul>
-            <a href="blog/index.html">Ver todos os posts</a>
+        <section id="latest-posts" class="section">
+            <div class="container">
+                <h2>Últimas do Blog</h2>
+                <div id="recent-posts-container" class="posts-grid">
+                    <!-- As postagens do blog serão carregadas aqui via JavaScript -->
+                    <p class="loading-message">Carregando postagens recentes...</p>
+                </div>
+                <div class="section-cta">
+                    <a href="blog.html" class="btn">Visitar o Blog</a>
+                </div>
+            </div>
         </section>
 
-    </div>
+        <section id="youtube-channel" class="section bg-light">
+            <div class="container">
+                <h2>Canal no YouTube</h2>
+                <div class="youtube-content">
+                    <p>Vídeos sobre programação, matemática e outros tópicos que exploram a criatividade e o aprendizado. Inscreva-se para acompanhar os novos conteúdos.</p>
+                    <!-- Placeholder para vídeo do YouTube -->
+                    <div class="video-placeholder">
+                        <p>Futuro vídeo do YouTube aqui.</p>
+                    </div>
+                    <div class="section-cta">
+                        <a href="#" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Acessar o Canal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <footer class="footer" id="contato">
-        <p>Conecte-se comigo:</p>
-        <p>
-            <a href="https://github.com/wsricardo" style="color: var(--text-color);">GitHub</a> |
-            <a href="https://linkedin.com/in/wandeson-ricardo" style="color: var(--text-color);">LinkedIn</a>
-        </p>
-        <p>&copy; 2026 Wandeson Ricardo. Todos os direitos reservados.</p>
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Projetos em Destaque</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Análise de Dados Populacionais</h3>
+                        <p>Estudo sobre crescimento populacional utilizando Python, Pandas e Scipy para realizar uma análise de regressão linear.</p>
+                        <a href="blog/meustrabalhos/Projeto-Prog1/analise_linear.html" class="project-link">Ver Detalhes</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Gerador de Site Estático</h3>
+                        <p>Este site pessoal, construído com o gerador de sites estáticos Pelican e um tema customizado, focado em performance e simplicidade.</p>
+                        <a href="https://github.com/wsricardo/wsricardo.github.io" class="project-link">Ver no GitHub</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Exercícios de Cálculo em LaTeX</h3>
+                        <p>Uma coleção de listas de exercícios de Cálculo I, formatadas profissionalmente com LaTeX, cobrindo limites, derivadas e integrais.</p>
+                        <a href="blog/arquivos/calculo/lista1/main.pdf" class="project-link">Visualizar PDF</a>
+                    </div>
+                </div>
+                 <div class="section-cta">
+                    <a href="projetos.html" class="btn">Ver todos os projetos</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery-preview" class="section bg-light">
+            <div class="container">
+                <h2>Galeria de Arte</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="blog/imagens/pen-draw.jpg" alt="Desenho à caneta">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="imgs/wan-vectorArt1-thumbnail.jpg" alt="Arte vetorial">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="blog/imagens/mona-lisa.webp" alt="Pintura Mona Lisa de Da Vinci">
+                    </div>
+                </div>
+                <div class="section-cta">
+                    <a href="galeria.html" class="btn">Explorar a Galeria</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contato" class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>WSRicardo</h3>
+                    <p>Um espaço pessoal para anotações, reflexões e experimentos. Feito com código, curiosidade e um café.</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>Conecte-se</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/wsricardo" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://linkedin.com/in/wandeson-ricardo" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <!-- Adicionar link para o YouTube quando disponível -->
+                        <a href="#">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wandeson Ricardo. Gerado com <a href="https://getpelican.com/" target="_blank" rel="noopener">Pelican</a>. Todos os direitos reservados.</p>
+            </div>
+        </div>
     </footer>
+
+<script>
+  // O feed RSS/Atom é gerado pelo Pelican. A URL pode precisar de ajuste
+  // dependendo da configuração final do 'pelicanconf.py' (FEED_ALL_ATOM/RSS).
+  const FEED_URL = 'blog/feeds/all.atom.xml'; 
+  const MAX_POSTS = 3;
+
+  async function loadFeed() {
+    const container = document.querySelector('#recent-posts-container');
+    try {
+      const res = await fetch(FEED_URL);
+      if (!res.ok) {
+        throw new Error(`Erro ao buscar feed: ${res.statusText}`);
+      }
+      const xml = await res.text();
+      const doc = new DOMParser().parseFromString(xml, 'application/xml');
+      
+      // Limpa a mensagem de "carregando"
+      container.innerHTML = '';
+
+      const items = doc.querySelectorAll('item, entry');
+      let count = 0;
+
+      if (items.length === 0) {
+        container.innerHTML = '<p>Nenhuma postagem recente encontrada. O feed pode estar vazio ou a URL incorreta.</p>';
+        return;
+      }
+
+      items.forEach(item => {
+        if (count >= MAX_POSTS) return;
+
+        const title = item.querySelector('title')?.textContent || 'Sem título';
+        const link = item.querySelector('link')?.getAttribute('href') || item.querySelector('link')?.textContent || '#';
+        const summaryNode = item.querySelector('summary, description');
+        // Tenta extrair o texto puro do resumo, removendo tags HTML
+        const summary = summaryNode ? (new DOMParser().parseFromString(summaryNode.textContent, 'text/html').body.textContent || '').substring(0, 150) + '...' : '';
+        const date = item.querySelector('published, pubDate')?.textContent;
+
+        const postCard = document.createElement('article');
+        postCard.className = 'post-card';
+
+        let postDate = '';
+        if (date) {
+            postDate = `<time datetime="${new Date(date).toISOString()}">${new Date(date).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}</time>`;
+        }
+
+        postCard.innerHTML = `
+            <div class="post-card-content">
+                <h3><a href="${link}">${title}</a></h3>
+                <p>${summary}</p>
+                ${postDate}
+            </div>
+        `;
+        container.appendChild(postCard);
+        count++;
+      });
+
+    } catch (e) {
+      container.innerHTML = '<p>Não foi possível carregar as postagens do blog. Verifique a URL do feed ou a configuração do servidor.</p>';
+      console.warn('Falha ao carregar o feed do blog:', e);
+    }
+  }
+
+  // Garante que o DOM está pronto antes de executar o script
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadFeed);
+  } else {
+    loadFeed();
+  }
+</script>
 
 </body>
 </html>
