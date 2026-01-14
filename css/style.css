@@ -517,6 +517,16 @@ img {
     color: #fff;
 }
 
+.footer-links-column a {
+    color: #d1d5db;
+    font-weight: 500;
+    display: block;
+}
+
+.footer-links-column a:hover {
+    color: #fff;
+}
+
 .footer-bottom {
     border-top: 1px solid #4b5563; /* Divisor dentro do footer */
     padding-top: 20px;
