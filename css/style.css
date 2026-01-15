@@ -291,7 +291,7 @@ img {
     color: #fff; /* White title for dark background */
 }
 .section#apoie p {
-    color: #d1d5db; /* Lighter text for dark background */
+    color: #374151; /* Lighter text for dark background */
 }
 
 .qr-code-card {
@@ -303,6 +303,7 @@ img {
     max-width: 150px;
     margin: 15px auto;
     border-radius: var(--border-radius);
+	color: #747d8d;
 }
 
 /* YouTube Channel */
