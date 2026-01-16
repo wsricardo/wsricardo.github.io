@@ -1,0 +1,93 @@
+/* Variables */
+:root{
+
+    /* Colors Base */
+    --main-color-1: #970621;
+    --main-color-2: white;
+    --main-color-3: #f4f4f4;
+    --main-color-4: gray; 
+
+    /* Font Family Base */
+    --main-font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    --second-font-family: Arial, Helvetica, sans-serif;
+    --third-font-family: Georgia, 'Times New Roman', Times, serif;
+
+    /* Titles Size */
+    --main-title-size: 20pt;
+    --second-title-size: 18pt;
+    --third-title-size: 14pt;
+    
+
+    /* Background Colors */
+    --body-bg: rgb(244, 244, 244);
+    --header-bg: white;
+    --nav-bg: rgb(229, 229, 229);
+    --post-bg: white;
+    --footer-bg: white;
+    --blog-post-bg: white;
+
+
+    /* Font Colors */
+    --blog-title-color: #970621;
+    --blog-menu-color: #970621;
+    --blog-menu-color-hover: gray;
+    --post-body-color: black;
+    --post-title-color: #970621;
+    --post-header-color: gray;
+    --post-footer-color: gray;
+
+
+    /* Font sizes */
+    --blog-title-size: 28pt;
+    --blog-menu-size: 14pt;
+    --post-body-size: 14pt;
+    --post-title-size: 22pt;
+    --post-header-size: 12pt;
+    --post-footer-size: 12pt;
+
+    /* Efeitos Sombras */
+    --shadow-light: 2px 8px 12px rgb(228, 228, 228);
+    --shadow-medium: 2px 8px 12px gray; 
+    --shadow-dark: 2px 8px 12px black;
+
+    /* Font Family */
+    --blog-title-font: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    --blog-menu-font: Arial, Helvetica, sans-serif;
+    --post-body-font: Georgia, 'Times New Roman', Times, serif;
+    --post-title-font: Arial, Helvetica, sans-serif;
+    --post-header-font: Arial, Helvetica, sans-serif;
+    --post-footer-font: Arial, Helvetica, sans-serif;
+
+    /* Paddings lefts rights */
+    --padding-left: 32px;
+    --padding-right: 32px;
+    --padding-titles-1: 72px;
+    --padding-titles-2: 48px;
+    --padding-titles-3: 30px;
+
+    
+}
+/* End Variables Block*/
+
+/* Dark Theme */
+[data-theme="dark"] {
+
+    /* Background Colors */
+    --body-bg: black;
+    --header-bg: black;
+    --nav-bg: black;
+    --post-bg: black;
+    --footer-bg: black;
+
+    /* Font colors */
+    --blog-title-color: red;
+    --blog-menu-color: red;
+    --blog-menu-color-hover: gray;
+    --post-body-color: white;
+    --post-title-color: white;
+    --post-header-color: gray;
+    --post-footer-color: gray;
+    
+
+
+}
