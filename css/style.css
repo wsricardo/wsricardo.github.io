@@ -481,6 +481,29 @@ img {
 .pagination-link { font-weight: 600; }
 .pagination-current { color: var(--text-muted-color); }
 
+/* Full Article View */
+.article-content-full {
+    max-width: 800px;
+    margin: 40px auto 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.article-content-full img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin: 2rem auto;
+    display: block;
+    box-shadow: var(--box-shadow);
+}
+
+.article-content-full h1, .article-content-full h2, .article-content-full h3 {
+    margin-top: 2.5rem;
+}
+
+.article-footer-tags { margin-top: 40px; font-size: 0.9rem; color: var(--text-muted-color); text-align: center; }
+
 
 /* 4. Footer
 -------------------------------------------------- */
