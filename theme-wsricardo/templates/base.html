@@ -156,6 +156,17 @@ Recentemente iniciei um projeto para a construção de um novo espaço para meu 
         <a href="#" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</a>
     </footer>
 
+    <script>
+        // Lógica para o menu de navegação móvel
+        const navToggle = document.querySelector('.nav-toggle');
+        const mainNav = document.querySelector('#main-nav');
+
+        if (navToggle && mainNav) {
+            navToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('nav-open');
+            });
+        }
+    </script>
 
 
 </body>
