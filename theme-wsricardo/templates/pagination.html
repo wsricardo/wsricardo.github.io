@@ -1,0 +1,17 @@
+{% if DEFAULT_PAGINATION %}
+  {% set first_page = articles_paginator.page(1) %}
+  {% set last_page = articles_paginator.page(articles_paginator.num_pages) %}
+  <nav>
+    <ul>
+      {% if articles_page.has_previous() %}
+        <li><a style="padding: 0 4px 0 4px;" href="{{ SITEURL }}/blog/{{ first_page.url }}">&Lang;</a></li>
+        <li><a style="padding: 0 4px 0 4px;" href="{{ SITEURL }}/blog/{{ articles_previous_page.url }}">&lang;</a></li>
+      {% endif %}
+      <li>Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}</li>
+      {% if articles_page.has_next() %}
+        <li><a style="padding: 0 4px 0 4px;" href="{{ SITEURL }}/blog/{{ articles_next_page.url }}">&rang;</a></li>
+        <li><a style="padding: 0 4px 0 4px;"  href="{{ SITEURL }}/blog/{{ last_page.url }}"> &Rang;</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}

@@ -5,7 +5,7 @@ NOW = datetime.now().date().strftime( '%d-%m-%y ')
 
 AUTHOR = 'Wandeson Ricardo (WSRicardo)'
 SITENAME = 'WSRicardo Blog'
-SITEURL = ""
+SITEURL = "http://localhost:5500"
 
 PATH = "content/"
 
@@ -36,12 +36,12 @@ SOCIAL = (
 )
 
 DEFAULT_PAGINATION = 10
-THEME = "theme"
+THEME = "theme-wsricardo/"
 
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 ARTICLE_PATHS = [ 'posts', 'articles' ]
-ARTICLE_URL = 'posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
+ARTICLE_URL = 'blog/posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
 
 PAGE_PATHS = ['pages']
@@ -49,5 +49,4 @@ PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
 STATIC_PATHS = ['imagens' , 'arquivos']
 OUTPUT_PATH = 'blog/'
-
-
+SITE_ROOT_URL = '..' # Variável para a raiz do site em desenvolvimento

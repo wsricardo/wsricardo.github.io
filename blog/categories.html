@@ -1,13 +1,32 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>WSRicardo Blog - Categories</title>
-    <link rel="stylesheet" href="./theme/css/variables.css">
-    <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
-    <link rel="icon" type="image/x-icon" href="./imagens/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Artigos, anotações e reflexões sobre matemática, tecnologia, arte e programação no blog de WSRicardo.">
+    
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Blog | WSRicardo">
+    <meta property="og:description" content="Artigos, anotações e reflexões sobre matemática, tecnologia, arte e programação no blog de WSRicardo.">
+    <meta property="og:image" content="imgs/wan-vectorArt1-thumbnail.jpg">
+    <meta property="og:url" content="https://www.wsricardo.com.br/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="WSRicardo">
+    <meta property="og:locale" content="pt_BR">
 
-    <script>
+    <meta name="author" content="Wandeson Ricardo">
+    <meta name="keywords" content="Blog, Artigos, Tecnologia, Matemática, Programação, Wandeson Ricardo">
+    <meta name="language" content="pt-BR">
+
+    <title>Blog | WSRicardo</title>
+    <link rel="stylesheet" href="/blog/theme/css/style.css">
+    <link rel="shortcut icon" href="/blog/theme/images/wsricardo-thumbnail.ico" type="image/x-icon">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672"
+     crossorigin="anonymous"></script>
+
+     <script>
         MathJax = {
             tex: {
                 inlineMath: {'[+]': [['$', '$']]}
@@ -19,33 +38,126 @@
     </script>
     
 
-
 </head>
 <body>
-    <header>
-        <h1 class="blog-title"><a href=".">WSRicardo Blog</a></h1>
-        <nav>
-            <ul>
-                <li><a class="blog-menu" href="./index.html">Home</a></li>
-                <li><a class="blog-menu" href="./archives.html">Arquivos</a></li>
-                <!-- Add more menu items as needed -->
-            </ul>
-        </nav>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/index.html" class="logo">
+                <img src="/blog/theme/images/wan-vectorArt1-thumbnail.jpg" alt="Logo WSRicardo" class="logo-avatar">
+                <span>WSRicardo</span>
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menu">☰</button>
+            <nav class="main-nav" id="main-nav">
+                <a href="/index.html">Home</a>
+                <a href="/projetos.html">Projetos</a>
+                <a href="/blog.html" class="active">Blog</a>
+                <a href="/galeria.html">Galeria</a>
+                <a href="/cartum.html">Cartum</a>
+                <a href="#apoie">Apoie</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
     </header>
-    
+
     <main>
+        <section class="section">
+            <div class="container">
+                <header class="page-header">
+                    <h1>Blog</h1>
+                    <p>Artigos, anotações e reflexões sobre os temas que estudo. Para uma lista sempre atualizada, o ideal é integrar esta página ao sistema de templates do Pelican.</p>
+                </header>
+
+                <div class="article-list">
+                    <!-- As postagens serão carregadas aqui via JavaScript -->
     <h2>Categories on WSRicardo Blog</h2>
     <ul>
-            <li><a href="./category/geral.html">Geral</a> (2)</li>
+            <li><a href="/category/geral.html">Geral</a> (2)</li>
     </ul>
+                </div>
+
+                
+
+            </div>
+        </section>
     </main>
-    
-    <footer>
-        <p>
-            <a href="./index.html">&copy; WSRicardo Blog</a>
-        </p>
+
+    <section id="apoie" class="section">
+        <div class="container">
+            <h2>Apoie o Nosso Trabalho</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px auto;">
+                Se você gosta do conteúdo e quer apoiar a continuidade dos projetos, canais e do blog, considere se tornar um apoiador. Sua contribuição faz toda a diferença.
+            </p>
+            <div class="posts-grid">
+                <!-- Como o Apoia.se não oferece um feed RSS público para os posts da comunidade, a atualização aqui é manual. -->
+                <div class="post-card support-post-placeholder">
+                    <div class="post-card-content">
+                        <h3>UFPE Cálculo 1 1EE 2025.1 Questão 1.a (i) Novo Vídeo</h3>
+                        <p>Vídeo de resolução de questão de prova de cáulco da UFPE.</p>
+                        <p><a href="https://apoia.se/dimensaowsricardo/contents/view/UFPE-Calculo-1-1EE-2025.1-Questao-1.a-(i)-Novo-Video-UbeBnkQy0?page=1#0" target="_blank" rel="noopener noreferrer">Ver mais...</a></p>
+                    </div>
+                </div>
+                <div class="post-card qr-code-card">
+                    <div class="post-card-content">
+                        <h3>Doação via PIX</h3>
+                        <!-- Coloque a imagem do seu QR Code aqui -->
+                        <a style="text-decoration: none;" href="https://nubank.com.br/cobrar/1drdyl/696969ca-57d1-406f-a94e-4a0d79613ba8" target="_blank" rel="noopener noreferrer">
+                            <img src="/imgs/pix-qrcode.png" alt="QR Code para doação PIX" class="qr-code-img">
+                         </a>
+                        <p>Sua contribuição ajuda a manter os projetos e o site no ar. Obrigado!</p>
+                        <p><i>Lembre-se: Confira sempre o nome e dados do recebedor.</i></p>
+                    </div>
+                </div>
+                <div class="post-card support-post-placeholder">
+                    <div class="post-card-content">
+                        <h3>WSRicardo Blog - Uma Nova Pagina</h3>
+                        <p>Olá,
+
+Recentemente iniciei um projeto para a construção de um novo espaço para meu blog pessoal WSRicardo, agora um blog estático, hospedado no GitHub onde costumo publicar...</p>
+                        <p><a href="https://apoia.se/dimensaowsricardo/contents/view/WSRicardo-Blog-Uma-Nova-Pagina-i6yfIu5Lu?page=1#1" target="_blank" rel="noopener noreferrer">Ver mais...</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="https://apoia.se/dimensaowsricardo" class="btn" target="_blank" rel="noopener noreferrer">Seja um Apoiador</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato" class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>WSRicardo</h3>
+                    <p>Um espaço pessoal para anotações, reflexões e experimentos. Feito com código, curiosidade e um café.</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>Conecte-se</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/wsricardo" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <!-- Adicionar link para o YouTube quando disponível -->
+                        <a href="https://www.youtube.com/@WSRicardoArte" target="_blank" rel="noopener noreferrer">YouTube</a>
+                        <a href="https://whatsapp.com/channel/0029VbCVPx37oQhZkmIDWF2r">WhatsApp</a>
+                    </div>
+                </div>
+                 <div class="footer-contact">
+                    <h3>Contatos</h3>
+                    <div class="footer-links-column">
+                        <a href="mailto:seuemail@email.com">Email</a>
+                        <a href="https://instagram.com/w.s.ricardo">Instagram</a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wandeson Ricardo. Todos os direitos reservados.</p>
+            </div>
+        </div>
+        <a href="#" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</a>
     </footer>
 
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+
+
 </body>
 </html>

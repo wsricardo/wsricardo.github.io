@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Coleção de cartuns, tirinhas e ilustrações de humor por Wandeson Ricardo.">
+    <meta name="description" content="Artigos, anotações e reflexões sobre matemática, tecnologia, arte e programação no blog de WSRicardo.">
     
     <meta name="robots" content="index, follow">
     
-    <meta property="og:title" content="Cartuns | WSRicardo">
-    <meta property="og:description" content="Coleção de cartuns, tirinhas e ilustrações de humor por Wandeson Ricardo.">
+    <meta property="og:title" content="Blog | WSRicardo">
+    <meta property="og:description" content="Artigos, anotações e reflexões sobre matemática, tecnologia, arte e programação no blog de WSRicardo.">
     <meta property="og:image" content="imgs/wan-vectorArt1-thumbnail.jpg">
     <meta property="og:url" content="https://www.wsricardo.com.br/">
     <meta property="og:type" content="website">
@@ -16,32 +16,44 @@
     <meta property="og:locale" content="pt_BR">
 
     <meta name="author" content="Wandeson Ricardo">
-    <meta name="keywords" content="Cartum, Charge, Tirinhas, Humor, Ilustração, Wandeson Ricardo">
+    <meta name="keywords" content="Blog, Artigos, Tecnologia, Matemática, Programação, Wandeson Ricardo">
     <meta name="language" content="pt-BR">
 
-    <title>Cartuns | WSRicardo</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="imgs/wsricardo-thumbnail.ico" type="image/x-icon">
+    <title>Blog | WSRicardo</title>
+    <link rel="stylesheet" href="{{ SITEURL }}/blog/theme/css/style.css">
+    <link rel="shortcut icon" href="{{ SITEURL }}/blog/theme/images/wsricardo-thumbnail.ico" type="image/x-icon">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672"
      crossorigin="anonymous"></script>
+
+     <script>
+        MathJax = {
+            tex: {
+                inlineMath: {'[+]': [['$', '$']]}
+            },
+        svg: {
+            fontCache: 'global'
+            }
+        };
+    </script>
+    
 
 </head>
 <body>
 
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo">
-                <img src="imgs/wan-vectorArt1-thumbnail.jpg" alt="Logo WSRicardo" class="logo-avatar">
+            <a href="{{ SITEURL }}/index.html" class="logo">
+                <img src="{{ SITEURL}}/blog/theme/images/wan-vectorArt1-thumbnail.jpg" alt="Logo WSRicardo" class="logo-avatar">
                 <span>WSRicardo</span>
             </a>
             <button class="nav-toggle" aria-label="Abrir menu">☰</button>
             <nav class="main-nav" id="main-nav">
-                <a href="index.html">Home</a>
-                <a href="projetos.html">Projetos</a>
-                <a href="blog/">Blog</a>
-                <a href="galeria.html">Galeria</a>
-                <a href="cartum.html" class="active">Cartum</a>
+                <a href="{{ SITEURL }}/index.html">Home</a>
+                <a href="{{ HOMEURL }}/projetos.html">Projetos</a>
+                <a href="{{ SITEURL }}/blog.html" class="active">Blog</a>
+                <a href="{{ SITEURL }}/galeria.html">Galeria</a>
+                <a href="{{ SITEURL }}/cartum.html">Cartum</a>
                 <a href="#apoie">Apoie</a>
                 <a href="#contato">Contato</a>
             </nav>
@@ -52,37 +64,19 @@
         <section class="section">
             <div class="container">
                 <header class="page-header">
-                    <h1>Cartuns</h1>
-                    <p>Uma coleção de tirinhas e ilustrações de humor. Para que esta página seja atualizada automaticamente, o ideal é convertê-la em um template do Pelican que filtre pela categoria "Cartum".</p>
+                    <h1>Blog</h1>
+                    <p>Artigos, anotações e reflexões sobre os temas que estudo. Para uma lista sempre atualizada, o ideal é integrar esta página ao sistema de templates do Pelican.</p>
                 </header>
 
-                <div class="gallery-grid full-gallery">
-                    <!-- Exemplo de item. Isso seria gerado por um loop do Pelican -->
-                    <div class="gallery-item">
-                        <a href="#">
-                            <img src="https://via.placeholder.com/400x400.png?text=Cartum+1" alt="Título do Cartum 1">
-                        </a>
-                        <p class="gallery-item-caption">Título do Cartum 1</p>
-                    </div>
-                    <div class="gallery-item">
-                        <a href="#">
-                            <img src="https://via.placeholder.com/400x400.png?text=Cartum+2" alt="Título do Cartum 2">
-                        </a>
-                        <p class="gallery-item-caption">Título do Cartum 2</p>
-                    </div>
-                    <div class="gallery-item">
-                        <a href="#">
-                            <img src="https://via.placeholder.com/400x400.png?text=Cartum+3" alt="Título do Cartum 3">
-                        </a>
-                        <p class="gallery-item-caption">Título do Cartum 3</p>
-                    </div>
-                    <!-- Adicionar mais cartuns aqui -->
+                <div class="article-list">
+                    <!-- As postagens serão carregadas aqui via JavaScript -->
+                    {% block content %}
+
+                    {% endblock content %}
                 </div>
 
-                <!-- A paginação aqui é estática. Para uma paginação real, seria necessário usar o Pelican. -->
-                <div class="pagination">
-                    <span class="pagination-current">Página 1 de 1</span>
-                </div>
+                
+
             </div>
         </section>
     </main>
@@ -107,7 +101,7 @@
                         <h3>Doação via PIX</h3>
                         <!-- Coloque a imagem do seu QR Code aqui -->
                         <a style="text-decoration: none;" href="https://nubank.com.br/cobrar/1drdyl/696969ca-57d1-406f-a94e-4a0d79613ba8" target="_blank" rel="noopener noreferrer">
-                            <img src="imgs/pix-qrcode.png" alt="QR Code para doação PIX" class="qr-code-img">
+                            <img src="{{ SITEURL }}/imgs/pix-qrcode.png" alt="QR Code para doação PIX" class="qr-code-img">
                          </a>
                         <p>Sua contribuição ajuda a manter os projetos e o site no ar. Obrigado!</p>
                         <p><i>Lembre-se: Confira sempre o nome e dados do recebedor.</i></p>
@@ -162,39 +156,7 @@ Recentemente iniciei um projeto para a construção de um novo espaço para meu 
         <a href="#" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</a>
     </footer>
 
-<script>
-  // Lógica para o botão "Voltar ao Topo"
-  const backToTopButton = document.querySelector('.back-to-top');
 
-  if (backToTopButton) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) { // Mostra o botão após rolar 300px
-        backToTopButton.classList.add('visible');
-      } else {
-        backToTopButton.classList.remove('visible');
-      }
-    });
-
-    backToTopButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      // A rolagem suave já está definida no CSS (scroll-behavior: smooth), mas o JS oferece mais controle.
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  // Lógica para o menu de navegação móvel
-  const navToggle = document.querySelector('.nav-toggle');
-  const mainNav = document.querySelector('#main-nav');
-
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('nav-open');
-    });
-  }
-</script>
 
 </body>
 </html>
