@@ -350,7 +350,7 @@ Recentemente iniciei um projeto para a construção de um novo espaço para meu 
                     const cartoonItem = document.createElement('div');
                     cartoonItem.className = 'gallery-item';
                     // Envolve a imagem em um link para a postagem completa
-                    cartoonItem.innerHTML = `<a href="${link}"><img src="${imgSrc}" alt="${title}"></a>`;
+                    cartoonItem.innerHTML = `<a href="${link}"><img src="${imgSrc}" alt="${title}"><p style="text-align: center;">${title}</p></a>`;
                     container.appendChild(cartoonItem);
                     count++;
                 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+
+    <title>WSRicardo Cartum</title>
+    <link href="/cartum.html" rel="alternate"/>
+    <link href="/feeds/cartum.atom.xml" rel="self"/>
+    <id>tag:wsricardo.com.br,2026:cartum</id>
+    <updated>2026-01-14T12:00:00-03:00</updated>
+    <author>
+        <name>Wandeson Ricardo</name>
+    </author>
+    <entry>
+        <title>Trump Em Seus Discursos e Políticas</title>
+        <link href="/cartum.html" rel="alternate"/>
+        <id>tag:wsricardo.com.br,2026-01-14:cartum/trump</id>
+        <published>2026-01-14T12:00:00-03:00</published>
+        <updated>2026-01-14T12:00:00-03:00</updated>
+        <author>
+            <name>Wandeson Ricardo</name>
+        </author>
+        
+        <summary type="html">
+            &lt;p&gt;&lt;img src="/cartum/20260111_223757.jpg" alt="Cartum do Dia - Trump Em Seus Discursos e Políticas Expõe Desejo de Expandir Seus Territórios de Influência"&gt;&lt;/p&gt;
+            
+            <h1>Trump Em Seus Discursos e Políticas</h1>
+
+        </summary>
+        
+    </entry>
+    <entry>
+        <title>Senhores da Guerra</title>
+        <link href="/cartum.html" rel="alternate"/>
+        <id>tag:wsricardo.com.br,2026-01-14:cartum/guerra</id>
+        <published>2026-01-14T11:00:00-03:00</published>
+        <updated>2026-01-14T11:00:00-03:00</updated>
+        <author>
+            <name>Wandeson Ricardo</name>
+        </author>
+        
+        <summary type="html">
+            &lt;p&gt;&lt;img src="/cartum/20260104_130951.jpg" alt="Senhores da Guerra"&gt;&lt;/p&gt;
+            &lt;p Senhores da Guerra - 14 Jan 2026 &lt;/pgt
+        </summary>
+    </entry>
+    
+
+
+
+
+</feed>
