@@ -5,7 +5,7 @@ NOW = datetime.now().date().strftime( '%d-%m-%y ')
 
 AUTHOR = 'Wandeson Ricardo (WSRicardo)'
 SITENAME = 'WSRicardo Blog'
-SITEURL = "http://localhost:5500"
+SITEURL = "https://www.wsricardo.com.br"
 
 print(f"SITEURL : {SITEURL  }")
 PATH = "content/"
