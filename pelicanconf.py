@@ -7,6 +7,7 @@ AUTHOR = 'Wandeson Ricardo (WSRicardo)'
 SITENAME = 'WSRicardo Blog'
 SITEURL = "http://localhost:5500"
 
+print(f"SITEURL : {SITEURL  }")
 PATH = "content/"
 
 TIMEZONE = 'America/Sao_Paulo'
@@ -39,7 +40,7 @@ DEFAULT_PAGINATION = 10
 THEME = "theme-wsricardo/"
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 ARTICLE_PATHS = [ 'posts', 'articles' ]
 ARTICLE_URL = 'blog/posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
@@ -49,4 +50,4 @@ PAGE_URL = 'pages/{slug}/'
 PAGE_SAVE_AS = 'pages/{slug}/index.html'
 STATIC_PATHS = ['imagens' , 'arquivos']
 OUTPUT_PATH = 'blog/'
-SITE_ROOT_URL = '..' # Variável para a raiz do site em desenvolvimento
+SITE_ROOT_URL = f'{ SITEURL }' # Variável para a raiz do site em desenvolvimento
