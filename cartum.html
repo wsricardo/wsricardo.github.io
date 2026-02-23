@@ -23,6 +23,72 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="imgs/wsricardo-thumbnail.ico" type="image/x-icon">
 
+    <style>
+        /* Estilos para o Modal/Lightbox */
+        .modal {
+            display: none; /* Oculto por padrão */
+            position: fixed; /* Fica fixo na tela */
+            z-index: 1000; /* Fica na frente de tudo */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            /* Usando flex para centralizar */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80vh;
+            width: auto;
+            cursor: default;
+        }
+
+        #caption {
+            margin: 15px auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+        }
+
+        .modal-content, #caption {  
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0.1)} 
+            to {transform: scale(1)}
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            z-index: 1001;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+    </style>
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672"
      crossorigin="anonymous"></script>
 
@@ -175,8 +241,16 @@ Recentemente iniciei um projeto para a construção de um novo espaço para meu 
                 <p>&copy; 2026 Wandeson Ricardo. Todos os direitos reservados.</p>
             </div>
         </div>
-        <a href="#" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</a>
     </footer>
+
+    <!-- Modal/Lightbox para a imagem -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal" title="Fechar">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Imagem do cartum em destaque">
+        <div id="caption"></div>
+    </div>
+
+    <a href="#" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</a>
 
 <script>
   // Lógica para o botão "Voltar ao Topo"
@@ -210,6 +284,46 @@ Recentemente iniciei um projeto para a construção de um novo espaço para meu 
       mainNav.classList.toggle('nav-open');
     });
   }
+
+  // --- INÍCIO: Lógica para o Modal/Lightbox da galeria ---
+  const modal = document.getElementById('imageModal');
+
+  if (modal) {
+    const modalImg = document.getElementById('modalImage');
+    const captionText = document.getElementById('caption');
+    const galleryItems = document.querySelectorAll('.gallery-grid .gallery-item');
+    const closeModal = document.querySelector('.close-modal');
+
+    galleryItems.forEach(item => {
+      const clickableElement = item.querySelector('a'); 
+      
+      clickableElement.addEventListener('click', function(event) {
+        event.preventDefault();
+        const img = this.querySelector('img');
+        const itemCaption = item.querySelector('.gallery-item-caption');
+        
+        modal.style.display = "flex";
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        captionText.innerHTML = itemCaption ? itemCaption.innerHTML : '';
+      });
+    });
+
+    const closeTheModal = function() {
+      modal.style.display = "none";
+    }
+
+    if (closeModal) {
+      closeModal.addEventListener('click', closeTheModal);
+    }
+
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) { // Fecha se clicar no fundo
+        closeTheModal();
+      }
+    });
+  }
+  // --- FIM: Lógica para o Modal/Lightbox da galeria ---
 </script>
 
 </body>
