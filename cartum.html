@@ -87,6 +87,36 @@
             color: #bbb;
             text-decoration: none;
         }
+
+        /* Estilos para os botões de navegação do modal */
+        .prev-modal, .next-modal {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .next-modal {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev-modal {
+            left: 0;
+        }
+
+        .prev-modal:hover, .next-modal:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
     </style>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672"
@@ -246,6 +276,8 @@ Recentemente iniciei um projeto para a construção de um novo espaço para meu 
     <!-- Modal/Lightbox para a imagem -->
     <div id="imageModal" class="modal">
         <span class="close-modal" title="Fechar">&times;</span>
+        <a class="prev-modal" title="Anterior">&#10094;</a>
+        <a class="next-modal" title="Próximo">&#10095;</a>
         <img class="modal-content" id="modalImage" alt="Imagem do cartum em destaque">
         <div id="caption"></div>
     </div>
@@ -293,35 +325,72 @@ Recentemente iniciei um projeto para a construção de um novo espaço para meu 
     const captionText = document.getElementById('caption');
     const galleryItems = document.querySelectorAll('.gallery-grid .gallery-item');
     const closeModal = document.querySelector('.close-modal');
+    const prevModal = document.querySelector('.prev-modal');
+    const nextModal = document.querySelector('.next-modal');
+    
+    let currentIndex;
 
-    galleryItems.forEach(item => {
+    // Função para abrir o modal e mostrar uma imagem específica
+    const showImage = (index) => {
+      if (index >= galleryItems.length || index < 0) {
+        return;
+      }
+      currentIndex = index;
+      const item = galleryItems[index];
+      const img = item.querySelector('img');
+      const itemCaption = item.querySelector('.gallery-item-caption');
+      
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      captionText.innerHTML = itemCaption ? itemCaption.innerHTML : '';
+    };
+
+    // Adiciona o evento de clique para cada item da galeria
+    galleryItems.forEach((item, index) => {
       const clickableElement = item.querySelector('a'); 
       
       clickableElement.addEventListener('click', function(event) {
         event.preventDefault();
-        const img = this.querySelector('img');
-        const itemCaption = item.querySelector('.gallery-item-caption');
-        
-        modal.style.display = "flex";
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        captionText.innerHTML = itemCaption ? itemCaption.innerHTML : '';
+        showImage(index);
       });
     });
 
+    // Função para fechar o modal
     const closeTheModal = function() {
       modal.style.display = "none";
     }
 
+    // Eventos para fechar o modal
     if (closeModal) {
       closeModal.addEventListener('click', closeTheModal);
     }
-
     modal.addEventListener('click', function(event) {
       if (event.target === modal) { // Fecha se clicar no fundo
         closeTheModal();
       }
     });
+
+    // Funções de navegação
+    const showNextImage = (e) => {
+        e.stopPropagation(); // Impede que o clique feche o modal
+        const nextIndex = (currentIndex + 1) % galleryItems.length;
+        showImage(nextIndex);
+    };
+
+    const showPrevImage = (e) => {
+        e.stopPropagation(); // Impede que o clique feche o modal
+        const prevIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        showImage(prevIndex);
+    };
+
+    // Eventos para os botões de navegação
+    if (nextModal) {
+        nextModal.addEventListener('click', showNextImage);
+    }
+    if (prevModal) {
+        prevModal.addEventListener('click', showPrevImage);
+    }
   }
   // --- FIM: Lógica para o Modal/Lightbox da galeria ---
 </script>
