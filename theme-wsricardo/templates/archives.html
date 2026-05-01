@@ -8,7 +8,7 @@
     <article class="blog-post">
         <h1 class="post-title">
             <a
-            href="{{ SITEURL }}/blog/{{ article.url }}"
+            href="{{ SITEURL }}/{{ article.url }}"
             rel="bookmark"
             title="{{ article.title|striptags }}"
             >{{ article.title }}</a
@@ -16,7 +16,7 @@
         </h1>
         <p class="post-footer">Publicado em <time datetime="{{ article.date.isoformat() }}">{{ article.date.strftime('%d/%m/%Y') }}</time> por 
             {% for author in article.authors %}
-                <a href="{{ SITEURL }}/blog/{{author.url}}">{{ author }}</a></p>
+                <a href="{{ SITEURL }}/{{ author.url}}">{{ author }}</a></p>
             {% endfor %}
     </article>
     {% endfor %}

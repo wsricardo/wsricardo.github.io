@@ -17,7 +17,7 @@
 
         <p class="post-footer">Publicado em {{ article.date.strftime('%d/%m/%Y') }} por 
             {% for author in article.authors %}
-                <a href="{{ SITEURL }}/blog/{{ author.url }}">{{ author }}</a></p>
+                <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></p>
             {% endfor %}
 
         <p class="post-content">
