@@ -156,14 +156,14 @@
                     cell.textContent = grid[r][c];
 
                     // Eventos de Mouse
-                    cell.addEventListener('mousedown', handleMouseDown);
-                    cell.addEventListener('mouseenter', handleMouseEnter);
+                    cell.addEventListener('pointerdown', handleMouseDown);
+                    cell.addEventListener('pointerenter', handleMouseEnter);
 
                     gridElement.appendChild(cell);
                 }
             }
             // Evento global para soltar o mouse mesmo fora da grade
-            document.addEventListener('mouseup', handleMouseUp);
+            document.addEventListener('pointerup', handleMouseUp);
         }
 
         // Renderiza a lista de palavras na lateral
