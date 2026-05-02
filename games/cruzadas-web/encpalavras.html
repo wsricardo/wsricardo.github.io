@@ -6,28 +6,14 @@
     <title>WSRicardo Games - Caça-Palavras</title>
     <link rel="stylesheet" href="../assets/css/games-theme.css">
 </head>
-<body class="game-page">
-
-    <header class="site-header">
-        <div class="container">
-            <a href="../../index.html" class="logo">
-                <span>WSRicardo://Games</span>
-            </a>
-            <nav class="main-nav">
-                <a href="../../index.html">Home</a>
-                <a href="../../projetos.html">Projetos</a>
-                <a href="../../blog/">Blog</a>
-                <a href="../../games/index.html" class="active">Games</a>
-            </nav>
-        </div>
-    </header>
+<body class="game-page game-page--standalone">
 
     <main>
         <section id="game-section" class="section">
             <div class="container">
                 <div class="game-hero">
                     <h1>Caça-Palavras Web</h1>
-                    <p class="page-intro">O universo das palavras aguarda. Prepare-se para decifrar os enigmas em uma experiência alinhada com a identidade neon da seção Games.</p>
+                    <p class="page-intro">Uma versão compacta da experiência para jogar com a mesma identidade futurista, contraste mais forte e melhor adaptação a telas menores.</p>
                     <p class="subtitle">Encontre todas as palavras escondidas</p>
                 </div>
 
@@ -48,24 +34,16 @@
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2026 Wandeson Ricardo. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
     <script>
         // Configurações do Jogo
         const GRID_SIZE = 12;
         const WORDS = ["CODIGO", "DESIGN", "FRONTEND", "LOGICA", "FUTURO", "CRIATIVO", "SISTEMA", "MODERNO"];
         const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
+        
         let grid = [];
         let wordsToFind = [];
         let foundWords = 0;
-
+        
         // Variáveis para a mecânica de seleção
         let isSelecting = false;
         let startCell = null;
@@ -81,7 +59,7 @@
             grid = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(''));
             wordsToFind = [...WORDS];
             foundWords = 0;
-
+            
             placeWords();
             fillEmptyCells();
             renderGrid();
@@ -93,13 +71,13 @@
             wordsToFind.forEach(word => {
                 let placed = false;
                 let attempts = 0;
-
+                
                 while (!placed && attempts < 100) {
                     // Direções: 0=Horizontal, 1=Vertical, 2=Diagonal
                     const dir = Math.floor(Math.random() * 3);
                     const row = Math.floor(Math.random() * GRID_SIZE);
                     const col = Math.floor(Math.random() * GRID_SIZE);
-
+                    
                     if (canPlaceWord(word, row, col, dir)) {
                         for (let i = 0; i < word.length; i++) {
                             const r = dir === 1 || dir === 2 ? row + i : row;
@@ -123,7 +101,7 @@
                 const r = dir === 1 || dir === 2 ? row + i : row;
                 const c = dir === 0 || dir === 2 ? col + i : col;
                 const currentCell = grid[r][c];
-
+                
                 if (currentCell !== '' && currentCell !== word[i]) {
                     return false;
                 }
@@ -146,7 +124,7 @@
         function renderGrid() {
             gridElement.innerHTML = '';
             gridElement.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 1fr)`;
-
+            
             for (let r = 0; r < GRID_SIZE; r++) {
                 for (let c = 0; c < GRID_SIZE; c++) {
                     const cell = document.createElement('div');
@@ -154,11 +132,11 @@
                     cell.dataset.row = r;
                     cell.dataset.col = c;
                     cell.textContent = grid[r][c];
-
+                    
                     // Eventos de Mouse
                     cell.addEventListener('mousedown', handleMouseDown);
                     cell.addEventListener('mouseenter', handleMouseEnter);
-
+                    
                     gridElement.appendChild(cell);
                 }
             }
@@ -181,9 +159,9 @@
 
         function handleMouseDown(e) {
             isSelecting = true;
-            startCell = {
-                r: parseInt(e.target.dataset.row),
-                c: parseInt(e.target.dataset.col)
+            startCell = { 
+                r: parseInt(e.target.dataset.row), 
+                c: parseInt(e.target.dataset.col) 
             };
             clearSelection();
             selectCell(e.target);
@@ -192,14 +170,14 @@
 
         function handleMouseEnter(e) {
             if (!isSelecting) return;
-
+            
             const currentR = parseInt(e.target.dataset.row);
             const currentC = parseInt(e.target.dataset.col);
-
+            
             // Verifica se a linha formada é reta (Horizontal, Vertical ou Diagonal Exata)
             const dr = Math.abs(currentR - startCell.r);
             const dc = Math.abs(currentC - startCell.c);
-
+            
             if (currentR === startCell.r || currentC === startCell.c || dr === dc) {
                 clearSelection();
                 calculatePath(startCell.r, startCell.c, currentR, currentC);
@@ -209,7 +187,7 @@
         function handleMouseUp() {
             if (!isSelecting) return;
             isSelecting = false;
-
+            
             // Pega a palavra formada
             const selectedWord = currentSelection.map(cell => cell.textContent).join('');
             const reversedWord = selectedWord.split('').reverse().join(''); // Permite selecionar de trás pra frente
@@ -220,7 +198,7 @@
             } else {
                 clearSelection();
             }
-
+            
             startCell = null;
         }
 
@@ -228,12 +206,12 @@
         function calculatePath(r1, c1, r2, c2) {
             const rowStep = r1 === r2 ? 0 : (r2 > r1 ? 1 : -1);
             const colStep = c1 === c2 ? 0 : (c2 > c1 ? 1 : -1);
-
+            
             let r = r1;
             let c = c1;
-
+            
             currentSelection = [];
-
+            
             // Traça a linha até o destino
             while (true) {
                 const cell = document.querySelector(`.cell[data-row="${r}"][data-col="${c}"]`);
@@ -241,9 +219,9 @@
                     selectCell(cell);
                     currentSelection.push(cell);
                 }
-
+                
                 if (r === r2 && c === c2) break;
-
+                
                 r += rowStep;
                 c += colStep;
             }
@@ -268,17 +246,17 @@
                 cell.classList.remove('selecting');
                 cell.classList.add('found');
             });
-
+            
             const li = document.getElementById(`word-${word}`);
             if (li && !li.classList.contains('struck')) {
                 li.classList.add('struck');
                 foundWords++;
-
+                
                 if (foundWords === wordsToFind.length) {
                     setTimeout(() => alert('🎉 Parabéns! Você encontrou todas as palavras!'), 500);
                 }
             }
-
+            
             // Remove a palavra do array para não selecionar duas vezes
             wordsToFind = wordsToFind.filter(w => w !== word);
             currentSelection = [];
@@ -291,6 +269,5 @@
         initGame();
 
     </script>
-
 </body>
 </html>

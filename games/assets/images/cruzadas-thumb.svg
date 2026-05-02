@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Caça-Palavras Web</title>
+  <desc id="desc">Thumbnail futurista do jogo de caça-palavras com grade neon e destaques em ciano e magenta.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#091021"/>
+      <stop offset="55%" stop-color="#121a35"/>
+      <stop offset="100%" stop-color="#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00ffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#f92572" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="640" height="400" fill="url(#bg)"/>
+  <rect width="640" height="400" fill="url(#glow)"/>
+  <g stroke="#00ffff" stroke-opacity="0.15">
+    <path d="M0 60H640M0 140H640M0 220H640M0 300H640" opacity="0.35"/>
+    <path d="M90 0V400M200 0V400M310 0V400M420 0V400M530 0V400" opacity="0.25"/>
+  </g>
+  <circle cx="96" cy="78" r="64" fill="#00ffff" opacity="0.08" filter="url(#softGlow)"/>
+  <circle cx="544" cy="326" r="88" fill="#f92572" opacity="0.08" filter="url(#softGlow)"/>
+  <rect x="44" y="44" width="552" height="312" rx="28" fill="#0f1730" fill-opacity="0.82" stroke="#00ffff" stroke-opacity="0.26"/>
+  <g transform="translate(78 88)">
+    <rect width="250" height="250" rx="18" fill="#08101f" stroke="#00ffff" stroke-opacity="0.22"/>
+    <g stroke="#00ffff" stroke-opacity="0.24">
+      <path d="M41.6 0V250M83.2 0V250M124.8 0V250M166.4 0V250M208 0V250"/>
+      <path d="M0 41.6H250M0 83.2H250M0 124.8H250M0 166.4H250M0 208H250"/>
+    </g>
+    <g fill="#dffcff" font-family="Orbitron, Arial, sans-serif" font-size="17" text-anchor="middle">
+      <text x="20.8" y="28">C</text>
+      <text x="62.4" y="69.6">O</text>
+      <text x="104" y="111.2">D</text>
+      <text x="145.6" y="152.8">I</text>
+      <text x="187.2" y="194.4">G</text>
+      <text x="228.8" y="236">O</text>
+      <text x="228.8" y="28">F</text>
+      <text x="187.2" y="69.6">R</text>
+      <text x="145.6" y="111.2">O</text>
+      <text x="104" y="152.8">N</text>
+      <text x="62.4" y="194.4">T</text>
+      <text x="20.8" y="236">E</text>
+    </g>
+    <path d="M20.8 20.8L229 229" stroke="#f92572" stroke-width="8" stroke-linecap="round" filter="url(#softGlow)"/>
+    <path d="M229 20.8L20.8 229" stroke="#00ffff" stroke-width="6" stroke-linecap="round" filter="url(#softGlow)"/>
+  </g>
+  <g transform="translate(352 88)">
+    <text x="0" y="24" fill="#00ffff" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="2.2" textLength="206" lengthAdjust="spacingAndGlyphs">WSRicardo://Games</text>
+    <text x="0" y="76" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">
+      <tspan x="0" dy="0" textLength="116" lengthAdjust="spacingAndGlyphs">CACA-</tspan>
+      <tspan x="0" dy="34" textLength="210" lengthAdjust="spacingAndGlyphs">PALAVRAS</tspan>
+    </text>
+    <text x="0" y="148" fill="#cfe8ff" font-family="Arial, Helvetica, sans-serif" font-size="13.5">
+      <tspan x="0" dy="0" textLength="204" lengthAdjust="spacingAndGlyphs">Palavras ocultas e raciocinio</tspan>
+      <tspan x="0" dy="20" textLength="182" lengthAdjust="spacingAndGlyphs">rapido em clima neon.</tspan>
+    </text>
+    <g transform="translate(0 184)">
+      <rect width="176" height="40" rx="20" fill="#00ffff" fill-opacity="0.12" stroke="#00ffff" stroke-opacity="0.5"/>
+      <text x="88" y="25" fill="#00ffff" font-family="Arial, Helvetica, sans-serif" font-size="12.5" font-weight="700" text-anchor="middle" letter-spacing="2.2">JOGAR AGORA</text>
+    </g>
+    <g transform="translate(0 250)" fill="#f92572" font-family="Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" letter-spacing="1.1">
+      <text y="0">CODIGO</text>
+      <text y="26">DESIGN</text>
+      <text y="52">FUTURO</text>
+    </g>
+  </g>
+</svg>
