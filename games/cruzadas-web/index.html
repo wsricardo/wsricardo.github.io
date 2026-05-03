@@ -5,6 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WSRicardo Games - Caça-Palavras</title>
     <link rel="stylesheet" href="../assets/css/games-theme.css">
+    <style>
+        .game-page .game-stage {
+            align-items: stretch;
+        }
+
+        .game-page .board-panel {
+            overflow: auto hidden;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+        }
+
+        .game-page .board-wrapper {
+            touch-action: auto;
+        }
+
+        .game-page .grid {
+            margin: 0 auto;
+            touch-action: none;
+        }
+
+        .game-page .grid.is-selecting {
+            box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.18);
+        }
+
+        .game-page .cell {
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        .game-page .game-hint {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .game-page .game-status {
+            padding: 12px 14px;
+            border: 1px solid rgba(0, 255, 255, 0.16);
+            border-radius: 16px;
+            background: rgba(0, 255, 255, 0.06);
+            color: var(--text-color);
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        .game-page .game-status.is-warning {
+            border-color: rgba(249, 37, 114, 0.3);
+            background: rgba(249, 37, 114, 0.12);
+            color: #ffd7e6;
+        }
+
+        .game-page .game-status.is-complete {
+            border-color: rgba(0, 255, 255, 0.34);
+            background: rgba(0, 255, 255, 0.12);
+            color: #f2ffff;
+            box-shadow: 0 0 18px rgba(0, 255, 255, 0.14);
+        }
+
+        @media (max-width: 980px) {
+            .game-page .word-list {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .game-page .board-panel {
+                padding: 14px;
+            }
+
+            .game-page .sidebar {
+                gap: 16px;
+            }
+
+            .game-page .game-hint,
+            .game-page .game-status {
+                font-size: 0.88rem;
+            }
+        }
+    </style>
 </head>
 <body class="game-page">
 
@@ -34,12 +115,14 @@
                 <div class="game-stage">
                     <div class="board-panel">
                         <div class="board-wrapper">
-                            <div id="grid" class="grid"></div>
+                            <div id="grid" class="grid" role="grid" aria-label="Tabuleiro do caça-palavras"></div>
                         </div>
                     </div>
 
                     <aside class="sidebar">
                         <h3>Palavras</h3>
+                        <p class="game-hint" id="game-hint"></p>
+                        <div class="game-status" id="game-status" role="status" aria-live="polite"></div>
                         <ul id="word-list" class="word-list"></ul>
                         <button class="btn" id="restart-btn" type="button">Novo Jogo</button>
                     </aside>
@@ -59,58 +142,115 @@
     <script>
         // Configurações do Jogo
         const GRID_SIZE = 12;
-        const WORDS = ["CODIGO", "DESIGN", "FRONTEND", "LOGICA", "FUTURO", "CRIATIVO", "SISTEMA", "MODERNO"];
+        const WORDS = Object.freeze(["CODIGO", "DESIGN", "FRONTEND", "LOGICA", "FUTURO", "CRIATIVO", "SISTEMA", "MODERNO"]);
         const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const MAX_BOARD_GENERATION_ATTEMPTS = 40;
+        const MAX_WORD_PLACEMENT_ATTEMPTS = 200;
 
         let grid = [];
-        let wordsToFind = [];
+        let remainingWords = new Set();
         let foundWords = 0;
+        let gameReady = false;
 
         // Variáveis para a mecânica de seleção
         let isSelecting = false;
         let startCell = null;
         let currentSelection = [];
+        let currentSelectionKey = "";
+        let activePointerId = null;
+        let cellMatrix = [];
 
         // Elementos do DOM
         const gridElement = document.getElementById('grid');
         const wordListElement = document.getElementById('word-list');
         const restartBtn = document.getElementById('restart-btn');
+        const gameHintElement = document.getElementById('game-hint');
+        const gameStatusElement = document.getElementById('game-status');
+        const boardPanelElement = document.querySelector('.board-panel');
+        const boardWrapperElement = document.querySelector('.board-wrapper');
 
         // Inicializa o jogo
         function initGame() {
-            grid = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(''));
-            wordsToFind = [...WORDS];
-            foundWords = 0;
-
-            placeWords();
-            fillEmptyCells();
+            cancelSelection();
+            setupHint();
+            gameReady = generateBoard();
             renderGrid();
             renderWordList();
+            syncBoardScale();
+
+            if (gameReady) {
+                setStatus(`${foundWords}/${WORDS.length} palavras encontradas.`, 'info');
+            } else {
+                setStatus('Nao foi possivel montar um tabuleiro valido. Toque em "Novo Jogo" para tentar novamente.', 'warning');
+            }
+        }
+
+        function setupHint() {
+            const prefersTouch = window.matchMedia('(pointer: coarse)').matches;
+            gameHintElement.textContent = prefersTouch
+                ? 'Deslize pelas letras em linha reta para marcar cada palavra.'
+                : 'Clique e arraste pelas letras em linha reta para marcar cada palavra.';
+        }
+
+        function setStatus(message, tone = 'info') {
+            gameStatusElement.textContent = message;
+            gameStatusElement.classList.remove('is-warning', 'is-complete');
+
+            if (tone === 'warning') {
+                gameStatusElement.classList.add('is-warning');
+            }
+
+            if (tone === 'complete') {
+                gameStatusElement.classList.add('is-complete');
+            }
+        }
+
+        function generateBoard() {
+            for (let boardAttempt = 0; boardAttempt < MAX_BOARD_GENERATION_ATTEMPTS; boardAttempt++) {
+                grid = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(''));
+
+                if (placeWords()) {
+                    fillEmptyCells();
+                    remainingWords = new Set(WORDS);
+                    foundWords = 0;
+                    return true;
+                }
+            }
+
+            grid = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(''));
+            fillEmptyCells();
+            remainingWords = new Set();
+            foundWords = 0;
+            return false;
         }
 
         // Tenta posicionar todas as palavras na matriz
         function placeWords() {
-            wordsToFind.forEach(word => {
-                let placed = false;
-                let attempts = 0;
+            return WORDS.every((word) => placeSingleWord(word));
+        }
 
-                while (!placed && attempts < 100) {
-                    // Direções: 0=Horizontal, 1=Vertical, 2=Diagonal
-                    const dir = Math.floor(Math.random() * 3);
-                    const row = Math.floor(Math.random() * GRID_SIZE);
-                    const col = Math.floor(Math.random() * GRID_SIZE);
+        function placeSingleWord(word) {
+            let attempts = 0;
 
-                    if (canPlaceWord(word, row, col, dir)) {
-                        for (let i = 0; i < word.length; i++) {
-                            const r = dir === 1 || dir === 2 ? row + i : row;
-                            const c = dir === 0 || dir === 2 ? col + i : col;
-                            grid[r][c] = word[i];
-                        }
-                        placed = true;
+            while (attempts < MAX_WORD_PLACEMENT_ATTEMPTS) {
+                // Direções: 0=Horizontal, 1=Vertical, 2=Diagonal
+                const dir = Math.floor(Math.random() * 3);
+                const row = Math.floor(Math.random() * GRID_SIZE);
+                const col = Math.floor(Math.random() * GRID_SIZE);
+
+                if (canPlaceWord(word, row, col, dir)) {
+                    for (let i = 0; i < word.length; i++) {
+                        const r = dir === 1 || dir === 2 ? row + i : row;
+                        const c = dir === 0 || dir === 2 ? col + i : col;
+                        grid[r][c] = word[i];
                     }
-                    attempts++;
+                    return true;
                 }
-            });
+
+                attempts++;
+            }
+
+            return false;
         }
 
         // Verifica se a palavra cabe na direção escolhida sem sobrepor letras diferentes
@@ -146,100 +286,174 @@
         function renderGrid() {
             gridElement.innerHTML = '';
             gridElement.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 1fr)`;
+            gridElement.classList.remove('is-selecting');
+            cellMatrix = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE));
+            const fragment = document.createDocumentFragment();
 
             for (let r = 0; r < GRID_SIZE; r++) {
                 for (let c = 0; c < GRID_SIZE; c++) {
                     const cell = document.createElement('div');
                     cell.classList.add('cell');
+                    cell.setAttribute('role', 'gridcell');
                     cell.dataset.row = r;
                     cell.dataset.col = c;
                     cell.textContent = grid[r][c];
-
-                    // Eventos de Mouse
-                    cell.addEventListener('pointerdown', handleMouseDown);
-                    cell.addEventListener('pointerenter', handleMouseEnter);
-
-                    gridElement.appendChild(cell);
+                    cellMatrix[r][c] = cell;
+                    fragment.appendChild(cell);
                 }
             }
-            // Evento global para soltar o mouse mesmo fora da grade
-            document.addEventListener('pointerup', handleMouseUp);
+
+            gridElement.appendChild(fragment);
         }
 
         // Renderiza a lista de palavras na lateral
         function renderWordList() {
             wordListElement.innerHTML = '';
-            wordsToFind.forEach(word => {
+            const fragment = document.createDocumentFragment();
+
+            WORDS.forEach(word => {
                 const li = document.createElement('li');
                 li.id = `word-${word}`;
                 li.textContent = word;
-                wordListElement.appendChild(li);
+                fragment.appendChild(li);
             });
+
+            wordListElement.appendChild(fragment);
         }
 
         // --- LÓGICA DE INTERAÇÃO E SELEÇÃO ---
 
-        function handleMouseDown(e) {
-            isSelecting = true;
-            startCell = {
-                r: parseInt(e.target.dataset.row),
-                c: parseInt(e.target.dataset.col)
+        function getCellCoords(cell) {
+            return {
+                r: parseInt(cell.dataset.row, 10),
+                c: parseInt(cell.dataset.col, 10)
             };
-            clearSelection();
-            selectCell(e.target);
-            currentSelection.push(e.target);
         }
 
-        function handleMouseEnter(e) {
-            if (!isSelecting) return;
+        function getCellFromPoint(x, y) {
+            const target = document.elementFromPoint(x, y);
+            if (!target) return null;
 
-            const currentR = parseInt(e.target.dataset.row);
-            const currentC = parseInt(e.target.dataset.col);
+            const cell = target.closest('.cell');
+            return cell && gridElement.contains(cell) ? cell : null;
+        }
+
+        function handlePointerDown(e) {
+            const cell = e.target.closest('.cell');
+            if (!gameReady || !cell || !gridElement.contains(cell)) return;
+            if (e.pointerType === 'mouse' && e.button !== 0) return;
+
+            isSelecting = true;
+            activePointerId = e.pointerId;
+            startCell = getCellCoords(cell);
+            currentSelectionKey = `${startCell.r}-${startCell.c}`;
+            gridElement.classList.add('is-selecting');
+
+            clearSelection();
+            selectPathTo(startCell.r, startCell.c);
+
+            if (e.cancelable) {
+                e.preventDefault();
+            }
+        }
+
+        function handlePointerMove(e) {
+            if (!isSelecting || e.pointerId !== activePointerId) return;
+
+            const currentCell = getCellFromPoint(e.clientX, e.clientY);
+            if (!currentCell) return;
+
+            const { r: currentR, c: currentC } = getCellCoords(currentCell);
+            const nextSelectionKey = `${currentR}-${currentC}`;
+
+            if (nextSelectionKey === currentSelectionKey) {
+                if (e.cancelable) {
+                    e.preventDefault();
+                }
+                return;
+            }
+
+            currentSelectionKey = nextSelectionKey;
 
             // Verifica se a linha formada é reta (Horizontal, Vertical ou Diagonal Exata)
             const dr = Math.abs(currentR - startCell.r);
             const dc = Math.abs(currentC - startCell.c);
 
             if (currentR === startCell.r || currentC === startCell.c || dr === dc) {
-                clearSelection();
-                calculatePath(startCell.r, startCell.c, currentR, currentC);
+                selectPathTo(currentR, currentC);
+            }
+
+            if (e.cancelable) {
+                e.preventDefault();
             }
         }
 
-        function handleMouseUp() {
+        function handlePointerUp(e) {
+            if (activePointerId !== null && e.pointerId !== activePointerId) return;
+            finalizeSelection();
+        }
+
+        function handlePointerCancel(e) {
+            if (activePointerId !== null && e.pointerId !== activePointerId) return;
+            cancelSelection('Selecao cancelada. Tente novamente.');
+        }
+
+        function finalizeSelection() {
             if (!isSelecting) return;
+
             isSelecting = false;
+            activePointerId = null;
+            currentSelectionKey = '';
+            gridElement.classList.remove('is-selecting');
 
             // Pega a palavra formada
             const selectedWord = currentSelection.map(cell => cell.textContent).join('');
             const reversedWord = selectedWord.split('').reverse().join(''); // Permite selecionar de trás pra frente
 
-            if (wordsToFind.includes(selectedWord) || wordsToFind.includes(reversedWord)) {
-                const validWord = wordsToFind.includes(selectedWord) ? selectedWord : reversedWord;
+            if (remainingWords.has(selectedWord) || remainingWords.has(reversedWord)) {
+                const validWord = remainingWords.has(selectedWord) ? selectedWord : reversedWord;
                 markAsFound(validWord);
             } else {
                 clearSelection();
+                setStatus(`${foundWords}/${WORDS.length} palavras encontradas. Continue procurando.`, 'info');
             }
 
             startCell = null;
         }
 
-        // Calcula e destaca o caminho entre o primeiro clique e a posição atual do mouse
-        function calculatePath(r1, c1, r2, c2) {
+        function cancelSelection(message = '') {
+            isSelecting = false;
+            activePointerId = null;
+            currentSelectionKey = '';
+            startCell = null;
+            gridElement.classList.remove('is-selecting');
+            clearSelection();
+
+            if (message && gameReady) {
+                setStatus(`${foundWords}/${WORDS.length} palavras encontradas. ${message}`, 'info');
+            }
+        }
+
+        function selectPathTo(r2, c2) {
+            currentSelection = buildPath(startCell.r, startCell.c, r2, c2);
+            currentSelection.forEach(selectCell);
+        }
+
+        // Calcula e destaca o caminho entre o primeiro clique e a posição atual
+        function buildPath(r1, c1, r2, c2) {
             const rowStep = r1 === r2 ? 0 : (r2 > r1 ? 1 : -1);
             const colStep = c1 === c2 ? 0 : (c2 > c1 ? 1 : -1);
-
             let r = r1;
             let c = c1;
+            const path = [];
 
-            currentSelection = [];
+            clearSelection();
 
             // Traça a linha até o destino
             while (true) {
-                const cell = document.querySelector(`.cell[data-row="${r}"][data-col="${c}"]`);
+                const cell = cellMatrix[r] && cellMatrix[r][c];
                 if (cell) {
-                    selectCell(cell);
-                    currentSelection.push(cell);
+                    path.push(cell);
                 }
 
                 if (r === r2 && c === c2) break;
@@ -247,6 +461,8 @@
                 r += rowStep;
                 c += colStep;
             }
+
+            return path;
         }
 
         function selectCell(cell) {
@@ -272,20 +488,59 @@
             const li = document.getElementById(`word-${word}`);
             if (li && !li.classList.contains('struck')) {
                 li.classList.add('struck');
-                foundWords++;
-
-                if (foundWords === wordsToFind.length) {
-                    setTimeout(() => alert('🎉 Parabéns! Você encontrou todas as palavras!'), 500);
-                }
             }
 
-            // Remove a palavra do array para não selecionar duas vezes
-            wordsToFind = wordsToFind.filter(w => w !== word);
+            if (remainingWords.delete(word)) {
+                foundWords++;
+            }
+
             currentSelection = [];
+
+            if (remainingWords.size === 0) {
+                setStatus('Parabens! Voce encontrou todas as palavras do tabuleiro.', 'complete');
+                return;
+            }
+
+            setStatus(`${foundWords}/${WORDS.length} palavras encontradas. "${word}" foi marcada.`, 'info');
         }
 
-        // Reiniciar
+        function syncBoardScale() {
+            const boardPanelStyles = window.getComputedStyle(boardPanelElement);
+            const boardWrapperStyles = window.getComputedStyle(boardWrapperElement);
+            const gridStyles = window.getComputedStyle(gridElement);
+            const gridGap = parseFloat(gridStyles.columnGap || gridStyles.gap) || 0;
+
+            const availableWidth =
+                boardPanelElement.clientWidth -
+                parseFloat(boardPanelStyles.paddingLeft) -
+                parseFloat(boardPanelStyles.paddingRight) -
+                parseFloat(boardWrapperStyles.paddingLeft) -
+                parseFloat(boardWrapperStyles.paddingRight) -
+                parseFloat(gridStyles.paddingLeft) -
+                parseFloat(gridStyles.paddingRight);
+
+            if (!Number.isFinite(availableWidth) || availableWidth <= 0) {
+                return;
+            }
+
+            const maxCellSize = window.innerWidth <= 420 ? 24 : window.innerWidth <= 640 ? 32 : 40;
+            const minCellSize = window.innerWidth <= 420 ? 18 : 22;
+            const nextCellSize = Math.floor((availableWidth - gridGap * (GRID_SIZE - 1)) / GRID_SIZE);
+            const cellSize = Math.max(minCellSize, Math.min(maxCellSize, nextCellSize));
+            const fontSize = Math.max(11, Math.min(18, Math.round(cellSize * 0.44)));
+
+            document.body.style.setProperty('--cell-size', `${cellSize}px`);
+            document.body.style.setProperty('--cell-font-size', `${fontSize}px`);
+        }
+
+        gridElement.addEventListener('pointerdown', handlePointerDown);
+        document.addEventListener('pointermove', handlePointerMove, { passive: false });
+        document.addEventListener('pointerup', handlePointerUp);
+        document.addEventListener('pointercancel', handlePointerCancel);
         restartBtn.addEventListener('click', initGame);
+        window.addEventListener('resize', () => {
+            window.requestAnimationFrame(syncBoardScale);
+        });
 
         // Inicia na primeira carga
         initGame();
