@@ -6,14 +6,29 @@
     <title>WSRicardo Games - Caça-Palavras</title>
     <link rel="stylesheet" href="../assets/css/games-theme.css">
     <style>
+        body.game-page.has-modal-open {
+            overflow: hidden;
+        }
+
         .game-page .game-stage {
             align-items: stretch;
         }
 
         .game-page .board-panel {
+            position: relative;
             overflow: auto hidden;
             -webkit-overflow-scrolling: touch;
             overscroll-behavior: contain;
+        }
+
+        .game-page .board-panel.is-idle {
+            border-color: rgba(249, 37, 114, 0.24);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 18px rgba(249, 37, 114, 0.08);
+        }
+
+        .game-page .board-panel.is-idle .board-wrapper {
+            opacity: 0.82;
+            filter: saturate(0.88);
         }
 
         .game-page .board-wrapper {
@@ -33,6 +48,37 @@
             -webkit-user-select: none;
             user-select: none;
             -webkit-touch-callout: none;
+        }
+
+        .game-page .game-dashboard {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .game-page .game-metric {
+            padding: 14px;
+            border: 1px solid rgba(0, 255, 255, 0.16);
+            border-radius: 18px;
+            background: rgba(0, 255, 255, 0.05);
+        }
+
+        .game-page .game-metric-label {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text-soft);
+            font-size: 0.76rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .game-page .game-metric-value {
+            display: block;
+            color: var(--accent-color);
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 3vw, 1.45rem);
+            line-height: 1.1;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.22);
         }
 
         .game-page .game-hint {
@@ -58,11 +104,243 @@
             color: #ffd7e6;
         }
 
+        .game-page .game-status.is-success {
+            border-color: rgba(0, 255, 255, 0.24);
+            background: rgba(0, 255, 255, 0.09);
+            color: #f3ffff;
+        }
+
         .game-page .game-status.is-complete {
             border-color: rgba(0, 255, 255, 0.34);
             background: rgba(0, 255, 255, 0.12);
             color: #f2ffff;
             box-shadow: 0 0 18px rgba(0, 255, 255, 0.14);
+        }
+
+        .game-page .game-actions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .game-page .btn.btn-secondary {
+            border-color: rgba(249, 37, 114, 0.45);
+            background: linear-gradient(135deg, rgba(249, 37, 114, 0.14), rgba(249, 37, 114, 0.04));
+            box-shadow: inset 0 0 0 1px rgba(249, 37, 114, 0.08);
+            color: #ffd5e5;
+        }
+
+        .game-page .btn.btn-secondary:hover {
+            background: var(--primary-color);
+            color: #ffffff;
+            box-shadow: 0 0 18px rgba(249, 37, 114, 0.22);
+        }
+
+        .game-page .btn:disabled {
+            opacity: 0.46;
+            cursor: not-allowed;
+            pointer-events: none;
+            transform: none;
+            box-shadow: none;
+            filter: saturate(0.78);
+        }
+
+        .game-page .btn.is-attention {
+            animation: controlAttention 0.7s ease;
+        }
+
+        .game-page .board-panel.is-word-found {
+            animation: boardFoundPulse 0.7s ease;
+        }
+
+        .game-page .sidebar.is-word-found {
+            animation: sideFoundPulse 0.7s ease;
+        }
+
+        .game-page .board-panel.is-complete-flash,
+        .game-page .sidebar.is-complete-flash {
+            animation: boardCompletePulse 1.15s ease;
+        }
+
+        .game-page .word-list li.is-found-flash {
+            animation: wordItemFlash 0.8s ease;
+        }
+
+        .game-page .game-modal-backdrop[hidden] {
+            display: none;
+        }
+
+        .game-page .game-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 220;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background: rgba(4, 9, 24, 0.76);
+            backdrop-filter: blur(14px);
+            opacity: 0;
+            transition: opacity 220ms ease;
+        }
+
+        .game-page .game-modal-backdrop.is-open {
+            opacity: 1;
+        }
+
+        .game-page .game-modal {
+            position: relative;
+            width: min(100%, 540px);
+            overflow: hidden;
+            padding: 28px;
+            border: 1px solid rgba(0, 255, 255, 0.24);
+            border-radius: 26px;
+            background: linear-gradient(180deg, rgba(8, 15, 34, 0.98), rgba(26, 26, 46, 0.92));
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.45), 0 0 24px rgba(0, 255, 255, 0.16);
+            transform: translateY(18px) scale(0.97);
+            transition: transform 240ms ease;
+        }
+
+        .game-page .game-modal::before {
+            content: '';
+            position: absolute;
+            inset: -30% auto auto -10%;
+            width: 220px;
+            height: 220px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .game-page .game-modal::after {
+            content: '';
+            position: absolute;
+            inset: auto -12% -38% auto;
+            width: 240px;
+            height: 240px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(249, 37, 114, 0.18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .game-page .game-modal-backdrop.is-open .game-modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .game-page .game-modal > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .game-page .game-modal h2 {
+            margin-bottom: 12px;
+        }
+
+        .game-page .game-modal-illustration {
+            position: relative;
+            margin-bottom: 18px;
+            padding: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.16);
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at top left, rgba(0, 255, 255, 0.12), transparent 48%),
+                radial-gradient(circle at bottom right, rgba(249, 37, 114, 0.12), transparent 44%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 255, 255, 0.03));
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+                0 14px 28px rgba(0, 0, 0, 0.18);
+        }
+
+        .game-page .game-modal-illustration::after {
+            content: '';
+            position: absolute;
+            inset: auto 18px 14px auto;
+            width: 90px;
+            height: 90px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.18), transparent 68%);
+            pointer-events: none;
+            filter: blur(10px);
+        }
+
+        .game-page .game-modal-illustration img {
+            position: relative;
+            z-index: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.18));
+        }
+
+        .game-page .game-modal-copy {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.65;
+        }
+
+        .game-page .game-modal-stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .game-page .game-modal-stat {
+            padding: 16px;
+            border: 1px solid rgba(0, 255, 255, 0.16);
+            border-radius: 18px;
+            background: rgba(0, 255, 255, 0.06);
+        }
+
+        .game-page .game-modal-stat-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-soft);
+            font-size: 0.76rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .game-page .game-modal-stat-value {
+            display: block;
+            color: #ffffff;
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 3vw, 1.7rem);
+            text-shadow: 0 0 12px rgba(0, 255, 255, 0.18);
+        }
+
+        .game-page .game-modal-actions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .game-page .fx-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 210;
+            overflow: hidden;
+        }
+
+        .game-page .fx-particle {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--size, 8px);
+            height: var(--size, 8px);
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 30%, #ffffff, var(--particle-color, var(--accent-color)));
+            box-shadow: 0 0 16px var(--particle-color, var(--accent-color));
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            animation: particleBurst 0.95s cubic-bezier(0.18, 0.84, 0.22, 1) forwards;
+        }
+
+        .game-page .fx-particle--complete {
+            border-radius: 4px;
         }
 
         @media (max-width: 980px) {
@@ -80,9 +358,99 @@
                 gap: 16px;
             }
 
+            .game-page .game-actions {
+                grid-template-columns: 1fr;
+            }
+
             .game-page .game-hint,
             .game-page .game-status {
                 font-size: 0.88rem;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .game-page .game-dashboard,
+            .game-page .game-modal-stats,
+            .game-page .game-modal-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .game-page .game-modal {
+                padding: 22px;
+            }
+        }
+
+        @keyframes controlAttention {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-2px) scale(1.02);
+                box-shadow: 0 0 18px rgba(0, 255, 255, 0.2);
+            }
+            60% {
+                transform: translateY(0) scale(0.99);
+            }
+        }
+
+        @keyframes boardFoundPulse {
+            0%,
+            100% {
+                box-shadow: var(--panel-shadow);
+            }
+            50% {
+                box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.2), 0 0 24px rgba(0, 255, 255, 0.24), var(--panel-shadow);
+            }
+        }
+
+        @keyframes sideFoundPulse {
+            0%,
+            100% {
+                box-shadow: var(--panel-shadow);
+            }
+            50% {
+                box-shadow: 0 0 0 1px rgba(249, 37, 114, 0.2), 0 0 22px rgba(249, 37, 114, 0.18), var(--panel-shadow);
+            }
+        }
+
+        @keyframes wordItemFlash {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            35% {
+                transform: scale(1.04);
+                border-color: rgba(0, 255, 255, 0.34);
+                background: rgba(0, 255, 255, 0.12);
+                color: #ffffff;
+            }
+        }
+
+        @keyframes boardCompletePulse {
+            0%,
+            100% {
+                box-shadow: var(--panel-shadow);
+            }
+            35% {
+                box-shadow: 0 0 0 1px rgba(0, 255, 255, 0.24), 0 0 30px rgba(0, 255, 255, 0.28), var(--panel-shadow);
+            }
+            60% {
+                box-shadow: 0 0 0 1px rgba(249, 37, 114, 0.18), 0 0 22px rgba(249, 37, 114, 0.18), var(--panel-shadow);
+            }
+        }
+
+        @keyframes particleBurst {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.25) rotate(0deg);
+            }
+            12% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1) rotate(var(--rz));
             }
         }
     </style>
@@ -121,10 +489,26 @@
 
                     <aside class="sidebar">
                         <h3>Palavras</h3>
+                        <div class="game-dashboard">
+                            <div class="game-metric">
+                                <span class="game-metric-label">Tempo</span>
+                                <strong class="game-metric-value" id="game-timer">00:00</strong>
+                            </div>
+                            <div class="game-metric">
+                                <span class="game-metric-label">Progresso</span>
+                                <strong class="game-metric-value" id="game-progress">0/8</strong>
+                            </div>
+                        </div>
+
+                        <div class="game-actions">
+                            <button class="btn" id="start-btn" type="button">Iniciar Jogo</button>
+                            <button class="btn btn-secondary" id="restart-btn" type="button">Novo Jogo</button>
+                        </div>
+                        
                         <p class="game-hint" id="game-hint"></p>
                         <div class="game-status" id="game-status" role="status" aria-live="polite"></div>
                         <ul id="word-list" class="word-list"></ul>
-                        <button class="btn" id="restart-btn" type="button">Novo Jogo</button>
+                        
                     </aside>
                 </div>
             </div>
@@ -139,20 +523,56 @@
         </div>
     </footer>
 
+        <div class="game-modal-backdrop" id="game-modal-backdrop" hidden>
+        <div class="game-modal" role="dialog" aria-modal="true" aria-labelledby="game-modal-title" aria-describedby="game-modal-desc">
+            <div class="game-modal-illustration">
+                <img
+                    src="../assets/images/parabens.png"
+                    alt="Ilustracao em nanquim e aquarela de uma mulher morena sentada com um livro na mao, sorrindo e dando parabens."
+                    width="560"
+                    height="360"
+                    decoding="async"
+                >
+            </div>
+            <h2 id="game-modal-title">Parabéns!</h2>
+            <p class="game-modal-copy" id="game-modal-desc">Você encontrou todas as palavras do tabuleiro. Missão concluída com sucesso.</p>
+            <div class="game-modal-stats">
+                <div class="game-modal-stat">
+                    <span class="game-modal-stat-label">Tempo final</span>
+                    <strong class="game-modal-stat-value" id="game-modal-time">00:00</strong>
+                </div>
+                <div class="game-modal-stat">
+                    <span class="game-modal-stat-label">Palavras</span>
+                    <strong class="game-modal-stat-value" id="game-modal-progress">8/8</strong>
+                </div>
+            </div>
+            <div class="game-modal-actions">
+                <button class="btn" id="modal-new-game-btn" type="button">Novo Jogo</button>
+                <button class="btn btn-secondary" id="modal-close-btn" type="button">Fechar</button>
+            </div>
+        </div>
+    </div>
+    <div class="fx-layer" id="fx-layer" aria-hidden="true"></div>
+
     <script>
-        // Configurações do Jogo
         const GRID_SIZE = 12;
         const WORDS = Object.freeze(["CODIGO", "DESIGN", "FRONTEND", "LOGICA", "FUTURO", "CRIATIVO", "SISTEMA", "MODERNO"]);
         const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const MAX_BOARD_GENERATION_ATTEMPTS = 40;
         const MAX_WORD_PLACEMENT_ATTEMPTS = 200;
+        const TIMER_TICK_MS = 250;
 
         let grid = [];
         let remainingWords = new Set();
         let foundWords = 0;
         let gameReady = false;
+        let gameStarted = false;
+        let gameCompleted = false;
+        let startedAt = 0;
+        let elapsedMs = 0;
+        let timerIntervalId = null;
+        let modalHideTimeoutId = null;
 
-        // Variáveis para a mecânica de seleção
         let isSelecting = false;
         let startCell = null;
         let currentSelection = [];
@@ -160,28 +580,45 @@
         let activePointerId = null;
         let cellMatrix = [];
 
-        // Elementos do DOM
         const gridElement = document.getElementById('grid');
         const wordListElement = document.getElementById('word-list');
+        const startBtn = document.getElementById('start-btn');
         const restartBtn = document.getElementById('restart-btn');
         const gameHintElement = document.getElementById('game-hint');
         const gameStatusElement = document.getElementById('game-status');
+        const gameTimerElement = document.getElementById('game-timer');
+        const gameProgressElement = document.getElementById('game-progress');
         const boardPanelElement = document.querySelector('.board-panel');
         const boardWrapperElement = document.querySelector('.board-wrapper');
+        const sidebarElement = document.querySelector('.sidebar');
+        const modalBackdropElement = document.getElementById('game-modal-backdrop');
+        const modalTimeElement = document.getElementById('game-modal-time');
+        const modalProgressElement = document.getElementById('game-modal-progress');
+        const modalNewGameBtn = document.getElementById('modal-new-game-btn');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const fxLayerElement = document.getElementById('fx-layer');
 
-        // Inicializa o jogo
         function initGame() {
             cancelSelection();
+            stopTimer();
+            hideCompletionModal(true);
+            fxLayerElement.innerHTML = '';
+            elapsedMs = 0;
+            gameStarted = false;
+            gameCompleted = false;
             setupHint();
             gameReady = generateBoard();
             renderGrid();
             renderWordList();
-            syncBoardScale();
+            updateProgressDisplay();
+            updateTimerDisplay();
+            updateControls();
+            window.requestAnimationFrame(syncBoardScale);
 
             if (gameReady) {
-                setStatus(`${foundWords}/${WORDS.length} palavras encontradas.`, 'info');
+                setStatus(`Pressione "Iniciar Jogo" para começar. ${foundWords}/${WORDS.length} palavras encontradas.`, 'info');
             } else {
-                setStatus('Nao foi possivel montar um tabuleiro valido. Toque em "Novo Jogo" para tentar novamente.', 'warning');
+                setStatus('Não foi possível montar um tabuleiro válido. Toque em "Novo Jogo" para tentar novamente.', 'warning');
             }
         }
 
@@ -194,15 +631,80 @@
 
         function setStatus(message, tone = 'info') {
             gameStatusElement.textContent = message;
-            gameStatusElement.classList.remove('is-warning', 'is-complete');
+            gameStatusElement.classList.remove('is-warning', 'is-complete', 'is-success');
 
             if (tone === 'warning') {
                 gameStatusElement.classList.add('is-warning');
             }
 
+            if (tone === 'success') {
+                gameStatusElement.classList.add('is-success');
+            }
+
             if (tone === 'complete') {
                 gameStatusElement.classList.add('is-complete');
             }
+        }
+
+        function updateControls() {
+            const canStart = gameReady && !gameStarted && !gameCompleted;
+            startBtn.disabled = !canStart;
+            restartBtn.disabled = false;
+            gridElement.setAttribute('aria-disabled', String(!gameStarted || gameCompleted || !gameReady));
+            boardPanelElement.classList.toggle('is-idle', !gameStarted && !gameCompleted);
+        }
+
+        function updateProgressDisplay() {
+            gameProgressElement.textContent = `${foundWords}/${WORDS.length}`;
+        }
+
+        function formatElapsedTime(ms) {
+            const totalSeconds = Math.floor(ms / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            if (hours > 0) {
+                return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+
+            return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+
+        function updateTimerDisplay() {
+            gameTimerElement.textContent = formatElapsedTime(elapsedMs);
+        }
+
+        function refreshElapsedTime() {
+            if (gameStarted && startedAt) {
+                elapsedMs = Date.now() - startedAt;
+            }
+            updateTimerDisplay();
+        }
+
+        function startTimer() {
+            stopTimer();
+            startedAt = Date.now() - elapsedMs;
+            timerIntervalId = window.setInterval(refreshElapsedTime, TIMER_TICK_MS);
+            refreshElapsedTime();
+        }
+
+        function stopTimer() {
+            if (timerIntervalId !== null) {
+                refreshElapsedTime();
+                window.clearInterval(timerIntervalId);
+                timerIntervalId = null;
+            }
+            startedAt = 0;
+            updateTimerDisplay();
+        }
+
+        function startGame() {
+            if (!gameReady || gameStarted || gameCompleted) return;
+            gameStarted = true;
+            setStatus('Cronômetro iniciado. Boa sorte!', 'info');
+            updateControls();
+            startTimer();
         }
 
         function generateBoard() {
@@ -224,7 +726,6 @@
             return false;
         }
 
-        // Tenta posicionar todas as palavras na matriz
         function placeWords() {
             return WORDS.every((word) => placeSingleWord(word));
         }
@@ -233,7 +734,6 @@
             let attempts = 0;
 
             while (attempts < MAX_WORD_PLACEMENT_ATTEMPTS) {
-                // Direções: 0=Horizontal, 1=Vertical, 2=Diagonal
                 const dir = Math.floor(Math.random() * 3);
                 const row = Math.floor(Math.random() * GRID_SIZE);
                 const col = Math.floor(Math.random() * GRID_SIZE);
@@ -253,11 +753,10 @@
             return false;
         }
 
-        // Verifica se a palavra cabe na direção escolhida sem sobrepor letras diferentes
         function canPlaceWord(word, row, col, dir) {
-            if (dir === 0 && col + word.length > GRID_SIZE) return false; // Horizontal
-            if (dir === 1 && row + word.length > GRID_SIZE) return false; // Vertical
-            if (dir === 2 && (row + word.length > GRID_SIZE || col + word.length > GRID_SIZE)) return false; // Diagonal
+            if (dir === 0 && col + word.length > GRID_SIZE) return false;
+            if (dir === 1 && row + word.length > GRID_SIZE) return false;
+            if (dir === 2 && (row + word.length > GRID_SIZE || col + word.length > GRID_SIZE)) return false;
 
             for (let i = 0; i < word.length; i++) {
                 const r = dir === 1 || dir === 2 ? row + i : row;
@@ -268,10 +767,10 @@
                     return false;
                 }
             }
+
             return true;
         }
 
-        // Preenche os espaços vazios com letras aleatórias
         function fillEmptyCells() {
             for (let r = 0; r < GRID_SIZE; r++) {
                 for (let c = 0; c < GRID_SIZE; c++) {
@@ -282,7 +781,6 @@
             }
         }
 
-        // Renderiza o HTML da grade
         function renderGrid() {
             gridElement.innerHTML = '';
             gridElement.style.gridTemplateColumns = `repeat(${GRID_SIZE}, 1fr)`;
@@ -306,12 +804,11 @@
             gridElement.appendChild(fragment);
         }
 
-        // Renderiza a lista de palavras na lateral
         function renderWordList() {
             wordListElement.innerHTML = '';
             const fragment = document.createDocumentFragment();
 
-            WORDS.forEach(word => {
+            WORDS.forEach((word) => {
                 const li = document.createElement('li');
                 li.id = `word-${word}`;
                 li.textContent = word;
@@ -320,8 +817,6 @@
 
             wordListElement.appendChild(fragment);
         }
-
-        // --- LÓGICA DE INTERAÇÃO E SELEÇÃO ---
 
         function getCellCoords(cell) {
             return {
@@ -341,6 +836,15 @@
         function handlePointerDown(e) {
             const cell = e.target.closest('.cell');
             if (!gameReady || !cell || !gridElement.contains(cell)) return;
+            if (gameCompleted) {
+                showCompletionModal();
+                return;
+            }
+            if (!gameStarted) {
+                setStatus('Pressione "Iniciar Jogo" para começar o cronômetro e liberar o tabuleiro.', 'info');
+                flashElement(startBtn, 'is-attention');
+                return;
+            }
             if (e.pointerType === 'mouse' && e.button !== 0) return;
 
             isSelecting = true;
@@ -375,7 +879,6 @@
 
             currentSelectionKey = nextSelectionKey;
 
-            // Verifica se a linha formada é reta (Horizontal, Vertical ou Diagonal Exata)
             const dr = Math.abs(currentR - startCell.r);
             const dc = Math.abs(currentC - startCell.c);
 
@@ -395,7 +898,127 @@
 
         function handlePointerCancel(e) {
             if (activePointerId !== null && e.pointerId !== activePointerId) return;
-            cancelSelection('Selecao cancelada. Tente novamente.');
+            cancelSelection('Seleção cancelada. Tente novamente.');
+        }
+
+        function getSelectionCenter(cells) {
+            if (!cells.length) return null;
+
+            let left = Infinity;
+            let top = Infinity;
+            let right = -Infinity;
+            let bottom = -Infinity;
+
+            cells.forEach((cell) => {
+                const rect = cell.getBoundingClientRect();
+                left = Math.min(left, rect.left);
+                top = Math.min(top, rect.top);
+                right = Math.max(right, rect.right);
+                bottom = Math.max(bottom, rect.bottom);
+            });
+
+            return {
+                x: left + (right - left) / 2,
+                y: top + (bottom - top) / 2
+            };
+        }
+
+        function getElementCenter(element) {
+            const rect = element.getBoundingClientRect();
+            return {
+                x: rect.left + rect.width / 2,
+                y: rect.top + rect.height / 2
+            };
+        }
+
+        function flashElement(element, className, duration = 800) {
+            if (!element) return;
+            element.classList.remove(className);
+            void element.offsetWidth;
+            element.classList.add(className);
+            window.setTimeout(() => {
+                element.classList.remove(className);
+            }, duration);
+        }
+
+        function randomBetween(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        function spawnParticles(origin, count = 12, variant = 'word') {
+            if (!origin) return;
+
+            const sizeRange = variant === 'complete' ? [6, 14] : [4, 9];
+            const distanceRange = variant === 'complete' ? [90, 220] : [38, 105];
+
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('span');
+                const angle = (Math.PI * 2 * i) / count + Math.random() * 0.65;
+                const distance = randomBetween(distanceRange[0], distanceRange[1]);
+                const size = randomBetween(sizeRange[0], sizeRange[1]);
+                const color = variant === 'complete' && i % 3 === 0 ? '#f92572' : '#00ffff';
+
+                particle.className = `fx-particle fx-particle--${variant}`;
+                particle.style.left = `${origin.x}px`;
+                particle.style.top = `${origin.y}px`;
+                particle.style.setProperty('--tx', `${Math.cos(angle) * distance}px`);
+                particle.style.setProperty('--ty', `${Math.sin(angle) * distance}px`);
+                particle.style.setProperty('--rz', `${randomBetween(-260, 260)}deg`);
+                particle.style.setProperty('--size', `${size}px`);
+                particle.style.setProperty('--particle-color', color);
+                fxLayerElement.appendChild(particle);
+
+                particle.addEventListener('animationend', () => {
+                    particle.remove();
+                }, { once: true });
+            }
+        }
+
+        function showCompletionModal() {
+            if (modalHideTimeoutId !== null) {
+                window.clearTimeout(modalHideTimeoutId);
+                modalHideTimeoutId = null;
+            }
+            modalTimeElement.textContent = formatElapsedTime(elapsedMs);
+            modalProgressElement.textContent = `${WORDS.length}/${WORDS.length}`;
+            modalBackdropElement.hidden = false;
+            document.body.classList.add('has-modal-open');
+            window.requestAnimationFrame(() => {
+                modalBackdropElement.classList.add('is-open');
+                modalNewGameBtn.focus();
+            });
+        }
+
+        function hideCompletionModal(immediate = false) {
+            if (modalHideTimeoutId !== null) {
+                window.clearTimeout(modalHideTimeoutId);
+                modalHideTimeoutId = null;
+            }
+            modalBackdropElement.classList.remove('is-open');
+            document.body.classList.remove('has-modal-open');
+
+            if (immediate || modalBackdropElement.hidden) {
+                modalBackdropElement.hidden = true;
+                return;
+            }
+
+            modalHideTimeoutId = window.setTimeout(() => {
+                modalBackdropElement.hidden = true;
+                modalHideTimeoutId = null;
+            }, 220);
+        }
+
+        function completeGame(origin) {
+            stopTimer();
+            gameStarted = false;
+            gameCompleted = true;
+            updateControls();
+            setStatus(`Parabéns! Você encontrou todas as palavras em ${formatElapsedTime(elapsedMs)}.`, 'complete');
+            flashElement(boardPanelElement, 'is-complete-flash', 1200);
+            flashElement(sidebarElement, 'is-complete-flash', 1200);
+            spawnParticles(origin || getElementCenter(boardPanelElement), 18, 'word');
+            spawnParticles(getElementCenter(boardPanelElement), 30, 'complete');
+            showCompletionModal();
         }
 
         function finalizeSelection() {
@@ -406,9 +1029,8 @@
             currentSelectionKey = '';
             gridElement.classList.remove('is-selecting');
 
-            // Pega a palavra formada
-            const selectedWord = currentSelection.map(cell => cell.textContent).join('');
-            const reversedWord = selectedWord.split('').reverse().join(''); // Permite selecionar de trás pra frente
+            const selectedWord = currentSelection.map((cell) => cell.textContent).join('');
+            const reversedWord = selectedWord.split('').reverse().join('');
 
             if (remainingWords.has(selectedWord) || remainingWords.has(reversedWord)) {
                 const validWord = remainingWords.has(selectedWord) ? selectedWord : reversedWord;
@@ -439,7 +1061,6 @@
             currentSelection.forEach(selectCell);
         }
 
-        // Calcula e destaca o caminho entre o primeiro clique e a posição atual
         function buildPath(r1, c1, r2, c2) {
             const rowStep = r1 === r2 ? 0 : (r2 > r1 ? 1 : -1);
             const colStep = c1 === c2 ? 0 : (c2 > c1 ? 1 : -1);
@@ -449,7 +1070,6 @@
 
             clearSelection();
 
-            // Traça a linha até o destino
             while (true) {
                 const cell = cellMatrix[r] && cellMatrix[r][c];
                 if (cell) {
@@ -472,15 +1092,16 @@
         }
 
         function clearSelection() {
-            currentSelection.forEach(cell => {
+            currentSelection.forEach((cell) => {
                 cell.classList.remove('selecting');
             });
             currentSelection = [];
         }
 
-        // Marca a palavra como encontrada na grade e na lista
         function markAsFound(word) {
-            currentSelection.forEach(cell => {
+            const selectionCenter = getSelectionCenter(currentSelection);
+
+            currentSelection.forEach((cell) => {
                 cell.classList.remove('selecting');
                 cell.classList.add('found');
             });
@@ -494,14 +1115,19 @@
                 foundWords++;
             }
 
+            updateProgressDisplay();
             currentSelection = [];
 
             if (remainingWords.size === 0) {
-                setStatus('Parabens! Voce encontrou todas as palavras do tabuleiro.', 'complete');
+                completeGame(selectionCenter);
                 return;
             }
 
-            setStatus(`${foundWords}/${WORDS.length} palavras encontradas. "${word}" foi marcada.`, 'info');
+            flashElement(boardPanelElement, 'is-word-found', 780);
+            flashElement(sidebarElement, 'is-word-found', 780);
+            flashElement(li, 'is-found-flash', 820);
+            spawnParticles(selectionCenter, 12, 'word');
+            setStatus(`${foundWords}/${WORDS.length} palavras encontradas. "${word}" foi marcada.`, 'success');
         }
 
         function syncBoardScale() {
@@ -537,14 +1163,25 @@
         document.addEventListener('pointermove', handlePointerMove, { passive: false });
         document.addEventListener('pointerup', handlePointerUp);
         document.addEventListener('pointercancel', handlePointerCancel);
+        startBtn.addEventListener('click', startGame);
         restartBtn.addEventListener('click', initGame);
+        modalNewGameBtn.addEventListener('click', initGame);
+        modalCloseBtn.addEventListener('click', hideCompletionModal);
+        modalBackdropElement.addEventListener('click', (e) => {
+            if (e.target === modalBackdropElement) {
+                hideCompletionModal();
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modalBackdropElement.hidden) {
+                hideCompletionModal();
+            }
+        });
         window.addEventListener('resize', () => {
             window.requestAnimationFrame(syncBoardScale);
         });
 
-        // Inicia na primeira carga
         initGame();
-
     </script>
 
 </body>
