@@ -1,0 +1,39 @@
+{
+    "date": "09-05-2026",
+    "theme": "Natureza",
+    "description": "Elementos e paisagens do universo natural, explorando fauna, flora e ambientes da natureza.",
+    "wordList": [
+        {
+            "word": "FLORESTA",
+            "meaning": "Grande área coberta por árvores e vegetação abundante."
+        },
+        {
+            "word": "CACHOEIRA",
+            "meaning": "Queda natural de água formada em rios e montanhas."
+        },
+        {
+            "word": "MONTANHA",
+            "meaning": "Grande elevação natural do terreno."
+        },
+        {
+            "word": "OCEANO",
+            "meaning": "Extensa massa de água salgada que cobre grande parte da Terra."
+        },
+        {
+            "word": "BORBOLETA",
+            "meaning": "Inseto conhecido pelas asas coloridas e transformação na metamorfose."
+        },
+        {
+            "word": "SAVANA",
+            "meaning": "Ecossistema de vegetação aberta com árvores espaçadas."
+        },
+        {
+            "word": "ORQUÍDEA",
+            "meaning": "Flor ornamental conhecida pela beleza e variedade de espécies."
+        },
+        {
+            "word": "ARCO-ÍRIS",
+            "meaning": "Fenômeno óptico formado pela decomposição da luz nas gotas de água."
+        }
+    ]
+}

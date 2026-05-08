@@ -1,0 +1,39 @@
+{
+    "date": "10-05-2026",
+    "theme": "Inteligência Artificial",
+    "description": "Tecnologias e conceitos ligados ao universo da inteligência artificial, aprendizado de máquina e automação digital.",
+    "wordList": [
+        {
+            "word": "ALGORITMO",
+            "meaning": "Sequência de instruções utilizada para resolver problemas ou executar tarefas."
+        },
+        {
+            "word": "ROBÔ",
+            "meaning": "Máquina programada para executar ações de forma automática."
+        },
+        {
+            "word": "AUTOMAÇÃO",
+            "meaning": "Uso de tecnologia para realizar processos automaticamente."
+        },
+        {
+            "word": "NEURÔNIO",
+            "meaning": "Estrutura inspirada no cérebro humano usada em redes neurais artificiais."
+        },
+        {
+            "word": "APRENDIZADO",
+            "meaning": "Processo em que sistemas melhoram seu desempenho com dados e experiências."
+        },
+        {
+            "word": "DADOS",
+            "meaning": "Informações utilizadas para treinamento e análise em sistemas inteligentes."
+        },
+        {
+            "word": "INOVAÇÃO",
+            "meaning": "Criação de novas soluções tecnológicas e digitais."
+        },
+        {
+            "word": "PREDIÇÃO",
+            "meaning": "Estimativa realizada por modelos inteligentes com base em padrões de dados."
+        }
+    ]
+}
