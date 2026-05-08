@@ -557,8 +557,25 @@
     <div class="fx-layer" id="fx-layer" aria-hidden="true"></div>
 
     <script>
+        let WORDS = [];
+
+        async function loadPuzzle( f ) {
+            const res = await fetch( f );
+            const data = await res.json();
+
+            console.log( data );
+            WORDS = data.wordList.map( w => w.word );
+            initGame();
+
+        }
+
+        
+        
+
+        
+
         const GRID_SIZE = 12;
-        const WORDS = Object.freeze(["CODIGO", "DESIGN", "FRONTEND", "LOGICA", "FUTURO", "CRIATIVO", "SISTEMA", "MODERNO"]);
+        //const WORDS = Object.freeze(["CODIGO", "DESIGN", "FRONTEND", "LOGICA", "FUTURO", "CRIATIVO", "SISTEMA", "MODERNO"]);
         /*const WORDS = Object.freeze(
                     [
                         "PINTURA",
@@ -611,6 +628,15 @@
         const modalNewGameBtn = document.getElementById('modal-new-game-btn');
         const modalCloseBtn = document.getElementById('modal-close-btn');
         const fxLayerElement = document.getElementById('fx-layer');
+
+        const date = new Date();
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+
+        console.log( date );
+        loadPuzzle( 'data/'+`${day}-${month}-${year}`+'.json')
+        console.log('>>', WORDS);
 
         function initGame() {
             cancelSelection();
