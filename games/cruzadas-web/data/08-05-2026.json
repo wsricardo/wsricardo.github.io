@@ -1,0 +1,39 @@
+{
+  "date": "08-05-2026",
+  "theme": "Artes Visuais",
+  "description": "Elementos, técnicas e expressões do universo das artes visuais.",
+  "wordList": [
+    {
+      "word": "PINTURA",
+      "meaning": "Arte de criar imagens utilizando tintas, cores e superfícies."
+    },
+    {
+      "word": "ESCULTURA",
+      "meaning": "Arte de moldar ou esculpir formas em materiais diversos."
+    },
+    {
+      "word": "AQUARELA",
+      "meaning": "Técnica de pintura feita com tintas diluídas em água."
+    },
+    {
+      "word": "PALETA",
+      "meaning": "Conjunto de cores utilizado por artistas em uma obra."
+    },
+    {
+      "word": "DESENHO",
+      "meaning": "Representação visual feita com linhas, formas e traços."
+    },
+    {
+      "word": "MURAL",
+      "meaning": "Grande pintura ou composição artística feita em paredes."
+    },
+    {
+      "word": "RETRATO",
+      "meaning": "Representação artística da aparência de uma pessoa."
+    },
+    {
+      "word": "GALERIA",
+      "meaning": "Espaço destinado à exposição de obras de arte."
+    }
+  ]
+}

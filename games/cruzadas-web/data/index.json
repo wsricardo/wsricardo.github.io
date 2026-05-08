@@ -1,0 +1,22 @@
+{
+    "updated": "07-05-2026",
+    "puzzles": [
+        {
+            "date": "07-05-2026",
+            "id": "puzzles-01",
+            "theme": "Computação",
+            "title": "Computação"
+        },
+
+        {
+            "date": "08-05-2026",
+            "id": "puzzles-02",
+            "theme": "",
+            "title": ""
+
+        }
+    ]
+
+
+
+}
