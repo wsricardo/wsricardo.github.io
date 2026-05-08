@@ -1,0 +1,39 @@
+{
+    "date": "12-05-2026",
+    "theme": "Esportes",
+    "description": "Explore o universo dos esportes, desde modalidades populares até os elementos que compõem a competição.",
+    "wordList": [
+        {
+            "word": "FUTEBOL",
+            "meaning": "Esporte coletivo disputado por duas equipes de onze jogadores."
+        },
+        {
+            "word": "BASQUETE",
+            "meaning": "Jogo disputado entre duas equipes de cinco jogadores que buscam arremessar a bola na cesta."
+        },
+        {
+            "word": "VÔLEI",
+            "meaning": "Esporte praticado entre duas equipes numa quadra dividida por uma rede."
+        },
+        {
+            "word": "NATAÇÃO",
+            "meaning": "Prática de se mover através da água usando os membros do corpo."
+        },
+        {
+            "word": "ATLETISMO",
+            "meaning": "Conjunto de esportes constituído por corrida, lançamentos e saltos."
+        },
+        {
+            "word": "MEDALHA",
+            "meaning": "Objeto de metal, geralmente circular, concedido como prêmio em competições."
+        },
+        {
+            "word": "TÊNIS",
+            "meaning": "Esporte de raquete disputado entre dois jogadores ou duas duplas."
+        },
+        {
+            "word": "GOLFE",
+            "meaning": "Esporte em que os jogadores usam tacos para acertar uma bola em uma série de buracos."
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "date": "11-05-2026",
+    "theme": "Robótica",
+    "description": "Explore o mundo da robótica, desde os componentes fundamentais até as criações mais avançadas e futuristas.",
+    "wordList": [
+        {
+            "word": "SENSOR",
+            "meaning": "Dispositivo que detecta e responde a algum tipo de estímulo do ambiente físico."
+        },
+        {
+            "word": "ATUADOR",
+            "meaning": "Componente de uma máquina responsável por mover ou controlar um mecanismo ou sistema."
+        },
+        {
+            "word": "CIRCUITO",
+            "meaning": "Caminho fechado que permite o fluxo de corrente elétrica para alimentar componentes."
+        },
+        {
+            "word": "PROGRAMAÇÃO",
+            "meaning": "Processo de escrever instruções para um robô ou computador executar tarefas."
+        },
+        {
+            "word": "MECÂNICA",
+            "meaning": "Ramo da física que estuda o movimento e as forças que o causam, essencial para robôs."
+        },
+        {
+            "word": "ANDROIDE",
+            "meaning": "Robô com aparência e comportamento que se assemelham a um ser humano."
+        },
+        {
+            "word": "DRONE",
+            "meaning": "Veículo aéreo não tripulado, controlado remotamente ou por programação."
+        },
+        {
+            "word": "CIBORGUE",
+            "meaning": "Organismo que é uma combinação de partes orgânicas e mecânicas."
+        }
+    ]
+}
