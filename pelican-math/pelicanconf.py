@@ -5,9 +5,11 @@ NOW = datetime.now().date().strftime('%d-%m-%y')
 SECTION="matematica"
 AUTHOR = 'Wandeson Ricardo (WSRicardo)'
 SITENAME = 'WSRicardo - Matemática'
-#SITEURL = "https://www.wsricardo.com.br"
-SITEURL=""
+SITEURL = "https://www.wsricardo.com.br"
+#SITEURL="http://localhost:8000"
 
+PAGENAME_TITLE = "WSRicardo - Matemática"
+PAGENAME_DESCRIPTION = "Minhas notações e materiais diversos em matemática."
 PATH = "content/"
 OUTPUT_PATH = '../matematica/' # Diretório de saída na raiz do projeto principal
 

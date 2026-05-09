@@ -9,7 +9,7 @@
     
     <meta property="og:title" content="Blog | WSRicardo">
     <meta property="og:description" content="Artigos, anotações e reflexões sobre matemática, tecnologia, arte e programação no blog de WSRicardo.">
-    <meta property="og:image" content="imgs/wan-vectorArt1-thumbnail.jpg">
+    <meta property="og:image" content="{{ SITEURL }}/wan-vectorArt1-thumbnail.jpg">
     <meta property="og:url" content="https://www.wsricardo.com.br/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="WSRicardo">
@@ -20,8 +20,8 @@
     <meta name="language" content="pt-BR">
 
     <title>Blog | WSRicardo</title>
-    <link rel="stylesheet" href="theme/css/style.css">
-    <link rel="shortcut icon" href="theme/images/wsricardo-thumbnail.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
+    <link rel="shortcut icon" href="{{ SITEURL }}/theme/images/wsricardo-thumbnail.ico" type="image/x-icon">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672"
      crossorigin="anonymous"></script>
@@ -72,8 +72,8 @@
         <section class="section">
             <div class="container">
                 <header class="page-header">
-                    <h1>Blog</h1>
-                    <p>Artigos, anotações e reflexões sobre os temas que estudo. </p>
+                    <h1>{{ PAGENAME_TITLE }}</h1>
+                    <p>{{ PAGENAME_DESCRIPTION|striptags }} </p>
                 </header>
 
                 <div class="article-list">

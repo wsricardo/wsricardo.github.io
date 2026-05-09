@@ -4,12 +4,7 @@
 <div class="container">
         <article class="blog-post">
                 <h1 class="post-title">
-                    <a
-                        href="{{ SITEURL }}/{{ article.url }}"
-                        rel="bookmark"
-                        title="Permalink to {{ article.title|striptags }}"
-                        >{{ article.title }}
-                    </a>
+                    {{ article.title }}
 
                 </h1>
                 <p class="post-footer">Publicado em {{ article.date.strftime('%d/%m/%Y') }} por 
@@ -29,6 +24,14 @@
             <div class="post-content">
                 {{ article.content }}
             </div>
+            <br>
+
+            <p>
+                {% for author in article.authors %}
+                    <i>{{ author }}</i>
+                {% endfor %}
+                
+            </p>
 
         </article>
 </div>
