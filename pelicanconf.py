@@ -7,6 +7,8 @@ AUTHOR = 'Wandeson Ricardo (WSRicardo)'
 SITENAME = 'WSRicardo Blog'
 SITEURL = "https://www.wsricardo.com.br"
 
+SECTION = "blog"
+
 PAGENAME_TITLE = "WSRicardo Blog"
 PAGENAME_DESCRIPTION = "Minhas notações e materiais diversos."
 
