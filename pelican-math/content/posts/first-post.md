@@ -3,7 +3,7 @@ Date: 2026-04-23 22:55
 Category: Matemática
 Tags: apresentação, matemática, estudos
 Slug: primeiro-post-matematica
-Authors: WSRicardo
+Authors: Wandeson Ricardo ( WSRicardo )
 Summary: Apresentação da nova seção dedicada a estudos, dicas e resoluções de exercícios de matemática.
 
 # Boas Vindas
