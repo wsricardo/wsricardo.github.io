@@ -564,7 +564,7 @@
         async function loadPuzzle( f ) {
             const res = await fetch( f );
             const data = await res.json();
-
+            //console.log( 'file', f );
             console.log( data );
             WORDS = data.wordList.map( w => w.word );
             initGame();
@@ -637,7 +637,15 @@
         const year = date.getFullYear();
 
         console.log( date );
-        loadPuzzle( 'data/'+`${day}-${month}-${year}`+'.json')
+        //loadPuzzle( 'data/'+`${day}-${month}-${year}`+'.json')
+        loadPuzzle( ( ( n ) => { 
+            const number = Math.floor( Math.random()*(n+1));
+            //console.log('>>', number);
+            return `data/puzzle-${number}.json`;
+
+            })( 6 )
+        );
+
         console.log('>>', WORDS);
 
         function initGame() {
