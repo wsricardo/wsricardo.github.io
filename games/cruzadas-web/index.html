@@ -638,16 +638,15 @@
 
         console.log( date );
         //loadPuzzle( 'data/'+`${day}-${month}-${year}`+'.json')
-        loadPuzzle( ( ( n ) => { 
-            const number = Math.floor( Math.random()*(n+1));
-            //console.log('>>', number);
-            return `data/puzzle-${number}.json`;
+        
+        function getRandomPuzzlePath(maxIndex) {
+            const puzzleNumber = Math.floor(Math.random() * (maxIndex + 1));
+            return `data/puzzle-${puzzleNumber}.json`;
+        }
 
-            })( 5 )
-        );
-
-        console.log('>>', WORDS);
-
+        // Carrega um puzzle aleatório de 0 a 5
+        loadPuzzle(getRandomPuzzlePath(5));
+        
         function initGame() {
             cancelSelection();
             stopTimer();
@@ -1231,7 +1230,6 @@
             window.requestAnimationFrame(syncBoardScale);
         });
 
-        initGame();
     </script>
 
 </body>
