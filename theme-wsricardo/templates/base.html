@@ -20,8 +20,8 @@
     <meta name="language" content="pt-BR">
 
     <title>Blog | WSRicardo</title>
-    <link rel="stylesheet" href="{{ SITEURL }}/{{SECTION}}/theme/css/style.css">
-    <link rel="shortcut icon" href="{{ SITEURL }}/{{ SECTION }}/theme/images/wsricardo-thumbnail.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
+    <link rel="shortcut icon" href="{{ SITEURL }}/theme/images/wsricardo-thumbnail.ico" type="image/x-icon">
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672"
      crossorigin="anonymous"></script>
@@ -45,17 +45,17 @@
     <header class="site-header">
         <div class="container">
             <a href="{{ SITEURL }}/index.html" class="logo">
-                <img src="{{ SITEURL }}/theme/images/wan-vectorArt1-thumbnail.jpg" alt="Logo WSRicardo" class="logo-avatar">
+                <img src="{{ SITEURL }}/imgs/wan-vectorArt1-thumbnail.jpg" alt="Logo WSRicardo" class="logo-avatar">
                 <span>WSRicardo</span>
             </a>
             <button class="nav-toggle" aria-label="Abrir menu">☰</button>
             <nav class="main-nav" id="main-nav">
-                <a href="{{ SITEURL }}/index.html">Home</a>
-                <a href="{{ HOMEURL }}/projetos.html">Projetos</a>
-                <a href="{{ SITEURL }}/blog.html">Blog</a>
-                <a href="{{ SITEURL }}/matematica" class="active">Matemática</a>
-                <a href="{{ SITEURL }}/galeria.html">Galeria</a>
-                <a href="{{ SITEURL }}/cartum.html">Cartum</a>
+                <a href="{{ SITEURL }}/index.html" {% if output_file == 'index.html' %}class="active"{% endif %}>Home</a>
+                <a href="{{ SITEURL }}/projetos.html" {% if 'projetos.html' in output_file %}class="active"{% endif %}>Projetos</a>
+                <a href="{{ SITEURL }}/blog/index.html" {% if 'blog/' in output_file %}class="active"{% endif %}>Blog</a>
+                <a href="{{ SITEURL }}/matematica/index.html" {% if 'matematica/' in output_file %}class="active"{% endif %}>Matemática</a>
+                <a href="{{ SITEURL }}/galeria.html" {% if 'galeria.html' in output_file %}class="active"{% endif %}>Galeria</a>
+                <a href="{{ SITEURL }}/cartum.html" {% if 'cartum.html' in output_file %}class="active"{% endif %}>Cartum</a>
                 <a href="#apoie">Apoie</a>
                 <a href="#contato">Contato</a>
             </nav>

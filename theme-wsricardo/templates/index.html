@@ -8,7 +8,7 @@
     <article class="blog-post">
         <h1 class="post-title">
             <a
-                href="{{ SITEURL }}/{{ SECTION }}/{{ article.url }}"
+                href="{{ SITEURL }}/{{ article.url }}"
                 class=""
                 rel="bookmark"
                 title="{{ article.title|striptags }}"
@@ -17,13 +17,13 @@
 
         <p class="post-footer">Publicado em {{ article.date.strftime('%d/%m/%Y') }} por 
             {% for author in article.authors %}
-                <a href="{{ SITEURL }}/{{ SCTION }}/{{ author.url }}">{{ author }}</a></p>
+                <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></p>
             {% endfor %}
 
         <p class="post-content">
             {{ article.summary|striptags }}
             
-            <a href="{{ SITEURL }}/{{ SECTION }}/{{ article.url }}">Leia mais...</a>
+            <a href="{{ SITEURL }}/{{ article.url }}">Leia mais...</a>
 
         </p>
     
