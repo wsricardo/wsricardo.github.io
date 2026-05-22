@@ -26,12 +26,12 @@ AUTHOR_FEED_RSS = None
 
 # Estrutura de URLs para Matemática
 ARTICLE_PATHS = ['posts', 'articles']
-ARTICLE_URL = 'matematica/posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
-ARTICLE_SAVE_AS = 'matematica/posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
+ARTICLE_URL = 'posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
+ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
 
 PAGE_PATHS = ['pages']
-PAGE_URL = 'matematica/pages/{slug}/'
-PAGE_SAVE_AS = 'matematica/pages/{slug}/index.html'
+PAGE_URL = 'pages/{slug}/'
+PAGE_SAVE_AS = 'pages/{slug}/index.html'
 
 STATIC_PATHS = ['imagens', 'arquivos']
 
