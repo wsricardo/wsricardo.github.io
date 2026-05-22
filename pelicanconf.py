@@ -47,13 +47,23 @@ THEME = "theme-wsricardo/"
 
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = False
+
+# --- Estrutura de URL para o Blog ---
 ARTICLE_PATHS = [ 'posts', 'articles' ]
-ARTICLE_URL = 'blog/posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
-ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%d}-{date:%m}-{slug}.html'
+ARTICLE_URL = 'blog/posts/{date:%Y}/{date:%m}/{slug}.html'
+ARTICLE_SAVE_AS = 'blog/posts/{date:%Y}/{date:%m}/{slug}.html'
 
 PAGE_PATHS = ['pages']
-PAGE_URL = 'pages/{slug}/'
-PAGE_SAVE_AS = 'pages/{slug}/index.html'
+PAGE_URL = 'blog/pages/{slug}.html'
+PAGE_SAVE_AS = 'blog/pages/{slug}.html'
+
+CATEGORY_URL = 'blog/category/{slug}.html'
+CATEGORY_SAVE_AS = 'blog/category/{slug}.html'
+TAG_URL = 'blog/tag/{slug}.html'
+TAG_SAVE_AS = 'blog/tag/{slug}.html'
+AUTHOR_URL = 'blog/author/{slug}.html'
+AUTHOR_SAVE_AS = 'blog/author/{slug}.html'
+
 STATIC_PATHS = ['imagens' , 'arquivos']
 OUTPUT_PATH = 'blog/'
 SITE_ROOT_URL = f'{ SITEURL }' # Variável para a raiz do site em desenvolvimento
