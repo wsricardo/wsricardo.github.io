@@ -1,0 +1,12 @@
+[
+  {% set blog_articles = articles|rejectattr('category.name', 'equalto', 'Cartum')|list %}
+  {% for article in blog_articles[:3] %}
+  {
+    "title": "{{ article.title|striptags|replace('"', '\\"') }}",
+    "link": "{{ SITEURL }}/{{ article.url }}",
+    "summary": "{{ article.summary|striptags|replace('\n', ' ')|replace('"', '\\"')|truncate(150) }}",
+    "date": "{{ article.date.isoformat() }}"
+  }
+  {% if not loop.last %},{% endif %}
+  {% endfor %}
+]

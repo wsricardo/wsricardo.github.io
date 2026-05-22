@@ -1,0 +1,11 @@
+[
+  {% set cartoon_articles = articles|selectattr('category.name', 'equalto', 'Cartum')|list %}
+  {% for article in cartoon_articles[:3] %}
+  {
+    "title": "{{ article.title|striptags|replace('"', '\\"') }}",
+    "link": "{{ SITEURL }}/{{ article.url }}",
+    "image": "{{ SITEURL }}{{ article.image if article.image else '' }}"
+  }
+  {% if not loop.last %},{% endif %}
+  {% endfor %}
+]

@@ -286,122 +286,93 @@ Recentemente iniciei um projeto para a construção de um novo espaço para meu 
     </footer>
 
 <script>
-  // O feed RSS/Atom é gerado pelo Pelican. A URL pode precisar de ajuste
-  // dependendo da configuração final do 'pelicanconf.py' (FEED_ALL_ATOM/RSS).
-  const BLOG_FEED_URL = 'blog/feeds/all.atom.xml';
-  const CARTOON_FEED_URL = 'blog/feeds/cartum.atom.xml'; // Assumindo que 'cartum' é o slug da categoria
-  const MAX_ITEMS = 3;
+  // URLs para os feeds JSON leves gerados pelo Pelican
+  const RECENT_POSTS_URL = 'blog/recent_posts.json';
+  const RECENT_CARTOONS_URL = 'blog/recent_cartoons.json';
 
-  async function loadFeed() {
-    const container = document.querySelector('#recent-posts-container');
-    try {
-      const res = await fetch(BLOG_FEED_URL);
-      if (!res.ok) {
-        throw new Error(`Erro ao buscar feed: ${res.statusText}`);
-      }
-      const xml = await res.text();
-      const doc = new DOMParser().parseFromString(xml, 'application/xml');
-      
-      // Limpa a mensagem de "carregando"
-      container.innerHTML = '';
-
-      const items = doc.querySelectorAll('item, entry');
-      let count = 0;
-
-      if (items.length === 0) {
-        container.innerHTML = '<p>Nenhuma postagem recente encontrada. O feed pode estar vazio ou a URL incorreta.</p>';
+  function renderBlogPosts(posts, container) {
+    if (!posts || posts.length === 0) {
+        container.innerHTML = '<p>Nenhuma postagem recente encontrada.</p>';
         return;
-      }
+    }
+    
+    container.innerHTML = ''; // Limpa a mensagem de "carregando"
+    const fragment = document.createDocumentFragment();
 
-      items.forEach(item => {
-        if (count >= MAX_ITEMS) return;
-
-        const title = item.querySelector('title')?.textContent || 'Sem título';
-        const link = item.querySelector('link')?.getAttribute('href') || item.querySelector('link')?.textContent || '#';
-        const summaryNode = item.querySelector('summary, description');
-        // Tenta extrair o texto puro do resumo, removendo tags HTML
-        const summary = summaryNode ? (new DOMParser().parseFromString(summaryNode.textContent, 'text/html').body.textContent || '').substring(0, 150) + '...' : '';
-        const date = item.querySelector('published, pubDate')?.textContent;
-
+    posts.forEach(post => {
         const postCard = document.createElement('article');
         postCard.className = 'post-card';
 
-        let postDate = '';
-        if (date) {
-            postDate = `<time datetime="${new Date(date).toISOString()}">${new Date(date).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}</time>`;
-        }
+        const postDate = `<time datetime="${post.date}">${new Date(post.date).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}</time>`;
 
         postCard.innerHTML = `
             <div class="post-card-content">
-                <h3><a href="${link}">${title}</a></h3>
-                <p>${summary}</p>
+                <h3><a href="${post.link}">${post.title}</a></h3>
+                <p>${post.summary}</p>
                 ${postDate}
             </div>
         `;
-        container.appendChild(postCard);
-        count++;
-      });
-
-    } catch (e) {
-      container.innerHTML = '<p>Não foi possível carregar as postagens do blog. Verifique a URL do feed ou a configuração do servidor.</p>';
-      console.warn('Falha ao carregar o feed do blog:', e);
-    }
+        fragment.appendChild(postCard);
+    });
+    container.appendChild(fragment);
   }
 
-  async function loadCartoonFeed() {
-    const container = document.querySelector('#recent-cartoons-container');
+  function renderCartoons(cartoons, container) {
+      if (!cartoons || cartoons.length === 0) {
+          container.innerHTML = '<p>Nenhum cartum recente encontrado.</p>';
+          return;
+      }
+
+      container.innerHTML = ''; // Limpa a mensagem de "carregando"
+      const fragment = document.createDocumentFragment();
+
+      cartoons.forEach(cartoon => {
+          if (cartoon.image) {
+              const cartoonItem = document.createElement('div');
+              cartoonItem.className = 'gallery-item';
+              cartoonItem.innerHTML = `<a href="${cartoon.link}"><img src="${cartoon.image}" alt="${cartoon.title}"><p style="text-align: center;">${cartoon.title}</p></a>`;
+              fragment.appendChild(cartoonItem);
+          }
+      });
+      container.appendChild(fragment);
+  }
+
+  async function loadRecentContent() {
+    const postsContainer = document.querySelector('#recent-posts-container');
+    const cartoonsContainer = document.querySelector('#recent-cartoons-container');
+
     try {
-        const res = await fetch(CARTOON_FEED_URL);
-        if (!res.ok) {
-            throw new Error(`Erro ao buscar feed de cartuns: ${res.statusText}`);
-        }
-        const xml = await res.text();
-        const doc = new DOMParser().parseFromString(xml, 'application/xml');
+        // Busca os dois arquivos JSON em paralelo para maior eficiência
+        const [postsRes, cartoonsRes] = await Promise.all([
+            fetch(RECENT_POSTS_URL),
+            fetch(RECENT_CARTOONS_URL)
+        ]);
 
-        container.innerHTML = ''; // Limpa a mensagem de "carregando"
-
-        const items = doc.querySelectorAll('item, entry');
-        let count = 0;
-
-        if (items.length === 0) {
-            container.innerHTML = '<p>Nenhum cartum recente encontrado. Verifique a categoria e a geração do feed.</p>';
-            return;
+        if (!postsRes.ok || !cartoonsRes.ok) {
+            throw new Error('Não foi possível carregar os feeds de conteúdo recente.');
         }
 
-        items.forEach(item => {
-            if (count >= MAX_ITEMS) return;
+        const [recentPosts, recentCartoons] = await Promise.all([
+            postsRes.json(),
+            cartoonsRes.json()
+        ]);
 
-            const title = item.querySelector('title')?.textContent || 'Sem título';
-            const link = item.querySelector('link')?.getAttribute('href') || '#';
-            const contentNode = item.querySelector('content, summary, description');
+        // Renderiza as seções com os dados obtidos
+        renderBlogPosts(recentPosts, postsContainer);
+        renderCartoons(recentCartoons, cartoonsContainer);
 
-            if (contentNode) {
-                const contentHTML = new DOMParser().parseFromString(contentNode.textContent, 'text/html');
-                const img = contentHTML.querySelector('img');
-
-                if (img) {
-                    const imgSrc = img.getAttribute('src');
-                    const cartoonItem = document.createElement('div');
-                    cartoonItem.className = 'gallery-item';
-                    // Envolve a imagem em um link para a postagem completa
-                    cartoonItem.innerHTML = `<a href="${link}"><img src="${imgSrc}" alt="${title}"><p style="text-align: center;">${title}</p></a>`;
-                    container.appendChild(cartoonItem);
-                    count++;
-                }
-            }
-        });
     } catch (e) {
-        container.innerHTML = '<p>Não foi possível carregar os cartuns. Verifique a URL do feed ou a configuração do servidor.</p>';
-        console.warn('Falha ao carregar o feed de cartuns:', e);
+        postsContainer.innerHTML = '<p>Não foi possível carregar as postagens do blog.</p>';
+        cartoonsContainer.innerHTML = '<p>Não foi possível carregar os cartuns.</p>';
+        console.warn('Falha ao carregar conteúdo recente:', e);
     }
   }
 
   // Garante que o DOM está pronto antes de executar o script
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { loadFeed(); loadCartoonFeed(); });
+    document.addEventListener('DOMContentLoaded', loadRecentContent);
   } else {
-    loadFeed();
-    loadCartoonFeed();
+    loadRecentContent();
   }
 
   // Lógica para o botão "Voltar ao Topo"
