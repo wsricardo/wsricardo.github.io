@@ -2,412 +2,222 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="
-WSRicardo
-
-Um espaço pessoal para anotações, reflexões e experimentos. Feito com código, curiosidade e um café.
-Explorando universos da matemática, tecnologia, arte e agricultura. Um espaço para compartilhar projetos, estudos e reflexões.">
-    
+    <meta name="description" content="Portfólio de WSRicardo com projetos de desenvolvimento, arte, matemática, cartuns e experimentos criativos.">
     <meta name="robots" content="index, follow">
-    
-    <meta property="og:title" content="WSRicardo - 
-Um espaço pessoal para anotações, reflexões e experimentos. Feito com código, curiosidade e um café.
- Um Portal de Ideias, Experimentos, Conhecimentos e Informação">
-    <meta property="og:description" content="Explorando universos da matemática, tecnologia, arte e agricultura. Um espaço para compartilhar projetos, estudos e reflexões.">
-    <meta property="og:image" content="imgs/wan-vectorArt1-thumbnail.png">
+    <meta property="og:title" content="WSRicardo | Código, arte e ideias">
+    <meta property="og:description" content="Um espaço pessoal para projetos, estudos e experimentos entre programação, arte e matemática.">
+    <meta property="og:image" content="https://www.wsricardo.com.br/imgs/wan-vectorArt1-thumbnail.jpg">
     <meta property="og:url" content="https://www.wsricardo.com.br/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="WSRicardo">
     <meta property="og:locale" content="pt_BR">
-
-
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WSRicardo | Código, arte e ideias">
+    <meta name="twitter:description" content="Portfólio de WSRicardo com projetos de desenvolvimento, arte, matemática, cartuns e experimentos criativos.">
+    <meta name="twitter:image" content="https://www.wsricardo.com.br/imgs/wan-vectorArt1-thumbnail.jpg">
     <meta name="author" content="Wandeson Ricardo">
-    <meta name="keywords" content="Tecnologia, Notícias, Cartum, Charge, Tirinhas, Tiras, Arte, Ciência, Educação, Programação, Computador">
+    <meta name="keywords" content="WSRicardo, Wandeson Ricardo, portfolio, programação, arte, cartum, matemática">
     <meta name="language" content="pt-BR">
-
-    <title>WSRicardo</title>
+    <title>WSRicardo | Código, arte e ideias</title>
+    <link rel="canonical" href="https://www.wsricardo.com.br/">
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="imgs/wsricardo-thumbnail.ico" type="image/x-icon">
     <link rel="alternate" href="blog/feeds/all.atom.xml" type="application/atom+xml" title="Atom">
-
+    <script src="https://pagead2.googlesyndication.com/pagead/managed/js/adsense/m202605260101/show_ads_impl_fy2021.js"></script>
+    <script async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672" crossorigin="anonymous" data-checked-head="true"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672"
      crossorigin="anonymous"></script>
-
-     
-
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <img src="imgs/wan-vectorArt1-thumbnail.jpg" alt="Logo WSRicardo" class="logo-avatar">
+    <header id="main-header" class="site-header-home">
+        <div class="header-container">
+            <a href="index.html" class="logo brand-logo" aria-label="WSRicardo - início">
+                <span class="logo-mark">WS</span>
                 <span>WSRicardo</span>
             </a>
-            <button class="nav-toggle" aria-label="Abrir menu">☰</button>
-            <nav class="main-nav" id="main-nav">
-                <a href="index.html">Home</a>
-                <a href="projetos.html">Projetos</a>
-                <a href="blog/">Blog</a>
-                <a href="galeria.html">Galeria</a>
-                <a href="cartum.html">Cartum</a>
-                <a href="#apoie">Apoie</a>
-                <a href="#contato">Contato</a>
+            <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false">&#9776;</button>
+            <nav class="main-nav home-nav" id="main-nav" aria-label="Navegação principal">
+                <ul class="nav-links">
+                    <li><a href="#apresentacao">Apresentação</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#artes">Artes</a></li>
+                    <li><a href="#sobre-mim">Sobre</a></li>
+                    <li><a href="#canais-youtube">Canais</a></li>
+                    <li><a href="#contatos">Contato</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section id="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Um Portal de Ideias, Experimentos, Conhecimentos e Informação</h1>
-                    <p>Explorando universos da matemática, tecnologia, arte e agricultura. Um espaço para compartilhar projetos, estudos e reflexões.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="ads">
-            <div class="container">
-                
-            </div>
-
-        </section>
-
-        <section id="latest-posts" class="section">
-            <div class="container">
-                <h2>Últimas do Blog</h2>
-                <div id="recent-posts-container" class="posts-grid">
-                    <!-- As postagens do blog serão carregadas aqui via JavaScript -->
-                    <p class="loading-message">Carregando postagens recentes...</p>
-                </div>
-                <div class="section-cta">
-                    <a href="blog/index.html" class="btn">Visitar o Blog</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="youtube-channel" class="section bg-light">
-            <div class="container">
-                <h2>Canais no YouTube</h2>
-                <div class="youtube-grid">
-                    <div class="youtube-card">
-                        <h3>Dimensão Alfa</h3>
-                        <p>Conteúdo sobre ciência, tecnologia e curiosidades, explorando as fronteiras do conhecimento.</p>
-                        <div class="video-placeholder">
-                            <p>Vídeo mais recente de Dimensão Alfa</p>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/q6Ni_0z2hEs?si=x9jydEjVBMIu3cQ9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                        <div class="section-cta">
-                            <a href="https://www.youtube.com/@dimensaoalfa" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Explorar Canal</a>
-                        </div>
+    <main class="home-main">
+        <section id="apresentacao" class="section-container hero-section fade-in">
+            <div class="content-box hero-box">
+                <div class="hero-text">
+                    <h1>WSRicardo: código, arte e ideias em movimento</h1>
+                    <h3 class="subtitle"><span class="dev-tag">&lt;Code/&gt;</span> Desenvolvimento web, cartum, matemática e experimentação visual.</h3>
+                    <p>Um espaço para organizar projetos, estudos e narrativas visuais com a leveza do HTML, a precisão do CSS e a inquietação de quem gosta de aprender criando.</p>
+                    <div class="hero-actions">
+                        <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+                        <a href="#contatos" class="btn btn-secondary">Entrar em contato</a>
                     </div>
-                    <div class="youtube-card">
-                        <h3>WSRicardo</h3>
-                        <p>Vídeos voltados às artes e programação criativa e outras expreções artisticas com uso de ferramentas tradicionais
-                            e tecnologicas além de meios digitais.
-                        </p>
-                        <div class="video-placeholder">
-                            <p>Vídeo mais recente de WSRicardo</p>
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/cRsXMzBX9Z8?si=4JecKSIJA0DtuZ8q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div class="hero-highlights" aria-label="Áreas de atuação">
+                        <span><strong>Vanilla JS</strong><small>interfaces simples</small></span>
+                        <span><strong>Cartum</strong><small>humor e crítica</small></span>
+                        <span><strong>Matemática</strong><small>estudo e ensino</small></span>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="comic-panel">
+                        <div class="panel-toolbar">
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
-                        <div class="section-cta">
-                            <a href="https://www.youtube.com/@WSRicardoArte" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Explorar Canal</a>
+                        <pre><code>const ideia = {
+  arte: "traço",
+  dev: "interface",
+  estudo: "método"
+};
+
+render(ideia);</code></pre>
+                        <div class="sketch-note">
+                            <strong>cartum + algoritmo</strong>
+                            <span>prototipar, desenhar, publicar</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="section">
-            <div class="container">
-                <h2>Projetos em Destaque</h2>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <h3>Análise de Dados Populacionais</h3>
-                        <p>Estudo sobre crescimento populacional utilizando Python, Pandas e Scipy para realizar uma análise de regressão linear.</p>
-                        <a href="meustrabalhos/Projeto-Prog1/analise_linear.html" class="project-link">Ver Detalhes</a>
+        <section id="projetos" class="section-container fade-in">
+            <div class="content-box">
+                <div class="section-heading">
+                    <span class="section-number">01</span>
+                    <div>
+                        <h2>Projetos</h2>
+                        <p class="section-desc">Uma seleção de trabalhos envolvendo desenvolvimento web, aplicações interativas, análise de dados e experimentações com código.</p>
                     </div>
-                    <div class="project-card">
+                </div>
+                <div class="grid-layout">
+                    <article class="card accent-yellow">
+                        <h3>Site Portfólio SPA</h3>
+                        <p>Projeto de página única desenvolvido com HTML, CSS e JavaScript puro, focado em performance, clareza visual e responsividade.</p>
+                        <a href="projetos.html" class="card-link">Detalhes do projeto &rarr;</a>
+                    </article>
+                    <article class="card accent-green">
                         <h3>Gerador de Site Estático</h3>
-                        <p><b>ZeusSS13BR</b> é um projeto de código aberto disponível no GitHub criado para gerar um blog estático usando scripts em Python. 
-                            Em outras palavras, ele é uma ferramenta simples para construir sites/blogs estáticos a partir de conteúdo, organizando
-                             tudo em HTML estático que pode ser publicado facilmente — por exemplo, no GitHub Pages.</p>
-                        <a href="https://github.com/wsricardo/wsricardo.github.io" class="project-link">Ver no GitHub</a>
-                    </div>
-                    <div class="project-card">
-                        <h3>Exercícios de Cálculo em LaTeX</h3>
-                        <p>Uma coleção de listas de exercícios de Cálculo I, formatadas profissionalmente com LaTeX, cobrindo limites, derivadas e integrais.</p>
-                        <a href="blog/arquivos/calculo/lista1/main.pdf" class="project-link">Visualizar PDF</a>
-                    </div>
-                </div>
-                 <div class="section-cta">
-                    <a href="projetos.html" class="btn">Ver todos os projetos</a>
+                        <p>Ferramenta em Python para estruturar conteúdo estático e publicar páginas leves em ambientes como GitHub Pages.</p>
+                        <a href="https://github.com/wsricardo/ZeusSS13BR" class="card-link" target="_blank" rel="noopener noreferrer">Ver no GitHub &rarr;</a>
+                    </article>
+                    <article class="card accent-pink">
+                        <h3>Exercícios de Cálculo</h3>
+                        <p>Listas e materiais em LaTeX para estudo de limites, derivadas e integrais com organização voltada ao aprendizado.</p>
+                        <a href="blog/arquivos/calculo/lista1/main.pdf" class="card-link">Visualizar PDF &rarr;</a>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="gallery-preview" class="section bg-light">
-            <div class="container">
-                <h2>Galeria de Arte</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="blog/imagens/pen-draw.jpg" alt="Desenho à caneta">
+        <section id="artes" class="section-container fade-in">
+            <div class="content-box">
+                <div class="section-heading">
+                    <span class="section-number">02</span>
+                    <div>
+                        <h2>Artes e galeria</h2>
+                        <p class="section-desc">Explorações visuais entre desenho, pintura, cartum diário e programação criativa.</p>
                     </div>
-                    <div class="gallery-item">
-                        <img src="imgs/wan-vectorArt1-thumbnail.jpg" alt="Arte vetorial">
-                    </div>
-                    
                 </div>
-                <div class="section-cta">
-                    <a href="galeria.html" class="btn">Explorar a Galeria</a>
+                <div class="grid-layout">
+                    <article class="card accent-pink">
+                        <h3>Cartuns Diários</h3>
+                        <p>Ilustrações de humor e observação social com traço direto, composição simples e leitura rápida.</p>
+                        <a href="cartum.html" class="card-link">Ver cartuns &rarr;</a>
+                    </article>
+                    <article class="card accent-yellow">
+                        <h3>Pinturas e desenhos</h3>
+                        <p>Estudos de retrato, forma, textura e cor, reunindo trabalhos tradicionais e digitais em uma galeria única.</p>
+                        <a href="galeria.html" class="card-link">Abrir galeria &rarr;</a>
+                    </article>
+                    <article class="card accent-blue">
+                        <h3>Programação criativa</h3>
+                        <p>Experimentos visuais guiados por lógica, matemática, pixels e composição gerativa no navegador.</p>
+                        <a href="projetos.html" class="card-link">Explorar estudos &rarr;</a>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="latest-cartoons" class="section">
-             
-            <div class="container">
-                <h2>Cartuns Recentes</h2>
-                <div id="recent-cartoons-container" class="gallery-grid">
-                    <!--[comentário ] Os cartuns serão carregados aqui via JavaScript [/]-->
-                    <p class="loading-message">Carregando cartuns recentes...</p>
+        <section id="sobre-mim" class="section-container fade-in">
+            <div class="content-box about-box">
+                <div class="section-heading">
+                    <span class="section-number">03</span>
+                    <div>
+                        <h2>Sobre mim</h2>
+                        <p class="section-desc">A ponte entre lógica, criatividade e aprendizado contínuo.</p>
+                    </div>
                 </div>
-                <div class="section-cta">
-                    <a href="cartum.html" class="btn">Ver todos os cartuns</a>
+                <div class="about-grid">
+                    <div class="text-content">
+                        <p>Com uma paixão dividida entre a lógica exata e a expressão artística, busco criar experiências digitais que sejam úteis, leves e visualmente memoráveis.</p>
+                        <p>Acredito que simplicidade não precisa ser sem graça: ela pode ter ritmo, contraste, personalidade e intenção.</p>
+                    </div>
+                    <ul class="skill-list" aria-label="Habilidades e temas">
+                        <li>HTML5, CSS3 e JavaScript ES6</li>
+                        <li>Design responsivo e interfaces leves</li>
+                        <li>Cartum, desenho e experimentação visual</li>
+                        <li>Matemática, educação e análise de dados</li>
+                    </ul>
                 </div>
             </div>
-        
         </section>
 
+        <section id="canais-youtube" class="section-container fade-in">
+            <div class="content-box">
+                <div class="section-heading">
+                    <span class="section-number">04</span>
+                    <div>
+                        <h2>Canais no YouTube</h2>
+                        <p class="section-desc">Conteúdo em vídeo para compartilhar estudos, processos criativos e bastidores dos projetos.</p>
+                    </div>
+                </div>
+                <div class="grid-layout grid-2">
+                    <article class="card channel-card accent-green">
+                        <h3>Dimensão Alfa</h3>
+                        <p>Ciência, tecnologia, matemática e curiosidades para explorar ideias com profundidade e linguagem acessível.</p>
+                        <a href="https://www.youtube.com/@dimensaoalfa" class="card-link" target="_blank" rel="noopener noreferrer">Explorar canal &rarr;</a>
+                    </article>
+                    <article class="card channel-card accent-pink">
+                        <h3>WSRicardo Arte</h3>
+                        <p>Artes, programação criativa, processos de desenho e experimentos usando ferramentas tradicionais e digitais.</p>
+                        <a href="https://www.youtube.com/@WSRicardoArte" class="card-link" target="_blank" rel="noopener noreferrer">Explorar canal &rarr;</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contatos" class="section-container fade-in">
+            <div class="content-box contact-box center-content">
+                <h2>Vamos conversar?</h2>
+                <p>Conecte-se pelas redes, acompanhe os projetos ou envie uma mensagem para iniciar uma colaboração.</p>
+                <div class="social-links">
+                    <a href="https://github.com/wsricardo" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://linkedin.com/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://instagram.com/w.s.ricardo" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="mailto:contato@wsricardo.com.br" class="btn btn-primary">Enviar e-mail</a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <section id="apoie" class="section">
-        <div class="container">
-            <h2>Apoie o Nosso Trabalho</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px auto;">
-                Se você gosta do conteúdo e quer apoiar a continuidade dos projetos, canais e do blog, considere se tornar um apoiador. Sua contribuição faz toda a diferença.
-            </p>
-            <div class="posts-grid">
-                <!-- Como o Apoia.se não oferece um feed RSS público para os posts da comunidade, a atualização aqui é manual. -->
-                <div class="post-card support-post-placeholder">
-                    <div class="post-card-content">
-                        <h3>UFPE Cálculo 1 1EE 2025.1 Questão 1.a (i) Novo Vídeo</h3>
-                        <p>Vídeo de resolução de questão de prova de cáulco da UFPE.</p>
-                        <p><a href="https://apoia.se/dimensaowsricardo/contents/view/UFPE-Calculo-1-1EE-2025.1-Questao-1.a-(i)-Novo-Video-UbeBnkQy0?page=1#0" target="_blank" rel="noopener noreferrer">Ver mais...</a></p>
-                    </div>
-                </div>
-                <div class="post-card qr-code-card">
-                    <div class="post-card-content">
-                        <h3>Doação via PIX</h3>
-                        <!-- Coloque a imagem do seu QR Code aqui -->
-                         <a style="text-decoration: none;"  href="https://nubank.com.br/cobrar/1drdyl/696969ca-57d1-406f-a94e-4a0d79613ba8" target="_blank" rel="noopener noreferrer">
-                            <img src="imgs/pix-qrcode.png" alt="QR Code para doação PIX" class="qr-code-img">
-                         </a>
-                        
-                        <p>Sua contribuição ajuda a manter os projetos e o site no ar. Obrigado!</p>
-                        <p><i>Lembre-se: Confira sempre o nome e dados do recebedor.</i></p>
-                    </div>
-                </div>
-                <div class="post-card support-post-placeholder">
-                    <div class="post-card-content">
-                        <h3>WSRicardo Blog - Uma Nova Pagina</h3>
-                        <p>Olá,
-
-Recentemente iniciei um projeto para a construção de um novo espaço para meu blog pessoal WSRicardo, agora um blog estático, hospedado no GitHub onde costumo publicar...</p>
-                        <p><a href="https://apoia.se/dimensaowsricardo/contents/view/WSRicardo-Blog-Uma-Nova-Pagina-i6yfIu5Lu?page=1#1" target="_blank" rel="noopener noreferrer">Ver mais...</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="section-cta">
-                <a href="https://apoia.se/dimensaowsricardo" class="btn" target="_blank" rel="noopener noreferrer">Seja um Apoiador</a>
-            </div>
+    <footer class="simple-footer">
+        <div class="footer-strip">
+            <strong>Copyright WSRicardo</strong>
+            <span>Feito com HTML, CSS, JavaScript puro e curiosidade.</span>
         </div>
-    </section>
-
-    <footer id="contato" class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>WSRicardo</h3>
-                    <p>Um espaço pessoal para anotações, reflexões e experimentos. Feito com código, curiosidade e um café.</p>
-                </div>
-                <div class="footer-contact">
-                    <h3>Conecte-se</h3>
-                    <div class="social-links">
-                        <a href="https://github.com/wsricardo" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        <!-- Adicionar link para o YouTube quando disponível -->
-                        <a href="https://www.youtube.com/@WSRicardoArte" target="_blank" rel="noopener noreferrer">YouTube</a>
-                        <a href="https://whatsapp.com/channel/0029VbCVPx37oQhZkmIDWF2r">WhatsApp</a>
-                    </div>
-                </div>
-                <div class="footer-contact">
-                    <h3>Contatos</h3>
-                    <div class="footer-links-column">
-                        <a href="mailto:seuemail@email.com">Email</a>
-                        <a href="https://instagram.com/w.s.ricardo">Instagram</a>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Wandeson Ricardo. Todos os direitos reservados.</p>
-            </div>
-        </div>
-        <a href="#" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</a>
     </footer>
 
-<script>
-  // O feed RSS/Atom é gerado pelo Pelican. A URL pode precisar de ajuste
-  // dependendo da configuração final do 'pelicanconf.py' (FEED_ALL_ATOM/RSS).
-  const BLOG_FEED_URL = 'blog/feeds/all.atom.xml';
-  const CARTOON_FEED_URL = 'blog/feeds/cartum.atom.xml'; // Assumindo que 'cartum' é o slug da categoria
-  const MAX_ITEMS = 3;
-
-  async function loadFeed() {
-    const container = document.querySelector('#recent-posts-container');
-    try {
-      const res = await fetch(BLOG_FEED_URL);
-      if (!res.ok) {
-        throw new Error(`Erro ao buscar feed: ${res.statusText}`);
-      }
-      const xml = await res.text();
-      const doc = new DOMParser().parseFromString(xml, 'application/xml');
-      
-      // Limpa a mensagem de "carregando"
-      container.innerHTML = '';
-
-      const items = doc.querySelectorAll('item, entry');
-      let count = 0;
-
-      if (items.length === 0) {
-        container.innerHTML = '<p>Nenhuma postagem recente encontrada. O feed pode estar vazio ou a URL incorreta.</p>';
-        return;
-      }
-
-      items.forEach(item => {
-        if (count >= MAX_ITEMS) return;
-
-        const title = item.querySelector('title')?.textContent || 'Sem título';
-        const link = item.querySelector('link')?.getAttribute('href') || item.querySelector('link')?.textContent || '#';
-        const summaryNode = item.querySelector('summary, description');
-        // Tenta extrair o texto puro do resumo, removendo tags HTML
-        const summary = summaryNode ? (new DOMParser().parseFromString(summaryNode.textContent, 'text/html').body.textContent || '').substring(0, 150) + '...' : '';
-        const date = item.querySelector('published, pubDate')?.textContent;
-
-        const postCard = document.createElement('article');
-        postCard.className = 'post-card';
-
-        let postDate = '';
-        if (date) {
-            postDate = `<time datetime="${new Date(date).toISOString()}">${new Date(date).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}</time>`;
-        }
-
-        postCard.innerHTML = `
-            <div class="post-card-content">
-                <h3><a href="${link}">${title}</a></h3>
-                <p>${summary}</p>
-                ${postDate}
-            </div>
-        `;
-        container.appendChild(postCard);
-        count++;
-      });
-
-    } catch (e) {
-      container.innerHTML = '<p>Não foi possível carregar as postagens do blog. Verifique a URL do feed ou a configuração do servidor.</p>';
-      console.warn('Falha ao carregar o feed do blog:', e);
-    }
-  }
-
-  async function loadCartoonFeed() {
-    const container = document.querySelector('#recent-cartoons-container');
-    try {
-        const res = await fetch(CARTOON_FEED_URL);
-        if (!res.ok) {
-            throw new Error(`Erro ao buscar feed de cartuns: ${res.statusText}`);
-        }
-        const xml = await res.text();
-        const doc = new DOMParser().parseFromString(xml, 'application/xml');
-
-        container.innerHTML = ''; // Limpa a mensagem de "carregando"
-
-        const items = doc.querySelectorAll('item, entry');
-        let count = 0;
-
-        if (items.length === 0) {
-            container.innerHTML = '<p>Nenhum cartum recente encontrado. Verifique a categoria e a geração do feed.</p>';
-            return;
-        }
-
-        items.forEach(item => {
-            if (count >= MAX_ITEMS) return;
-
-            const title = item.querySelector('title')?.textContent || 'Sem título';
-            const link = item.querySelector('link')?.getAttribute('href') || '#';
-            const contentNode = item.querySelector('content, summary, description');
-
-            if (contentNode) {
-                const contentHTML = new DOMParser().parseFromString(contentNode.textContent, 'text/html');
-                const img = contentHTML.querySelector('img');
-
-                if (img) {
-                    const imgSrc = img.getAttribute('src');
-                    const cartoonItem = document.createElement('div');
-                    cartoonItem.className = 'gallery-item';
-                    // Envolve a imagem em um link para a postagem completa
-                    cartoonItem.innerHTML = `<a href="${link}"><img src="${imgSrc}" alt="${title}"><p style="text-align: center;">${title}</p></a>`;
-                    container.appendChild(cartoonItem);
-                    count++;
-                }
-            }
-        });
-    } catch (e) {
-        container.innerHTML = '<p>Não foi possível carregar os cartuns. Verifique a URL do feed ou a configuração do servidor.</p>';
-        console.warn('Falha ao carregar o feed de cartuns:', e);
-    }
-  }
-
-  // Garante que o DOM está pronto antes de executar o script
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { loadFeed(); loadCartoonFeed(); });
-  } else {
-    loadFeed();
-    loadCartoonFeed();
-  }
-
-  // Lógica para o botão "Voltar ao Topo"
-  const backToTopButton = document.querySelector('.back-to-top');
-
-  if (backToTopButton) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) { // Mostra o botão após rolar 300px
-        backToTopButton.classList.add('visible');
-      } else {
-        backToTopButton.classList.remove('visible');
-      }
-    });
-
-    backToTopButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      // A rolagem suave já está definida no CSS (scroll-behavior: smooth), mas o JS oferece mais controle.
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  // Lógica para o menu de navegação móvel
-  const navToggle = document.querySelector('.nav-toggle');
-  const mainNav = document.querySelector('#main-nav');
-
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('nav-open');
-    });
-  }
-</script>
-
+    <script src="js/main.js"></script>
 </body>
 </html>
