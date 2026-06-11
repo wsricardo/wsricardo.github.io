@@ -448,15 +448,110 @@ a:hover {
 }
 
 /* ==========================================================================
-   Responsividade (Mobile & Tablet)
+   Responsividade Universal (TVs, Tablets, Mobile, Smartwatch)
    ========================================================================== */
+
+/* Telas Gigantes & Smart TVs (Min 1400px) */
+@media (min-width: 1400px) {
+    .container { max-width: 1500px; }
+    html { font-size: 110%; } /* Escala tipografia base */
+    .hero h1 { font-size: 4rem; }
+    .cards-grid { grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); }
+    .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+}
+
+/* Hamburger Menu Icon (Padrão: Oculto) */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.hamburger-btn span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-gold);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+}
+
+/* Mobile Menu Overlay Modal */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(18, 18, 18, 0.98);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+.mobile-menu-content {
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+.mobile-menu-close {
+    position: absolute;
+    top: -60px; right: 30px;
+    font-size: 40px;
+    color: var(--accent-gold);
+    cursor: pointer;
+    line-height: 1;
+}
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.mobile-nav a {
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    color: var(--accent-parchment);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Mobile & Tablet (Max 768px) */
 @media (max-width: 768px) {
-    .site-header .container { flex-direction: column; gap: 15px; }
-    .main-nav { flex-wrap: wrap; justify-content: center; gap: 15px; }
+    /* Header & Nav */
+    .main-nav { display: none; /* Esconde menu padrão, mostra hamburguer */ }
+    .hamburger-btn { display: flex; }
+    
+    /* Layouts */
     .hero-glass-card h1 { font-size: 2.2rem; }
     .hero-glass-card p { font-size: 1.1rem; }
     .hero-glass-card { padding: 30px 20px; }
     .home-cover-container { height: 60vh; }
     .footer-content { flex-direction: column; text-align: center; }
+    
+    /* Grids e Carrossel */
+    .cards-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
     .cyber-carousel-track { animation-duration: 20s; }
+}
+
+/* Dispositivos Ultra Pequenos / Smartwatch (Max 400px) */
+@media (max-width: 400px) {
+    .container { padding: 0 10px; }
+    
+    /* Maximizar área útil reduzindo paddings */
+    .card { padding: 15px; }
+    .post-content { padding: 20px 15px; }
+    
+    /* Grades fluidas, forçando 1 coluna 100% largura */
+    .cards-grid, .gallery-grid { 
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    
+    /* Carrossel não pode vazar a tela */
+    .cyber-card { width: 85vw; padding: 15px; }
+    
+    .hero h1 { font-size: 1.8rem; }
+    .hero-glass-card { padding: 20px 10px; }
+    
+    .logo span { font-size: 1.2rem; }
 }

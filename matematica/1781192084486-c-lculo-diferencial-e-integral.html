@@ -10,16 +10,16 @@
     <!-- SEO & OpenGraph Inject -->
     
     <link rel="canonical" href="https://www.wsricardo.com.br/matematica/1781192084486-c-lculo-diferencial-e-integral.html">
-    <meta name="author" content="WSRicardo">
+    <meta name="author" content="Wandeson Ricardo">
     <meta property="og:title" content="Cálculo Diferencial e Integral | WSRicardo">
     <meta property="og:description" content="">
-    <meta property="og:image" content="https://www.wsricardo.com.br/imgs/og-cover.png">
+    <meta property="og:image" content="https://www.wsricardo.com.br/imgs/default-matematica.png">
     <meta property="og:url" content="https://www.wsricardo.com.br/matematica/1781192084486-c-lculo-diferencial-e-integral.html">
     <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Cálculo Diferencial e Integral | WSRicardo">
     <meta name="twitter:description" content="">
-    <meta name="twitter:image" content="https://www.wsricardo.com.br/imgs/og-cover.png">
+    <meta name="twitter:image" content="https://www.wsricardo.com.br/imgs/default-matematica.png">
     
     <!-- CSS Principal -->
     <link rel="stylesheet" href="../css/style.css">
@@ -48,12 +48,46 @@
                 <a href="../projetos.html">Projetos</a>
                 <a href="../sobre.html">Sobre</a>
             </nav>
+            
+            <!-- Mobile Hamburger Button -->
+            <div class="hamburger-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay Modal -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay" style="display: none;">
+        <div class="mobile-menu-content">
+            <span class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</span>
+            <nav class="mobile-nav">
+                <a href="../index.html">Home</a>
+                <a href="../matematica.html">Matemática & Comp</a>
+                <a href="../galeria.html">Galeria de Arte</a>
+                <a href="../projetos.html">Projetos</a>
+                <a href="../sobre.html">Sobre</a>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobile-menu-overlay');
+            if (overlay.style.display === 'flex') {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; // allow scrolling again
+            } else {
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // prevent background scroll
+            }
+        }
+    </script>
+
     <main>
         <!-- O conteúdo será injetado aqui -->
-        <div class="container"><article class="post-content"><h1>Cálculo Diferencial e Integral</h1><p class="post-meta" style="color: var(--accent-gold); margin-bottom: 10px;">2026-06-11 • Por WSRicardo</p><h2>Limite</h2>
+        <div class="container"><article class="post-content"><h1>Cálculo Diferencial e Integral</h1><p class="post-meta" style="color: var(--accent-gold); margin-bottom: 10px;">2026-06-11 • Por Wandeson Ricardo</p><h2>Limite</h2>
 <p>Definimos limite para uma função <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span></span></span></span> sobre os reais como</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.45em;vertical-align:-0.7em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6944em;"><span style="top:-2.4em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span><span class="mrel mtight">→</span><span class="mord mathnormal mtight">a</span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span><span class="mord">.</span></span></span></span></span></p>
 </article></div>

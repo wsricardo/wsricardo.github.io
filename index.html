@@ -48,8 +48,42 @@
                 <a href="./projetos.html">Projetos</a>
                 <a href="./sobre.html">Sobre</a>
             </nav>
+            
+            <!-- Mobile Hamburger Button -->
+            <div class="hamburger-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay Modal -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay" style="display: none;">
+        <div class="mobile-menu-content">
+            <span class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</span>
+            <nav class="mobile-nav">
+                <a href="./index.html">Home</a>
+                <a href="./matematica.html">Matemática & Comp</a>
+                <a href="./galeria.html">Galeria de Arte</a>
+                <a href="./projetos.html">Projetos</a>
+                <a href="./sobre.html">Sobre</a>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobile-menu-overlay');
+            if (overlay.style.display === 'flex') {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; // allow scrolling again
+            } else {
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // prevent background scroll
+            }
+        }
+    </script>
 
     <main>
         <!-- O conteúdo será injetado aqui -->
@@ -86,7 +120,7 @@
                 <div class="cyber-card" onclick="window.location.href='matematica/1781192084486-c-lculo-diferencial-e-integral.html'" style="cursor: pointer;">
                     <span class="cyber-card-tag">matematica</span>
                     <h3>Cálculo Diferencial e Integral</h3>
-                    <p>Definimos limite para uma função $f(x)=y$ sobre os reais como</p>
+                    <p>Definimos limite para uma função <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span></span></span></span> sobre os reais como</p>
                     <p style="font-size: 0.8rem; color: var(--accent-gold);">2026-06-11</p>
                 </div>
 
@@ -121,7 +155,7 @@
                 <div class="cyber-card" onclick="window.location.href='matematica/1781192084486-c-lculo-diferencial-e-integral.html'" style="cursor: pointer;">
                     <span class="cyber-card-tag">matematica</span>
                     <h3>Cálculo Diferencial e Integral</h3>
-                    <p>Definimos limite para uma função $f(x)=y$ sobre os reais como</p>
+                    <p>Definimos limite para uma função <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span></span></span></span> sobre os reais como</p>
                     <p style="font-size: 0.8rem; color: var(--accent-gold);">2026-06-11</p>
                 </div>
 
@@ -162,7 +196,7 @@
         
         <div class="card">
             <h3><a href="matematica/1781192084486-c-lculo-diferencial-e-integral.html">Cálculo Diferencial e Integral</a></h3>
-            <p>Definimos limite para uma função $f(x)=y$ sobre os reais como</p>
+            <p>Definimos limite para uma função <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span></span></span></span> sobre os reais como</p>
             <p style="font-size: 0.8rem; color: var(--accent-gold);">2026-06-11</p>
         </div>
 
@@ -209,19 +243,85 @@
     <h2>Artigos Gerais</h2>
     <div class="cards-grid">
         
-        <div class="card">
-            <span class="cyber-card-tag" style="margin-bottom: 10px;">Geral</span>
-            <h3><a href="geral/art-da-vinci.html"> O Polímata Leonardo da Vinci</a></h3>
-            <p>Um pouco sobre polimatas e Leonardo Da Vinci</p>
-            <p style="font-size: 0.8rem; color: var(--accent-gold); margin-top: 10px;">2025-08-15</p>
-        </div>
+            <div id="geral-posts-container" style="display: contents;"></div>
+            <div class="pagination" style="grid-column: 1 / -1; text-align: center; margin-top: 30px;">
+                <button id="btn-prev-geral" class="btn" style="margin-right: 15px;" onclick="changeGeralPage(-1)">Anterior</button>
+                <span id="geral-page-info" style="color: var(--text-secondary); margin: 0 15px; font-weight: bold;"></span>
+                <button id="btn-next-geral" class="btn" style="margin-left: 15px;" onclick="changeGeralPage(1)">Próximas</button>
+            </div>
+            
+            <script>
+                const geralPostsData = [{"url":"geral/art-da-vinci.html","title":" O Polímata Leonardo da Vinci","description":"Um pouco sobre polimatas e Leonardo Da Vinci","date":"2025-08-15"},{"url":"geral/first-post.html","title":"Bem vindo ao Meu Blog WSRicardo","description":"Olá, bem vindo ao meu blog WSRicardo. Aqui estarei postando um pouco de meus trabalhos","date":"2025-08-10"}];
+                let currentGeralPage = 1;
+                const geralPostsPerPage = 3;
 
-        <div class="card">
-            <span class="cyber-card-tag" style="margin-bottom: 10px;">Geral</span>
-            <h3><a href="geral/first-post.html">Bem vindo ao Meu Blog WSRicardo</a></h3>
-            <p>Olá, bem vindo ao meu blog WSRicardo. Aqui estarei postando um pouco de meus trabalhos</p>
-            <p style="font-size: 0.8rem; color: var(--accent-gold); margin-top: 10px;">2025-08-10</p>
-        </div>
+                function renderGeralPosts() {
+                    const container = document.getElementById('geral-posts-container');
+                    const btnPrev = document.getElementById('btn-prev-geral');
+                    const btnNext = document.getElementById('btn-next-geral');
+                    const pageInfo = document.getElementById('geral-page-info');
+
+                    if (!container) return;
+
+                    if (geralPostsData.length === 0) {
+                        container.innerHTML = '<p style="color:var(--text-secondary); grid-column: 1 / -1; text-align:center;">Nenhum artigo geral publicado ainda.</p>';
+                        btnPrev.style.display = 'none';
+                        btnNext.style.display = 'none';
+                        pageInfo.style.display = 'none';
+                        return;
+                    }
+
+                    const totalPages = Math.ceil(geralPostsData.length / geralPostsPerPage);
+                    if (currentGeralPage < 1) currentGeralPage = 1;
+                    if (currentGeralPage > totalPages) currentGeralPage = totalPages;
+
+                    const startIndex = (currentGeralPage - 1) * geralPostsPerPage;
+                    const endIndex = startIndex + geralPostsPerPage;
+                    const postsToShow = geralPostsData.slice(startIndex, endIndex);
+
+                    container.innerHTML = postsToShow.map(p => `
+                        <div class="card fade-in" style="animation: fadeIn 0.4s ease-in-out;">
+                            <span class="cyber-card-tag" style="margin-bottom: 10px;">Geral</span>
+                            <h3><a href="${p.url}">${p.title}</a></h3>
+                            <p>${p.description}</p>
+                            <p style="font-size: 0.8rem; color: var(--accent-gold); margin-top: 10px;">${p.date}</p>
+                        </div>
+                    `).join('');
+
+                    pageInfo.textContent = `Página ${currentGeralPage} de ${totalPages}`;
+                    
+                    if (currentGeralPage === 1) {
+                        btnPrev.setAttribute('disabled', 'true');
+                        btnPrev.style.opacity = '0.5';
+                        btnPrev.style.cursor = 'not-allowed';
+                    } else {
+                        btnPrev.removeAttribute('disabled');
+                        btnPrev.style.opacity = '1';
+                        btnPrev.style.cursor = 'pointer';
+                    }
+
+                    if (currentGeralPage === totalPages) {
+                        btnNext.setAttribute('disabled', 'true');
+                        btnNext.style.opacity = '0.5';
+                        btnNext.style.cursor = 'not-allowed';
+                    } else {
+                        btnNext.removeAttribute('disabled');
+                        btnNext.style.opacity = '1';
+                        btnNext.style.cursor = 'pointer';
+                    }
+                }
+
+                function changeGeralPage(direction) {
+                    currentGeralPage += direction;
+                    renderGeralPosts();
+                }
+
+                document.addEventListener('DOMContentLoaded', renderGeralPosts);
+            </script>
+            <style>
+                @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+            </style>
+            
     </div>
 </section>
 

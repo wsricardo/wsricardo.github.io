@@ -48,8 +48,42 @@
                 <a href="./projetos.html">Projetos</a>
                 <a href="./sobre.html">Sobre</a>
             </nav>
+            
+            <!-- Mobile Hamburger Button -->
+            <div class="hamburger-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay Modal -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay" style="display: none;">
+        <div class="mobile-menu-content">
+            <span class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</span>
+            <nav class="mobile-nav">
+                <a href="./index.html">Home</a>
+                <a href="./matematica.html">Matemática & Comp</a>
+                <a href="./galeria.html">Galeria de Arte</a>
+                <a href="./projetos.html">Projetos</a>
+                <a href="./sobre.html">Sobre</a>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobile-menu-overlay');
+            if (overlay.style.display === 'flex') {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; // allow scrolling again
+            } else {
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // prevent background scroll
+            }
+        }
+    </script>
 
     <main>
         <!-- O conteúdo será injetado aqui -->
@@ -78,7 +112,7 @@
         
         <div class="card">
             <h3><a href="matematica/1781192084486-c-lculo-diferencial-e-integral.html">Cálculo Diferencial e Integral</a></h3>
-            <p>Definimos limite para uma função $f(x)=y$ sobre os reais como</p>
+            <p>Definimos limite para uma função <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span></span></span></span> sobre os reais como</p>
             <p style="font-size: 0.8rem; color: var(--accent-gold);">2026-06-11</p>
         </div>
 

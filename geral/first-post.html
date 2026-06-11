@@ -10,16 +10,16 @@
     <!-- SEO & OpenGraph Inject -->
     
     <link rel="canonical" href="https://www.wsricardo.com.br/geral/first-post.html">
-    <meta name="author" content="WSRicardo">
+    <meta name="author" content="Wandeson Ricardo">
     <meta property="og:title" content="Bem vindo ao Meu Blog WSRicardo | WSRicardo">
     <meta property="og:description" content="">
-    <meta property="og:image" content="https://www.wsricardo.com.br/imgs/og-cover.png">
+    <meta property="og:image" content="https://www.wsricardo.com.br/imgs/default-geral.png">
     <meta property="og:url" content="https://www.wsricardo.com.br/geral/first-post.html">
     <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Bem vindo ao Meu Blog WSRicardo | WSRicardo">
     <meta name="twitter:description" content="">
-    <meta name="twitter:image" content="https://www.wsricardo.com.br/imgs/og-cover.png">
+    <meta name="twitter:image" content="https://www.wsricardo.com.br/imgs/default-geral.png">
     
     <!-- CSS Principal -->
     <link rel="stylesheet" href="../css/style.css">
@@ -48,12 +48,46 @@
                 <a href="../projetos.html">Projetos</a>
                 <a href="../sobre.html">Sobre</a>
             </nav>
+            
+            <!-- Mobile Hamburger Button -->
+            <div class="hamburger-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
+    <!-- Mobile Menu Overlay Modal -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay" style="display: none;">
+        <div class="mobile-menu-content">
+            <span class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</span>
+            <nav class="mobile-nav">
+                <a href="../index.html">Home</a>
+                <a href="../matematica.html">Matemática & Comp</a>
+                <a href="../galeria.html">Galeria de Arte</a>
+                <a href="../projetos.html">Projetos</a>
+                <a href="../sobre.html">Sobre</a>
+            </nav>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const overlay = document.getElementById('mobile-menu-overlay');
+            if (overlay.style.display === 'flex') {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; // allow scrolling again
+            } else {
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // prevent background scroll
+            }
+        }
+    </script>
+
     <main>
         <!-- O conteúdo será injetado aqui -->
-        <div class="container"><article class="post-content"><h1>Bem vindo ao Meu Blog WSRicardo</h1><p class="post-meta" style="color: var(--accent-gold); margin-bottom: 10px;">2025-08-10 • Por WSRicardo</p><div class="post-tags" style="margin-bottom: 20px;"><span class="cyber-card-tag" style="display:inline-flex; margin-right: 15px;">boas-vindas</span></div><p>Olá, bem vindo ao meu blog WSRicardo. Aqui estarei postando um pouco de meus trabalhos
+        <div class="container"><article class="post-content"><h1>Bem vindo ao Meu Blog WSRicardo</h1><p class="post-meta" style="color: var(--accent-gold); margin-bottom: 10px;">2025-08-10 • Por Wandeson Ricardo</p><div class="post-tags" style="margin-bottom: 20px;"><span class="cyber-card-tag" style="display:inline-flex; margin-right: 15px;">boas-vindas</span></div><p>Olá, bem vindo ao meu blog WSRicardo. Aqui estarei postando um pouco de meus trabalhos
 de arte até matemática e <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span></span></span></span> computação.</p>
 <p>Um de meus desenho.</p>
 <p><img src="/imgs/pen-draw.jpg" alt="Minha Imagem"></p>
