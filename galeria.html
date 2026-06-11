@@ -78,16 +78,78 @@
 <section class="container" style="margin-bottom: 80px;">
     <div class="gallery-grid" id="main-gallery-grid">
         
-        <div class="gallery-item" onclick="window.location.href='galeria/desvios-emendas.html'">
-            <img src="./galeria/imgs/20260227_190249.jpg" alt="CARTUM DA SEMANA Emendas Parlamentares ">
-            <div class="gallery-info-btn">i</div>
-            <div class="gallery-info-panel">
-                <h4 style="color: var(--accent-parchment); margin-bottom: 5px;">CARTUM DA SEMANA Emendas Parlamentares </h4>
-                <p style="color: var(--text-secondary); font-size: 0.9rem;">Cartuns diários e notícia.</p>
-            </div>
-        </div>
+          <div class="gallery-item">
+              <a href="galeria/desvios-emendas.html" style="display:block; width:100%; height:100%;">
+                  <img src="./galeria/imgs/20260227_190249.jpg" alt="CARTUM DA SEMANA Emendas Parlamentares ">
+              </a>
+              <div class="gallery-info-btn" onclick="openGalleryModal('./galeria/imgs/20260227_190249.jpg', 'CARTUM DA SEMANA Emendas Parlamentares ', 'Cartuns diários e notícia.', 'galeria/desvios-emendas.html')" title="Ver Informações">i</div>
+          </div>
     </div>
 </section>
+
+<!-- Gallery Modal Overlay -->
+<div id="gallery-modal" class="gallery-modal-overlay" style="display: none;" onclick="closeGalleryModal(event)">
+    <div class="gallery-modal-content">
+        <span class="gallery-modal-close" onclick="closeGalleryModal(event, true)">&times;</span>
+        <a id="gallery-modal-link" href="#">
+            <img id="gallery-modal-img" src="" alt="Arte expandida">
+        </a>
+        <h3 id="gallery-modal-title" style="color: var(--accent-gold); margin-top: 20px;"></h3>
+        <p id="gallery-modal-desc" style="color: var(--text-secondary); margin-top: 10px; line-height: 1.6;"></p>
+    </div>
+</div>
+
+<style>
+.gallery-modal-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(10, 10, 10, 0.9); z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(5px);
+}
+.gallery-modal-content {
+    background: var(--bg-surface); padding: 25px;
+    border-radius: var(--radius-soft); border: 1px solid var(--accent-gold);
+    max-width: 800px; width: 90%; max-height: 90vh; overflow-y: auto;
+    text-align: center; position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+.gallery-modal-content img { 
+    max-width: 100%; max-height: 60vh; border-radius: var(--radius-soft);
+    object-fit: contain; cursor: pointer; border: 1px solid rgba(212, 175, 55, 0.2);
+}
+.gallery-modal-close {
+    position: absolute; top: 15px; right: 20px;
+    font-size: 28px; color: var(--accent-gold); cursor: pointer;
+    line-height: 1; transition: color 0.2s;
+}
+.gallery-modal-close:hover { color: #fff; }
+</style>
+
+<script>
+function openGalleryModal(imgSrc, title, desc, url) {
+    document.getElementById('gallery-modal-img').src = imgSrc;
+    document.getElementById('gallery-modal-title').textContent = title;
+    
+    const descEl = document.getElementById('gallery-modal-desc');
+    if (desc && desc.trim() !== '') {
+        descEl.textContent = desc;
+        descEl.style.display = 'block';
+        document.getElementById('gallery-modal-title').style.display = 'block';
+    } else {
+        descEl.style.display = 'none';
+        document.getElementById('gallery-modal-title').style.display = 'none';
+    }
+    
+    document.getElementById('gallery-modal-link').href = url;
+    document.getElementById('gallery-modal').style.display = 'flex';
+}
+
+function closeGalleryModal(event, force) {
+    if (force || event.target.id === 'gallery-modal') {
+        document.getElementById('gallery-modal').style.display = 'none';
+    }
+}
+</script>
 
     </main>
 
