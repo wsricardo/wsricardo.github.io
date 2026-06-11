@@ -3,200 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Galeria de arte com desenhos, pinturas e experimentos visuais de Wandeson Ricardo.">
+    <meta name="description" content="WSRicardo - Portfólio, Arte e Ciência">
     
-    <meta name="robots" content="index, follow">
-    
-    <meta property="og:title" content="Galeria | WSRicardo">
-    <meta property="og:description" content="Galeria de arte com desenhos, pinturas e experimentos visuais de Wandeson Ricardo.">
-    <meta property="og:image" content="imgs/wan-vectorArt1-thumbnail.jpg">
-    <meta property="og:url" content="https://www.wsricardo.com.br/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="WSRicardo">
-    <meta property="og:locale" content="pt_BR">
-
-    <meta name="author" content="Wandeson Ricardo">
-    <meta name="keywords" content="Galeria, Arte, Desenho, Pintura, Ilustração, Wandeson Ricardo">
-    <meta name="language" content="pt-BR">
-
     <title>Galeria | WSRicardo</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="imgs/wsricardo-thumbnail.ico" type="image/x-icon">
+    
+    <!-- SEO & OpenGraph Inject -->
+    
+    <link rel="canonical" href="https://www.wsricardo.com.br/galeria.html">
+    <meta name="author" content="Wandeson Ricardo">
+    <meta property="og:title" content="Galeria | WSRicardo">
+    <meta property="og:description" content="WSRicardo - Portfólio, Arte e Ciência">
+    <meta property="og:image" content="https://www.wsricardo.com.br/imgs/og-cover.png">
+    <meta property="og:url" content="https://www.wsricardo.com.br/galeria.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Galeria | WSRicardo">
+    <meta name="twitter:description" content="WSRicardo - Portfólio, Arte e Ciência">
+    <meta name="twitter:image" content="https://www.wsricardo.com.br/imgs/og-cover.png">
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- KaTeX CSS para renderização de fórmulas matemáticas -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672"
-     crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./imgs/wsricardo-thumbnail.ico" type="image/x-icon">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <header class="site-header">
         <div class="container">
-            <a href="index.html" class="logo">
-                <img src="imgs/wan-vectorArt1-thumbnail.jpg" alt="Logo WSRicardo" class="logo-avatar">
+            <a href="./index.html" class="logo">
+                <!-- Se quiser a logo antiga, o caminho será ./imgs/wan-vectorArt1-thumbnail.jpg -->
                 <span>WSRicardo</span>
             </a>
-            <button class="nav-toggle" aria-label="Abrir menu">☰</button>
             <nav class="main-nav" id="main-nav">
-                <a href="index.html">Home</a>
-                <a href="projetos.html">Projetos</a>
-                <a href="blog/">Blog</a>
-                <a href="galeria.html" class="active">Galeria</a>
-                <a href="cartum.html">Cartum</a>
-                <a href="#apoie">Apoie</a>
-                <a href="#contato">Contato</a>
+                <a href="./index.html">Home</a>
+                <a href="./matematica.html">Matemática & Comp</a>
+                <a href="./galeria.html">Galeria de Arte</a>
+                <a href="./projetos.html">Projetos</a>
+                <a href="./sobre.html">Sobre</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="ads">
-            <div class="container">
+        <!-- O conteúdo será injetado aqui -->
+        <!-- Título da Galeria -->
+<section class="container" style="margin-top: 60px;">
+    <h1>Galeria de Arte</h1>
+    <p style="color: var(--text-secondary); max-width: 800px;">
+        Um acervo de experimentos visuais, rascunhos anatômicos, geometrias e cartuns. Clique no ícone de informação sobre a imagem para ver detalhes.
+    </p>
 
-            </div>
+    <!-- AdSense Space -->
+    <div style="margin: 30px 0; text-align: center;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9765187479679672"
+             data-ad-slot="0987654321"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+</section>
 
-        </section>
+<!-- Grid da Galeria -->
+<section class="container" style="margin-bottom: 80px;">
+    <div class="gallery-grid" id="main-gallery-grid">
         
-        <section class="section">
-            <div class="container">
-                <header class="page-header">
-                    <h1>Galeria de Arte</h1>
-                    <p>Uma seleção de desenhos, pinturas e experimentos visuais, explorando diferentes técnicas e estilos.</p>
-                </header>
-
-                <div class="gallery-grid full-gallery">
-                    <div class="gallery-item">
-                        <img src="blog/imagens/pen-draw.jpg" alt="Desenho à caneta de um rosto">
-                        <p class="gallery-item-caption">Desenho à Caneta (2025)</p>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="imgs/wan-vectorArt1-thumbnail.jpg" alt="Autorretrato em arte vetorial">
-                         <p class="gallery-item-caption">Autorretrato Vetorial </p>
-                    </div>
-                    
-                    <!-- Adicionar mais imagens aqui -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <section id="apoie" class="section">
-        <div class="container">
-            <h2>Apoie o Nosso Trabalho</h2>
-            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px auto;">
-                Se você gosta do conteúdo e quer apoiar a continuidade dos projetos, canais e do blog, considere se tornar um apoiador. Sua contribuição faz toda a diferença.
-            </p>
-            <div class="posts-grid">
-                <!-- Como o Apoia.se não oferece um feed RSS público para os posts da comunidade, a atualização aqui é manual. -->
-                <div class="post-card support-post-placeholder">
-                    <div class="post-card-content">
-                        <h3>UFPE Cálculo 1 1EE 2025.1 Questão 1.a (i) Novo Vídeo</h3>
-                        <p>Vídeo de resolução de questão de prova de cáulco da UFPE.</p>
-                        <p><a href="https://apoia.se/dimensaowsricardo/contents/view/UFPE-Calculo-1-1EE-2025.1-Questao-1.a-(i)-Novo-Video-UbeBnkQy0?page=1#0" target="_blank" rel="noopener noreferrer">Ver mais...</a></p>
-                    </div>
-                </div>
-                <div class="post-card qr-code-card">
-                    <div class="post-card-content">
-                        <h3>Doação via PIX</h3>
-                        <!-- Coloque a imagem do seu QR Code aqui -->
-                        <a style="text-decoration: none;" href="https://nubank.com.br/cobrar/1drdyl/696969ca-57d1-406f-a94e-4a0d79613ba8" target="_blank" rel="noopener noreferrer">
-                            <img src="imgs/pix-qrcode.png" alt="QR Code para doação PIX" class="qr-code-img">
-                         </a>
-                        <p>Sua contribuição ajuda a manter os projetos e o site no ar. Obrigado!</p>
-                        <p><i>Lembre-se: Confira sempre o nome e dados do recebedor.</i></p>
-                    </div>
-                </div>
-                <div class="post-card support-post-placeholder">
-                    <div class="post-card-content">
-                        <h3>WSRicardo Blog - Uma Nova Pagina</h3>
-                        <p>Olá,
-
-Recentemente iniciei um projeto para a construção de um novo espaço para meu blog pessoal WSRicardo, agora um blog estático, hospedado no GitHub onde costumo publicar...</p>
-                        <p><a href="https://apoia.se/dimensaowsricardo/contents/view/WSRicardo-Blog-Uma-Nova-Pagina-i6yfIu5Lu?page=1#1" target="_blank" rel="noopener noreferrer">Ver mais...</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="section-cta">
-                <a href="https://apoia.se/dimensaowsricardo" class="btn" target="_blank" rel="noopener noreferrer">Seja um Apoiador</a>
+        <div class="gallery-item" onclick="window.location.href='galeria/desvios-emendas.html'">
+            <img src="./galeria/imgs/20260227_190249.jpg" alt="CARTUM DA SEMANA Emendas Parlamentares ">
+            <div class="gallery-info-btn">i</div>
+            <div class="gallery-info-panel">
+                <h4 style="color: var(--accent-parchment); margin-bottom: 5px;">CARTUM DA SEMANA Emendas Parlamentares </h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Cartuns diários e notícia.</p>
             </div>
         </div>
-    </section>
+
+        <div class="gallery-item" onclick="window.location.href='galeria/art-da-vinci.html'">
+            <img src="./galeria/imgs/mona-lisa.webp" alt=" O Polímata Leonardo da Vinci">
+            <div class="gallery-info-btn">i</div>
+            <div class="gallery-info-panel">
+                <h4 style="color: var(--accent-parchment); margin-bottom: 5px;"> O Polímata Leonardo da Vinci</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Um pouco sobre polimatas e Leonardo Da Vinci</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
 
     <footer id="contato" class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-about">
+                <div class="footer-section">
                     <h3>WSRicardo</h3>
-                    <p>Um espaço pessoal para anotações, reflexões e experimentos. Feito com código, curiosidade e um café.</p>
+                    <p>Um espaço pessoal para anotações, reflexões e experimentos. Feito com código, arte e curiosidade.</p>
                 </div>
-                <div class="footer-contact">
+                <div class="footer-section">
                     <h3>Conecte-se</h3>
-                    <div class="social-links">
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
                         <a href="https://github.com/wsricardo" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        <!-- Adicionar link para o YouTube quando disponível -->
-                        <a href="https://www.youtube.com/@WSRicardoArte" target="_blank" rel="noopener noreferrer">YouTube</a>
-                        <a href="https://whatsapp.com/channel/0029VbCVPx37oQhZkmIDWF2r">WhatsApp</a>
+                        <a href="https://www.youtube.com/@WSRicardoArte" target="_blank" rel="noopener noreferrer">YouTube (Artes)</a>
+                        <a href="https://www.youtube.com/@dimensaoalfa" target="_blank" rel="noopener noreferrer">YouTube (Ciência)</a>
+                        <a href="https://instagram.com/w.s.ricardo" target="_blank" rel="noopener noreferrer">Instagram</a>
                     </div>
                 </div>
-                 <div class="footer-contact">
-                    <h3>Contatos</h3>
-                    <div class="footer-links-column">
-                        <a href="mailto:seuemail@email.com">Email</a>
-                        <a href="https://instagram.com/w.s.ricardo">Instagram</a>
-                        
+                <div class="footer-section">
+                    <h3>Links Externos</h3>
+                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+                        <a href="https://www.iscrev.com" target="_blank" rel="noopener noreferrer">IScrev</a>
+                        <a href="https://wsricardo.blogspot.com" target="_blank" rel="noopener noreferrer">Blogspot</a>
+                        <a href="./apoie.html" class="btn" style="text-align: center; margin-top: 10px;">Apoiar Projeto</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Wandeson Ricardo. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Wandeson Ricardo. Inspirado por Da Vinci. Feito à mão.</p>
             </div>
         </div>
-        <a href="#" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">↑</a>
     </footer>
 
-<script>
-  // Lógica para o botão "Voltar ao Topo"
-  const backToTopButton = document.querySelector('.back-to-top');
-
-  if (backToTopButton) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) { // Mostra o botão após rolar 300px
-        backToTopButton.classList.add('visible');
-      } else {
-        backToTopButton.classList.remove('visible');
-      }
-    });
-
-    backToTopButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      // A rolagem suave já está definida no CSS (scroll-behavior: smooth), mas o JS oferece mais controle.
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  // Lógica para o menu de navegação móvel
-  const navToggle = document.querySelector('.nav-toggle');
-  const mainNav = document.querySelector('#main-nav');
-
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('nav-open');
-    });
-  }
-</script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JE2Q13V3HJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JE2Q13V3HJ');
-</script>
-
-
+    <!-- Script Customizado (Interatividade da Galeria, Menu, etc) -->
+    <script src="./js/main.js"></script>
 </body>
 </html>
+
