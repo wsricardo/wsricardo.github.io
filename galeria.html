@@ -91,19 +91,16 @@
 <section class="container" style="margin-top: 60px;">
     <h1>Galeria de Arte</h1>
     <p style="color: var(--text-secondary); max-width: 800px;">
-        Um acervo de experimentos visuais, rascunhos anatômicos, geometrias e cartuns. Clique no ícone de informação sobre a imagem para ver detalhes.
+        Um acervo de experimentos visuais, rascunhos anatômicos, geometrias e cartuns. Clique no ícone de informação
+        sobre a imagem para ver detalhes.
     </p>
 
     <!-- AdSense Space -->
     <div style="margin: 30px 0; text-align: center;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-9765187479679672"
-             data-ad-slot="0987654321"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9765187479679672"
+            data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
 </section>
@@ -134,57 +131,97 @@
 </div>
 
 <style>
-.gallery-modal-overlay {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(10, 10, 10, 0.9); z-index: 9999;
-    display: flex; align-items: center; justify-content: center;
-    backdrop-filter: blur(5px);
-}
-.gallery-modal-content {
-    background: var(--bg-surface); padding: 25px;
-    border-radius: var(--radius-soft); border: 1px solid var(--accent-gold);
-    max-width: 800px; width: 90%; max-height: 90vh; overflow-y: auto;
-    text-align: center; position: relative;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-}
-.gallery-modal-content img { 
-    max-width: 100%; max-height: 60vh; border-radius: var(--radius-soft);
-    object-fit: contain; cursor: pointer; border: 1px solid rgba(212, 175, 55, 0.2);
-}
-.gallery-modal-close {
-    position: absolute; top: 15px; right: 20px;
-    font-size: 28px; color: var(--accent-gold); cursor: pointer;
-    line-height: 1; transition: color 0.2s;
-}
-.gallery-modal-close:hover { color: #fff; }
+    .gallery-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10, 10, 10, 0.9);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(5px);
+    }
+
+    .gallery-modal-content {
+        background: var(--bg-surface);
+        padding: 25px;
+        border-radius: var(--radius-soft);
+        border: 1px solid var(--accent-gold);
+        max-width: 800px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .gallery-modal-content img {
+        max-width: 100%;
+        max-height: 60vh;
+        border-radius: var(--radius-soft);
+        object-fit: contain;
+        cursor: pointer;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .gallery-modal-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        color: var(--accent-gold);
+        cursor: pointer;
+        line-height: 1;
+        transition: color 0.2s;
+    }
+
+    .gallery-modal-close:hover {
+        color: #fff;
+    }
 </style>
 
 <script>
-function openGalleryModal(imgSrc, title, desc, url) {
-    document.getElementById('gallery-modal-img').src = imgSrc;
-    document.getElementById('gallery-modal-title').textContent = title;
-    
-    const descEl = document.getElementById('gallery-modal-desc');
-    if (desc && desc.trim() !== '') {
-        descEl.textContent = desc;
-        descEl.style.display = 'block';
-        document.getElementById('gallery-modal-title').style.display = 'block';
-    } else {
-        descEl.style.display = 'none';
-        document.getElementById('gallery-modal-title').style.display = 'none';
-    }
-    
-    document.getElementById('gallery-modal-link').href = url;
-    document.getElementById('gallery-modal').style.display = 'flex';
-}
+    function openGalleryModal(imgSrc, title, desc, url) {
+        document.getElementById('gallery-modal-img').src = imgSrc;
+        document.getElementById('gallery-modal-title').textContent = title;
 
-function closeGalleryModal(event, force) {
-    if (force || event.target.id === 'gallery-modal') {
-        document.getElementById('gallery-modal').style.display = 'none';
+        const descEl = document.getElementById('gallery-modal-desc');
+        if (desc && desc.trim() !== '') {
+            descEl.textContent = desc;
+            descEl.style.display = 'block';
+            document.getElementById('gallery-modal-title').style.display = 'block';
+        } else {
+            descEl.style.display = 'none';
+            document.getElementById('gallery-modal-title').style.display = 'none';
+        }
+
+        document.getElementById('gallery-modal-link').href = url;
+        document.getElementById('gallery-modal').style.display = 'flex';
     }
-}
+
+    function closeGalleryModal(event, force) {
+        if (force || event.target.id === 'gallery-modal') {
+            document.getElementById('gallery-modal').style.display = 'none';
+        }
+    }
 </script>
 
+<!--ads-anuncios-->
+<section style="text-align: center; margin: 0 auto;">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672"
+        crossorigin="anonymous"></script>
+    <!-- Main-Anuncios-Display -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9765187479679672" data-ad-slot="3609630997"
+        data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</section>
     </main>
 
     <footer id="contato" class="site-footer">
