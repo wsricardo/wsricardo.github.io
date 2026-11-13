@@ -1,0 +1,508 @@
+/* ==========================================================================
+   WSRicardo - Estilo v3 (Minimalista, Moderno, Leitura Confortável)
+   Baseado nas especificações de specv3.md
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    /* Paleta Clara & Neutra */
+    --bg-main: #ffffff;
+    --bg-subtle: #f8f9fa;
+    --bg-card: #ffffff;
+    --border-color: #e9ecef;
+    --border-hover: #ced4da;
+
+    /* Cores de Texto */
+    --text-primary: #1f2429;
+    --text-secondary: #586069;
+    --text-muted: #8c959f;
+
+    /* Acentos & Links */
+    --accent: #0969da;
+    --accent-hover: #0550ae;
+
+    /* Footer Exclusivo (Preto conforme specv3.md) */
+    --footer-bg: #121212;
+    --footer-text: #e0e0e0;
+    --footer-muted: #888888;
+    --footer-link: #ffffff;
+    --footer-link-hover: #58a6ff;
+
+    /* Tipografia */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-serif: 'Lora', Georgia, Cambria, "Times New Roman", Times, serif;
+    --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    /* Dimensões & Espaçamento */
+    --max-width-content: 780px;
+    --max-width-wide: 1040px;
+    --header-height: 64px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    /* Transição Suave */
+    --transition: all 0.2s ease-in-out;
+}
+
+/* Reset Básico */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem; /* ~17px para leitura agradável */
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   Tipografia
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    color: var(--text-primary);
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 0.8rem;
+}
+
+h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin-top: 1.8rem; }
+h3 { font-size: 1.25rem; margin-top: 1.4rem; }
+
+p {
+    margin-bottom: 1.3rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+code, pre {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+}
+
+code {
+    background-color: var(--bg-subtle);
+    padding: 0.2em 0.4em;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+pre {
+    background-color: var(--bg-subtle);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+/* ==========================================================================
+   Header & Navegação (Título 18px conforme specv3.md)
+   ========================================================================== */
+
+.site-header {
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    width: 100%;
+    max-width: var(--max-width-wide);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Título estritamente 18px conforme especificado */
+.site-title {
+    font-family: var(--font-sans);
+    font-size: 18px !important;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none !important;
+    letter-spacing: -0.01em;
+}
+
+.site-title:hover {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+}
+
+/* Botão Hamburger Mobile */
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   Body Content (Centro Vertical do Layout)
+   ========================================================================== */
+
+.body-content {
+    flex: 1;
+    width: 100%;
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 4rem;
+}
+
+.body-content-wide {
+    max-width: var(--max-width-wide);
+}
+
+/* Hero Minimalista */
+.hero-intro {
+    padding: 2rem 0 3rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2.5rem;
+}
+
+.hero-intro .tagline {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* Lista / Feed de Publicações */
+.posts-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.post-card {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.post-card:last-child {
+    border-bottom: none;
+}
+
+.post-card .post-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.post-card .post-category {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    color: var(--accent);
+}
+
+.post-card .post-title {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-card .post-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.post-card .post-title a:hover {
+    color: var(--accent);
+}
+
+.post-card .post-summary {
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+/* Grid de Seções / Categorias */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin: 2rem 0;
+}
+
+.category-card {
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.category-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.category-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+}
+
+.category-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Contêiner de Vídeo Responsivo (YouTube ou Vídeo Anexado) */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: var(--radius-md);
+    margin: 1.5rem 0;
+}
+
+.video-container iframe,
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ==========================================================================
+   Footer (Preto conforme specv3.md)
+   ========================================================================== */
+
+.site-footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 3rem 1.25rem 2.5rem;
+    margin-top: auto;
+    border-top: 1px solid #222;
+}
+
+.footer-container {
+    max-width: var(--max-width-wide);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-brand h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-family: var(--font-sans);
+    margin-bottom: 0.35rem;
+}
+
+.footer-brand p {
+    color: var(--footer-muted);
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.footer-links a {
+    color: var(--footer-link);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--footer-link-hover);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid #262626;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--footer-muted);
+}
+
+/* ==========================================================================
+   Responsividade Multinível (specv3.md: Smart TV, Tablets, Mobile, Smartwatches)
+   ========================================================================== */
+
+/* Telas Grandes & Smart TVs (> 1440px) */
+@media (min-width: 1441px) {
+    html {
+        font-size: 18px; /* Escala tipográfica confortável para telas grandes e Smart TV */
+    }
+}
+
+/* Tablets e Mobile (< 768px) */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 58px;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        background-color: var(--bg-main);
+        flex-direction: column;
+        padding: 1.25rem;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        gap: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .body-content {
+        padding: 1.75rem 1rem 3rem;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+}
+
+/* Smartwatches e Telas Extremamente Pequenas (< 300px) */
+@media (max-width: 300px) {
+    html {
+        font-size: 14px;
+    }
+
+    .header-container {
+        padding: 0 0.5rem;
+    }
+
+    .site-title {
+        font-size: 16px !important; /* Ajuste suave para smartwatch */
+    }
+
+    .body-content {
+        padding: 1rem 0.5rem;
+    }
+
+    .post-card .post-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
