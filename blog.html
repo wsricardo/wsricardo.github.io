@@ -3,26 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WSRicardo - Blog pessoal: crônicas, reflexões, notas de leitura e notícias.">
+    <meta name="description" content="WSRicardo - Portfólio, Arte e Ciência">
+    
     <title>Blog | WSRicardo</title>
     
+    <!-- SEO & OpenGraph Inject -->
+    
     <link rel="canonical" href="https://www.wsricardo.com.br/blog.html">
+    <meta name="author" content="Wandeson Ricardo">
+    <meta property="og:title" content="Blog | WSRicardo">
+    <meta property="og:description" content="WSRicardo - Portfólio, Arte e Ciência">
+    <meta property="og:image" content="https://www.wsricardo.com.br/imgs/og-cover.png">
+    <meta property="og:url" content="https://www.wsricardo.com.br/blog.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | WSRicardo">
+    <meta name="twitter:description" content="WSRicardo - Portfólio, Arte e Ciência">
+    <meta name="twitter:image" content="https://www.wsricardo.com.br/imgs/og-cover.png">
+    
+    <!-- CSS v3 Minimalista -->
     <link rel="stylesheet" href="./css/style-v3.css">
+    
+    <!-- KaTeX CSS para renderização de fórmulas matemáticas -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="./imgs/wsricardo-thumbnail.ico" type="image/x-icon">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672" crossorigin="anonymous"></script>
 </head>
 <body>
 
+    <!-- Header (Título 18px e menu com Matemática, Computação, Artes, Blog) -->
     <header class="site-header">
         <div class="header-container">
             <a href="./index.html" class="site-title">WSRicardo</a>
-            <button class="mobile-toggle" id="mobile-toggle" aria-label="Alternar navegação" aria-expanded="false">&#9776;</button>
+            
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Alternar navegação" aria-expanded="false">
+                &#9776;
+            </button>
+            
             <nav>
                 <ul class="nav-links" id="nav-links">
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./matematica.html">Matemática</a></li>
                     <li><a href="./computacao.html">Computação</a></li>
                     <li><a href="./artes.html">Artes</a></li>
-                    <li><a href="./blog.html" class="active">Blog</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
                 </ul>
             </nav>
         </div>
@@ -30,46 +58,23 @@
 
     <main class="body-content">
         <section class="hero-intro">
-            <h1>Blog & Crônicas</h1>
-            <p class="tagline">
-                Ensaios soltos, anotações de leitura, crônicas sobre o cotidiano e reflexões sobre filosofia, sociedade e tecnologia.
-            </p>
-        </section>
+    <h1>Blog & Crônicas</h1>
+    <p class="tagline">
+        Ensaios soltos, anotações de leitura, crônicas sobre o cotidiano e reflexões sobre filosofia, sociedade e tecnologia.
+    </p>
+</section>
 
-        <section>
-            <h2>Textos e Ensaios</h2>
-            <div class="posts-feed">
-                <article class="post-card">
-                    <div class="post-meta">
-                        <span class="post-category">Crônica</span>
-                        <span>&bull;</span>
-                        <time datetime="2026-04-10">10 de Abril, 2026</time>
-                    </div>
-                    <h3 class="post-title">
-                        <a href="./geral/first-post.html">Reflexões sobre a Interseção entre Ciências e Humanidades</a>
-                    </h3>
-                    <p class="post-summary">
-                        Por que a especialização precoce e a separação estrita entre o rigor lógico e a imaginação poética limitam nossa capacidade criativa contemporânea.
-                    </p>
-                </article>
+<section>
+    <h2>Textos e Ensaios</h2>
+    <div class="posts-feed">
+        <article class="post-card"><div class="post-meta"><span class="post-category">Geral</span><span>&bull;</span><time datetime="2025-08-15">2025-08-15</time></div><h3 class="post-title"><a href="geral/art-da-vinci.html"> O Polímata Leonardo da Vinci</a></h3><p class="post-summary">Um pouco sobre polimatas e Leonardo Da Vinci</p></article>
+<article class="post-card"><div class="post-meta"><span class="post-category">Geral</span><span>&bull;</span><time datetime="2025-08-10">2025-08-10</time></div><h3 class="post-title"><a href="geral/first-post.html">Bem vindo ao Meu Blog WSRicardo</a></h3><p class="post-summary">Olá, bem vindo ao meu blog WSRicardo. Aqui estarei postando um pouco de meus trabalhos</p></article>
+    </div>
+</section>
 
-                <article class="post-card">
-                    <div class="post-meta">
-                        <span class="post-category">Notas</span>
-                        <span>&bull;</span>
-                        <time datetime="2026-03-12">12 de Março, 2026</time>
-                    </div>
-                    <h3 class="post-title">
-                        <a href="#">Transição para um Design Minimalista e Autônomo</a>
-                    </h3>
-                    <p class="post-summary">
-                        Considerações sobre legibilidade, simplicidade técnica na web moderna e a decisão de desacoplar o conteúdo de plataformas fechadas.
-                    </p>
-                </article>
-            </div>
-        </section>
     </main>
 
+    <!-- Footer Preto v3 -->
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-top">
@@ -77,6 +82,7 @@
                     <h4>WSRicardo</h4>
                     <p>Portfólio, textos e produções autorais por Wandeson Ricardo.</p>
                 </div>
+                
                 <div>
                     <ul class="footer-links">
                         <li><a href="https://wsricardo.blogspot.com" target="_blank" rel="noopener">Blog Antigo (Blogspot)</a></li>
@@ -86,6 +92,7 @@
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
                 <p>&copy; 2026 WSRicardo. Todos os direitos reservados.</p>
                 <p>Publicado com Pelican & GitHub Pages.</p>
@@ -93,6 +100,7 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="./js/main-v3.js"></script>
 </body>
 </html>

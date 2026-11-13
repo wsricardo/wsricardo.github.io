@@ -3,25 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WSRicardo - Galeria de Artes, ilustrações digitais, composições e estudos visuais.">
+    <meta name="description" content="WSRicardo - Portfólio, Arte e Ciência">
+    
     <title>Artes | WSRicardo</title>
     
+    <!-- SEO & OpenGraph Inject -->
+    
     <link rel="canonical" href="https://www.wsricardo.com.br/artes.html">
+    <meta name="author" content="Wandeson Ricardo">
+    <meta property="og:title" content="Artes | WSRicardo">
+    <meta property="og:description" content="WSRicardo - Portfólio, Arte e Ciência">
+    <meta property="og:image" content="https://www.wsricardo.com.br/imgs/og-cover.png">
+    <meta property="og:url" content="https://www.wsricardo.com.br/artes.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Artes | WSRicardo">
+    <meta name="twitter:description" content="WSRicardo - Portfólio, Arte e Ciência">
+    <meta name="twitter:image" content="https://www.wsricardo.com.br/imgs/og-cover.png">
+    
+    <!-- CSS v3 Minimalista -->
     <link rel="stylesheet" href="./css/style-v3.css">
+    
+    <!-- KaTeX CSS para renderização de fórmulas matemáticas -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="./imgs/wsricardo-thumbnail.ico" type="image/x-icon">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9765187479679672" crossorigin="anonymous"></script>
 </head>
 <body>
 
+    <!-- Header (Título 18px e menu com Matemática, Computação, Artes, Blog) -->
     <header class="site-header">
         <div class="header-container">
             <a href="./index.html" class="site-title">WSRicardo</a>
-            <button class="mobile-toggle" id="mobile-toggle" aria-label="Alternar navegação" aria-expanded="false">&#9776;</button>
+            
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Alternar navegação" aria-expanded="false">
+                &#9776;
+            </button>
+            
             <nav>
                 <ul class="nav-links" id="nav-links">
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./matematica.html">Matemática</a></li>
                     <li><a href="./computacao.html">Computação</a></li>
-                    <li><a href="./artes.html" class="active">Artes</a></li>
+                    <li><a href="./artes.html">Artes</a></li>
                     <li><a href="./blog.html">Blog</a></li>
                 </ul>
             </nav>
@@ -30,46 +58,22 @@
 
     <main class="body-content">
         <section class="hero-intro">
-            <h1>Artes Visuais & Experimentações</h1>
-            <p class="tagline">
-                Explorações gráficas, desenho vetorial, pintura digital e cadernos de estudos sobre forma, luz e perspectiva.
-            </p>
-        </section>
+    <h1>Artes Visuais & Experimentações</h1>
+    <p class="tagline">
+        Explorações gráficas, desenho vetorial, pintura digital e cadernos de estudos sobre forma, luz e perspectiva.
+    </p>
+</section>
 
-        <section>
-            <h2>Estudos & Ensaios Gráficos</h2>
-            <div class="posts-feed">
-                <article class="post-card">
-                    <div class="post-meta">
-                        <span class="post-category">Estudos Clássicos</span>
-                        <span>&bull;</span>
-                        <time datetime="2026-05-15">15 de Maio, 2026</time>
-                    </div>
-                    <h3 class="post-title">
-                        <a href="./geral/art-da-vinci.html">Estudos e Proporções em Leonardo da Vinci</a>
-                    </h3>
-                    <p class="post-summary">
-                        Revisão gráfica das técnicas renascentistas de claro-escuro (*chiaroscuro*), anatomia comparada e traços preparatórios em nanquim e grafite.
-                    </p>
-                </article>
+<section>
+    <h2>Estudos & Ensaios Gráficos</h2>
+    <div class="posts-feed">
+        <article class="post-card"><div class="post-meta"><span class="post-category">Galeria</span><span>&bull;</span><time datetime="2026-02-28">2026-02-28</time></div><h3 class="post-title"><a href="galeria/desvios-emendas.html">CARTUM DA SEMANA Emendas Parlamentares </a></h3><p class="post-summary">Cartuns diários e notícia.</p></article>
+    </div>
+</section>
 
-                <article class="post-card">
-                    <div class="post-meta">
-                        <span class="post-category">Arte Digital</span>
-                        <span>&bull;</span>
-                        <time datetime="2026-03-30">30 de Março, 2026</time>
-                    </div>
-                    <h3 class="post-title">
-                        <a href="./galeria.html">Galeria de Ilustrações Vetoriais e Concept Art</a>
-                    </h3>
-                    <p class="post-summary">
-                        Seleção de trabalhos digitais desenvolvidos em vetor e pintura livre, focando na síntese geométrica de formas orgânicas.
-                    </p>
-                </article>
-            </div>
-        </section>
     </main>
 
+    <!-- Footer Preto v3 -->
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-top">
@@ -77,6 +81,7 @@
                     <h4>WSRicardo</h4>
                     <p>Portfólio, textos e produções autorais por Wandeson Ricardo.</p>
                 </div>
+                
                 <div>
                     <ul class="footer-links">
                         <li><a href="https://wsricardo.blogspot.com" target="_blank" rel="noopener">Blog Antigo (Blogspot)</a></li>
@@ -86,6 +91,7 @@
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
                 <p>&copy; 2026 WSRicardo. Todos os direitos reservados.</p>
                 <p>Publicado com Pelican & GitHub Pages.</p>
@@ -93,6 +99,7 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="./js/main-v3.js"></script>
 </body>
 </html>

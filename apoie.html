@@ -21,8 +21,8 @@
     <meta name="twitter:description" content="WSRicardo - Portfólio, Arte e Ciência">
     <meta name="twitter:image" content="https://www.wsricardo.com.br/imgs/og-cover.png">
     
-    <!-- CSS Principal -->
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- CSS v3 Minimalista -->
+    <link rel="stylesheet" href="./css/style-v3.css">
     
     <!-- KaTeX CSS para renderização de fórmulas matemáticas -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
@@ -35,58 +35,28 @@
 </head>
 <body>
 
+    <!-- Header (Título 18px e menu com Matemática, Computação, Artes, Blog) -->
     <header class="site-header">
-        <div class="container">
-            <a href="./index.html" class="logo">
-                <!-- Se quiser a logo antiga, o caminho será ./imgs/wan-vectorArt1-thumbnail.jpg -->
-                <span>WSRicardo</span>
-            </a>
-            <nav class="main-nav" id="main-nav">
-                <a href="./index.html">Home</a>
-                <a href="./matematica.html">Matemática & Comp</a>
-                <a href="./galeria.html">Galeria de Arte</a>
-                <a href="./projetos.html">Projetos</a>
-                <a href="./sobre.html">Sobre</a>
-            </nav>
+        <div class="header-container">
+            <a href="./index.html" class="site-title">WSRicardo</a>
             
-            <!-- Mobile Hamburger Button -->
-            <div class="hamburger-btn" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Alternar navegação" aria-expanded="false">
+                &#9776;
+            </button>
+            
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./matematica.html">Matemática</a></li>
+                    <li><a href="./computacao.html">Computação</a></li>
+                    <li><a href="./artes.html">Artes</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay Modal -->
-    <div id="mobile-menu-overlay" class="mobile-menu-overlay" style="display: none;">
-        <div class="mobile-menu-content">
-            <span class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</span>
-            <nav class="mobile-nav">
-                <a href="./index.html">Home</a>
-                <a href="./matematica.html">Matemática & Comp</a>
-                <a href="./galeria.html">Galeria de Arte</a>
-                <a href="./projetos.html">Projetos</a>
-                <a href="./sobre.html">Sobre</a>
-            </nav>
-        </div>
-    </div>
-
-    <script>
-        function toggleMobileMenu() {
-            const overlay = document.getElementById('mobile-menu-overlay');
-            if (overlay.style.display === 'flex') {
-                overlay.style.display = 'none';
-                document.body.style.overflow = 'auto'; // allow scrolling again
-            } else {
-                overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // prevent background scroll
-            }
-        }
-    </script>
-
-    <main>
-        <!-- O conteúdo será injetado aqui -->
+    <main class="body-content">
         <!-- Seção de Apoio -->
 <section class="container" style="margin-top: 60px; margin-bottom: 80px; text-align: center;">
     <h1>Apoie o Projeto</h1>
@@ -121,39 +91,33 @@
 
     </main>
 
-    <footer id="contato" class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>WSRicardo</h3>
-                    <p>Um espaço pessoal para anotações, reflexões e experimentos. Feito com código, arte e curiosidade.</p>
+    <!-- Footer Preto v3 -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h4>WSRicardo</h4>
+                    <p>Portfólio, textos e produções autorais por Wandeson Ricardo.</p>
                 </div>
-                <div class="footer-section">
-                    <h3>Conecte-se</h3>
-                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
-                        <a href="https://github.com/wsricardo" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <a href="https://www.youtube.com/@WSRicardoArte" target="_blank" rel="noopener noreferrer">YouTube (Artes)</a>
-                        <a href="https://www.youtube.com/@dimensaoalfa" target="_blank" rel="noopener noreferrer">YouTube (Ciência)</a>
-                        <a href="https://instagram.com/w.s.ricardo" target="_blank" rel="noopener noreferrer">Instagram</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Links Externos</h3>
-                    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
-                        <a href="https://www.iscrev.com" target="_blank" rel="noopener noreferrer">IScrev</a>
-                        <a href="https://wsricardo.blogspot.com" target="_blank" rel="noopener noreferrer">Blogspot</a>
-                        <a href="./apoie.html" class="btn" style="text-align: center; margin-top: 10px;">Apoiar Projeto</a>
-                    </div>
+                
+                <div>
+                    <ul class="footer-links">
+                        <li><a href="https://wsricardo.blogspot.com" target="_blank" rel="noopener">Blog Antigo (Blogspot)</a></li>
+                        <li><a href="https://github.com/wsricardo" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="./apoie.html">Apoie</a></li>
+                        <li><a href="./sobre.html">Sobre</a></li>
+                    </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2026 Wandeson Ricardo. Inspirado por Da Vinci. Feito à mão.</p>
+                <p>&copy; 2026 WSRicardo. Todos os direitos reservados.</p>
+                <p>Publicado com Pelican & GitHub Pages.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Script Customizado (Interatividade da Galeria, Menu, etc) -->
-    <script src="./js/main.js"></script>
+    <!-- Scripts -->
+    <script src="./js/main-v3.js"></script>
 </body>
 </html>
-
