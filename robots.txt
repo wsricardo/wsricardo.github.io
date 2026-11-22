@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /temp/
+Disallow: /arquivos/
 
 Sitemap: https://www.wsricardo.com.br/sitemap.xml
