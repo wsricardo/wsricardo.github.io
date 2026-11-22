@@ -47,14 +47,20 @@
 }
 
 /* Reset Básico */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 /* Imagens e Mídia Responsiva */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
     max-width: 100%;
     height: auto;
     display: block;
@@ -102,7 +108,8 @@ body {
     background-color: var(--bg-main);
     color: var(--text-primary);
     font-family: var(--font-sans);
-    font-size: 1.0625rem; /* ~17px para leitura agradável */
+    font-size: 1.0625rem;
+    /* ~17px para leitura agradável */
     line-height: 1.7;
     min-height: 100vh;
     display: flex;
@@ -113,7 +120,12 @@ body {
    Tipografia
    ========================================================================== */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-serif);
     color: var(--text-primary);
     font-weight: 600;
@@ -121,9 +133,20 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.8rem;
 }
 
-h1 { font-size: clamp(1.8rem, 4vw, 2.4rem); letter-spacing: -0.02em; }
-h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin-top: 1.8rem; }
-h3 { font-size: 1.25rem; margin-top: 1.4rem; }
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin-top: 1.8rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-top: 1.4rem;
+}
 
 p {
     margin-bottom: 1.3rem;
@@ -140,7 +163,8 @@ a:hover {
     text-decoration: underline;
 }
 
-code, pre {
+code,
+pre {
     font-family: var(--font-mono);
     font-size: 0.9em;
 }
@@ -376,7 +400,8 @@ pre code {
 /* Contêiner de Vídeo Responsivo (YouTube ou Vídeo Anexado) */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
+    /* 16:9 */
     height: 0;
     overflow: hidden;
     max-width: 100%;
@@ -411,17 +436,17 @@ pre code {
     background-color: var(--bg-subtle);
     border-radius: var(--radius-sm);
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 120px; /* Reserva espaço para evitar pulos de tela (CLS) */
+    display: block;
+    /* Alterado de flex para block para preservar largura total */
+    min-height: 120px;
+    /* Reserva espaço para evitar pulos de tela (CLS) */
     overflow: hidden;
 }
 
 /* Rótulo discreto exigido pelas políticas do Google e útil para o usuário */
 .ad-slot-label {
-    display: inline-block;
+    display: block;
+    /* Alterado para ocupar a linha toda acima do anúncio */
     font-size: 0.72rem;
     font-family: var(--font-sans);
     color: var(--text-muted);
@@ -431,11 +456,13 @@ pre code {
     user-select: none;
 }
 
-/* Garante que o iframe do AdSense se adapte sem estourar a tela */
+/* Garante largura total imediata para o cálculo do AdSense */
 .ad-slot-container ins.adsbygoogle {
     display: block !important;
-    margin: 0 auto !important;
+    width: 100% !important;
+    /* Corrige o availableWidth=0 */
     max-width: 100% !important;
+    margin: 0 auto !important;
 }
 
 /* ==========================================================================
@@ -517,7 +544,8 @@ pre code {
 /* Telas Grandes & Smart TVs (> 1440px) */
 @media (min-width: 1441px) {
     html {
-        font-size: 18px; /* Escala tipográfica confortável para telas grandes e Smart TV */
+        font-size: 18px;
+        /* Escala tipográfica confortável para telas grandes e Smart TV */
     }
 }
 
@@ -570,7 +598,8 @@ pre code {
     }
 
     .site-title {
-        font-size: 16px !important; /* Ajuste suave para smartwatch */
+        font-size: 16px !important;
+        /* Ajuste suave para smartwatch */
     }
 
     .body-content {
