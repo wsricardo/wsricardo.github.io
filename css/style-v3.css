@@ -439,6 +439,7 @@ pre code {
     display: block;
     /* Alterado de flex para block para preservar largura total */
     min-height: 120px;
+    max-height: 380px;
     /* Reserva espaço para evitar pulos de tela (CLS) */
     overflow: hidden;
 }
